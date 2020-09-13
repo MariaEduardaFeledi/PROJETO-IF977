@@ -11,30 +11,9 @@
   
   .email-input:hover{
     box-shadow: 0px 3px 25px rgba(108,99,255,0.5);
+    transition: all 0.3s ease-out;
   }
   
   .email-input::placeholder {
     color: #b1b1b1;
-  }
-
-  .footer-subscription {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin-bottom: 24px;
-    padding: 24px;
-    color: #fff;
-  }
-  
-  
-  .footer-subscription-heading {
-    margin-bottom: 24px;
-    font-size: 24px;
-  }
-  
-  .footer-subscription-text {
-    margin-bottom: 24px;
-    font-size: 20px;
   }

@@ -6,7 +6,6 @@ import Pricing from '../../Pricing';
 function Contact() {
   return (
     <>
-      <Pricing />
       <HeroSection {...homeObjOne} />
       <HeroSection {...homeObjThree} />
     </>

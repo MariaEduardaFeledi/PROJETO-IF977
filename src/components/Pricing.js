@@ -6,72 +6,66 @@ import { BsXDiamondFill } from 'react-icons/bs';
 import { GiCrystalize } from 'react-icons/gi';
 import { IconContext } from 'react-icons/lib';
 import { Link } from 'react-router-dom';
+import InfiniteCarousel from 'react-leaf-carousel';
 
 function Pricing() {
+  const settings = {
+    accessibility: false,
+    arrows: false,
+    arrowsBlock: false,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    centerMode: true,
+    duration: 400,
+    shift: 80,
+    slidesToShow: 5,
+    wheel: true
+  };
   return (
-    <IconContext.Provider value={{ color: '#fff', size: 64 }}>
-      <div className='pricing__section'>
-        <div className='pricing__wrapper'>
-          <h1 className='pricing__heading'>Pricing</h1>
-          <div className='pricing__container'>
-            <Link to='/sign-up' className='pricing__container-card'>
-              <div className='pricing__container-cardInfo'>
-                <div className='icon'>
-                  <FaFire />
-                </div>
-                <h3>Starter</h3>
-                <h4>$8.99</h4>
-                <p>per month</p>
-                <ul className='pricing__container-features'>
-                  <li>100 Transactions</li>
-                  <li>2% Cash Back</li>
-                  <li>$10,000 Limit</li>
-                </ul>
-                <Button buttonSize='btn--wide' buttonColor='primary'>
-                  Choose Plan
-                </Button>
-              </div>
-            </Link>
-            <Link to='/sign-up' className='pricing__container-card'>
-              <div className='pricing__container-cardInfo'>
-                <div className='icon'>
-                  <BsXDiamondFill />
-                </div>
-                <h3>Gold</h3>
-                <h4>$29.99</h4>
-                <p>per month</p>
-                <ul className='pricing__container-features'>
-                  <li>1000 Transactions</li>
-                  <li>3.5% Cash Back</li>
-                  <li>$100,000 Limit</li>
-                </ul>
-                <Button buttonSize='btn--wide' buttonColor='blue'>
-                  Choose Plan
-                </Button>
-              </div>
-            </Link>
-            <Link to='/sign-up' className='pricing__container-card'>
-              <div className='pricing__container-cardInfo'>
-                <div className='icon'>
-                  <GiCrystalize />
-                </div>
-                <h3>Diamond</h3>
-                <h4>$99.99</h4>
-                <p>per month</p>
-                <ul className='pricing__container-features'>
-                  <li>Unlimited Transactions</li>
-                  <li>5% Cash Back</li>
-                  <li>Unlimited Spending</li>
-                </ul>
-                <Button buttonSize='btn--wide' buttonColor='primary'>
-                  Choose Plan
-                </Button>
-              </div>
-            </Link>
-          </div>
+    <div className='pricing__section'>
+      <div className='pricing__wrapper'>
+        <h1 className='pricing__heading'>Pricing</h1>
+        <div className='pricing__container'>
+          <InfiniteCarousel
+            breakpoints={[
+              {
+                breakpoint: 500,
+                settings: {
+                  slidesToShow: 2,
+                  slidesToScroll: 2,
+                },
+              },
+              {
+                breakpoint: 768,
+                settings: {
+                  slidesToShow: 3,
+                  slidesToScroll: 3,
+                },
+              },
+            ]}
+            dots={true}
+            showSides={true}
+            sidesOpacity={0.5}
+            sideSize={10}
+            slidesToScroll={2}
+            slidesToShow={2}
+            scrollOnDevice={true}
+          >
+            <img src='https://d30s7yzk2az89n.cloudfront.net/images/brands/b341225-300w-326ppi.png'
+              alt="Logo"
+              className='card' />
+
+            <img src='https://d30s7yzk2az89n.cloudfront.net/images/brands/b916708-300w-326ppi.png'
+              alt="Logo"
+              className='card' />
+          </InfiniteCarousel>
+
+
+
+
         </div>
       </div>
-    </IconContext.Provider>
+    </div>
   );
 }
 export default Pricing;

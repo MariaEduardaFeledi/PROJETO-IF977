@@ -2,10 +2,10 @@ import React from 'react';
 import './HeroSection.css';
 import { Button } from './Button';
 import { Link } from 'react-router-dom';
-import {CustomForm} from "./MailChimpForm"
+import Mailchimp from "./MailChimpForm"
 
 const url = "https://app.us2.list-manage.com/subscribe/post?u=3506547c6e30cd64bcab8beaf&id=d46611af2d";
- 
+
 function HeroSection({
   lightBg,
   topLine,
@@ -14,6 +14,7 @@ function HeroSection({
   headline,
   description,
   buttonLabel,
+  buttonLocation,
   img,
   alt,
   imgStart,
@@ -56,27 +57,20 @@ function HeroSection({
                       <p className='footer-subscription-text dark'>
                         You can unsubscribe at any time.
                   </p>
-                      <div className='input-areas'>
-                        <form>
-                          <input
-                            className='email-input'
-                            name='email'
-                            type='email'
-                            placeholder='Your Email'
-                          />
-                          {lightTextDesc
-                        ? <Button buttonStyle='btn--outline' buttonSize='btn--mobile'>
-                          {buttonLabel}
-                        </Button>
-                        : <Button buttonColor='blue'>
-                          {buttonLabel}
-                        </Button>}
-                        </form>
-                      </div>
-                      <CustomForm/>
+                      <Mailchimp
+                        action={url}
+                        fields={[
+                          {
+                            name: 'EMAIL',
+                            placeholder: 'Your Email',
+                            type: 'email',
+                            required: true
+                          }
+                        ]}
+                      />
                     </section>
 
-                    : <Link to='/sign-up'>
+                    : <Link to={buttonLocation}>
                       {lightTextDesc
                         ? <Button buttonStyle='btn--outline' buttonSize='btn--mobile'>
                           {buttonLabel}

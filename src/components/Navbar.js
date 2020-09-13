@@ -3,8 +3,8 @@ import { Button } from './Button';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faFingerprint, faTimes } from '@fortawesome/free-solid-svg-icons'
+import { MdFingerprint } from 'react-icons/md';
+import { FaBars, FaTimes } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
 
 function Navbar() {
@@ -34,11 +34,11 @@ function Navbar() {
         <nav className='navbar'>
           <div className='navbar-container container'>
             <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-            <FontAwesomeIcon icon={faFingerprint} />
+            <MdFingerprint className='navbar-icon' />
               Garner
             </Link>
             <div className='menu-icon' onClick={handleClick}>
-              {click ? <FontAwesomeIcon icon={faTimes} /> : <FontAwesomeIcon icon={faBars} />}
+            {click ? <FaTimes /> : <FaBars />}
             </div>
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
               <li className='nav-item'>
@@ -48,7 +48,7 @@ function Navbar() {
               </li>
               <li className='nav-item'>
                 <Link
-                  to='/services'
+                  to='/about'
                   className='nav-links'
                   onClick={closeMobileMenu}
                 >
@@ -57,7 +57,7 @@ function Navbar() {
               </li>
               <li className='nav-item'>
                 <Link
-                  to='/products'
+                  to='/contact'
                   className='nav-links'
                   onClick={closeMobileMenu}
                 >

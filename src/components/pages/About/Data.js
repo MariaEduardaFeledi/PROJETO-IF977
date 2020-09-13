@@ -1,7 +1,7 @@
 export const homeObjOne = {
-  lightBg: true,
-  lightText: false,
-  lightTextDesc: false,
+  lightBg: false,
+  lightText: true,
+  lightTextDesc: true,
   topLine: 'VIEW OUR PRODUCTS',
   headline: 'Shop through our catalog of products',
   description:

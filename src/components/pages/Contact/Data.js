@@ -1,15 +1,17 @@
 export const homeObjOne = {
-  lightBg: false,
-  lightText: true,
-  lightTextDesc: true,
-  topLine: 'Exclusive Access',
-  headline: 'Unlimited Transactions with zero fees',
+  lightBg: true,
+  lightText: false,
+  lightTextDesc: false,
+  topLine: 'EASY SETUP',
+  headline: 'Start earning instantly',
   description:
-    'Get access to our exclusive diamond card that allows you to  send unlimited transactions without getting charged any fees',
-  buttonLabel: 'Get Started',
-  imgStart: '',
-  img: 'images/svg-1.svg',
-  alt: 'Credit Card'
+    "Get everything set up and ready in under 10 minutes. All you need to do is download the app and add you information",
+  buttonLabel: 'Join us',
+  buttonLocation: '',
+  imgStart: 'start',
+  img: 'images/undraw_make_it_rain_iwk4.svg',
+  alt: 'Person with money',
+  form : true
 };
 
 export const homeObjTwo = {
