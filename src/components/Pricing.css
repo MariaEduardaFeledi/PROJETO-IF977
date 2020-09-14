@@ -1,83 +1,63 @@
 .pricing__section {
-  padding: 100px 0 160px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.pricing__container-card:hover {
-  transform: scale(1.06);
-  transition: all 0.3s ease-out;
-  color: #1c2237;
-}
-
-.pricing__container-card:nth-child(2) {
-  margin: 0 24px;
-}
-
-.pricing__container {
-  display: flex;
-  justify-content: center;
   align-items: center;
-  background-color: thistle;
-}
-
-.pricing__wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  width: 100%;
-  margin: 0 auto;
+  justify-content: center;
+  background: #e3e3e3;
 }
 
 .pricing__heading {
-  color: #1c2237;
-  margin-bottom: 24px;
+  padding: 50px;
+  padding-left: 200px;
+  color: #E7530B;
+  font-size: 30px;
+  font-weight: 900;
 }
 
-.card{
-  -webkit-filter: drop-shadow(0px 3px 18px rgba(108,99,255,0.3));
-  filter:         drop-shadow(0px 3px 18px rgba(108,99,255,0.3)); 
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-560px * 14));
+  }
+}
+
+.slider {
+  padding-top: 70px;
+  padding-bottom: 100px;
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  max-width: 2000px;
+}
+
+.slide-track {
+  animation: scroll 90s linear infinite;
+  display: flex;
+  width: calc(560px * 28);
+}
+
+.slide-container {
+  margin: 30px;
+  filter: drop-shadow(0px 6px 25px rgba(108, 99, 255, 0.4));
   transition: all 0.3s ease-out;
-  width: 100;
-  height: 200;
 }
 
-.card:hover{
-  -webkit-filter: drop-shadow(0px 3px 25px rgba(108,99,255,0.5));
-  filter:         drop-shadow(0px 3px 25px rgba(108,99,255,0.5)); 
+.slide-container:hover {
+  filter: drop-shadow(0px 6px 35px rgba(108, 99, 255, 0.6));
   transition: all 0.3s ease-out;
 }
 
-
+.slide {
+  width: 500px;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+}
 
 @media screen and (max-width: 960px) {
-  .pricing__container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-  }
-
-  .pricing__container-card {
-    width: 90%;
-  }
-
-  .pricing__wrapper {
-    margin: 0 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .pricing__container-card:nth-child(2) {
-    transform: scale(1);
-    background: #242424;
-    margin: 24px;
-  }
-
-  .pricing__container-card:hover {
-    transform: none;
+  .pricing__heading {
+    padding: 30px;
   }
 }

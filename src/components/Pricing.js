@@ -1,68 +1,40 @@
-import React from 'react';
-import { Button } from './Button';
-import './Pricing.css';
-import { FaFire } from 'react-icons/fa';
-import { BsXDiamondFill } from 'react-icons/bs';
-import { GiCrystalize } from 'react-icons/gi';
-import { IconContext } from 'react-icons/lib';
-import { Link } from 'react-router-dom';
-import InfiniteCarousel from 'react-leaf-carousel';
+import React from "react";
+import "./Pricing.css";
 
 function Pricing() {
-  const settings = {
-    accessibility: false,
-    arrows: false,
-    arrowsBlock: false,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    centerMode: true,
-    duration: 400,
-    shift: 80,
-    slidesToShow: 5,
-    wheel: true
-  };
+  const images = [
+    "https://d30s7yzk2az89n.cloudfront.net/images/brands/b644898-1200w-326ppi.png",
+    "https://d30s7yzk2az89n.cloudfront.net/images/brands/b801330-1200w-326ppi.png",
+    "https://d30s7yzk2az89n.cloudfront.net/images/brands/b665182-1200w-326ppi.png",
+    "https://d30s7yzk2az89n.cloudfront.net/images/brands/b090383-1200w-326ppi.png",
+    "https://d30s7yzk2az89n.cloudfront.net/images/brands/b825385-1200w-326ppi.png",
+    "https://d30s7yzk2az89n.cloudfront.net/images/brands/b461133-1200w-326ppi.png",
+    "https://d30s7yzk2az89n.cloudfront.net/images/brands/b078880-1200w-326ppi.png",
+    "https://d30s7yzk2az89n.cloudfront.net/images/brands/b974915-1200w-326ppi.png",
+    "https://d30s7yzk2az89n.cloudfront.net/images/brands/b211884-1200w-326ppi.png",
+    "https://d30s7yzk2az89n.cloudfront.net/images/brands/b719673-1200w-326ppi.png",
+    "https://d30s7yzk2az89n.cloudfront.net/images/brands/b672191-1200w-326ppi.png",
+    "https://d30s7yzk2az89n.cloudfront.net/images/brands/b892272-1200w-326ppi.png",
+    "https://d30s7yzk2az89n.cloudfront.net/images/brands/b082087-1200w-326ppi.png",
+    "https://d30s7yzk2az89n.cloudfront.net/images/brands/b889842-1200w-326ppi.png",
+    "https://d30s7yzk2az89n.cloudfront.net/images/brands/b607661-1200w-326ppi.png"
+  ];
+
   return (
-    <div className='pricing__section'>
-      <div className='pricing__wrapper'>
-        <h1 className='pricing__heading'>Pricing</h1>
-        <div className='pricing__container'>
-          <InfiniteCarousel
-            breakpoints={[
-              {
-                breakpoint: 500,
-                settings: {
-                  slidesToShow: 2,
-                  slidesToScroll: 2,
-                },
-              },
-              {
-                breakpoint: 768,
-                settings: {
-                  slidesToShow: 3,
-                  slidesToScroll: 3,
-                },
-              },
-            ]}
-            dots={true}
-            showSides={true}
-            sidesOpacity={0.5}
-            sideSize={10}
-            slidesToScroll={2}
-            slidesToShow={2}
-            scrollOnDevice={true}
-          >
-            <img src='https://d30s7yzk2az89n.cloudfront.net/images/brands/b341225-300w-326ppi.png'
-              alt="Logo"
-              className='card' />
-
-            <img src='https://d30s7yzk2az89n.cloudfront.net/images/brands/b916708-300w-326ppi.png'
-              alt="Logo"
-              className='card' />
-          </InfiniteCarousel>
-
-
-
-
+    <div className="pricing__section">
+      <h1 className = "pricing__heading">We offer redemptions in hundreds of different gift cards</h1>
+      <div className="slider">
+        <div className="slide-track">
+          {images.map((image) => (
+            <div className='slide-container'>
+              <img src={image} alt="" className="slide"/>
+            </div>
+          ))}
+          {images.map((image) => (
+            <div className='slide-container'>
+              <img src={image} alt="" className="slide"/>
+            </div>
+          ))}
         </div>
       </div>
     </div>
