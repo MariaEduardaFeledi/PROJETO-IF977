@@ -2,54 +2,31 @@ export const homeObjOne = {
   lightBg: false,
   lightText: true,
   lightTextDesc: true,
-  topLine: 'VIEW OUR PRODUCTS',
-  headline: 'Shop through our catalog of products',
+  topLine: '',
+  headline: 'Contact us',
   description:
-    'We provide worldwide shipping to all countries. If there are any issues, just issue a refund and we will process your request',
-  buttonLabel: 'Shop Now',
+    'We can help you gather the data to realize your machine learning dreams?',
+  buttonLabel: 'Contact us',
+  buttonLocation: '/contact',
   imgStart: '',
-  img: 'images/svg-4.svg',
+  img: 'images/undraw_counting_stars_rrnl.svg',
   alt: 'Credit Card'
 };
 
 export const homeObjTwo = {
-  lightBg: false,
-  lightText: true,
-  lightTextDesc: true,
-  topLine: '100% SECURE',
-  headline: 'Stay protected 24/7 anywhere anytime',
-  description:
-    'We have you covered no matter where you are located. Over 140 locations worldwide to ensure you have access anytime',
-  buttonLabel: 'Learn More',
-  imgStart: '',
-  img: 'images/svg-5.svg',
-  alt: 'Vault'
-};
-
-export const homeObjThree = {
   lightBg: true,
   lightText: false,
   lightTextDesc: false,
-  topLine: 'EASY SETUP',
-  headline: 'Super fast and simple onboarding process',
+  topLine: '',
+  headline: 'Mailing list',
   description:
-    "Get everything set up and ready in under 10 minutes. All you need to do is add your information and you're ready to go.",
-  buttonLabel: 'Start Now',
+    "If you are in intrested hearing more about the development here at Garner, join our mailing list!",
+  buttonLabel: 'Join us',
+  buttonLocation: '',
   imgStart: 'start',
-  img: 'images/svg-7.svg',
-  alt: 'Vault'
+  img: 'images/undraw_message_sent_1030.svg',
+  alt: 'Person with money',
+  form : true
 };
 
-export const homeObjFour = {
-  lightBg: false,
-  lightText: true,
-  lightTextDesc: true,
-  topLine: 'DATA ANALYTICS',
-  headline: 'Every transaction is stored on our secure cloud database',
-  description:
-    'Never ever have to worry again about saved reciepts. We store your data, so you can access it anytime.',
-  buttonLabel: 'Sign Up Now',
-  imgStart: 'start',
-  img: 'images/svg-8.svg',
-  alt: 'Vault'
-};
+

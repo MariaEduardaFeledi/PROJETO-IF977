@@ -1,6 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { MdFingerprint } from "react-icons/md";
 import { IconContext } from 'react-icons/lib';
 
 function TextCardItem(props) {

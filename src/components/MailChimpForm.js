@@ -36,7 +36,7 @@ class Mailchimp extends React.Component {
   }
 
   render() {
-    const { fields, styles, className, buttonClassName } = this.props;
+    const { fields, styles, className} = this.props;
     const messages = {
       ...Mailchimp.defaultProps.messages,
       ...this.props.messages

@@ -38,7 +38,7 @@ function Navbar() {
               Garner
             </Link>
             <div className='menu-icon' onClick={handleClick}>
-            {click ? <FaTimes /> : <FaBars />}
+              {click ? <FaTimes /> : <FaBars />}
             </div>
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
               <li className='nav-item'>
