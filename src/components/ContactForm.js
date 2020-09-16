@@ -76,6 +76,7 @@ class ContactForm extends React.Component {
           onSubmit={this.submitEmail.bind(this)}
           method="POST"
         >
+          <h1 className="contact-form-title">If you think we can help you the data you need for your next project, don't hesitate to get in touch.</h1>
           <ul className="form__items">
             <div className="contact-input-item">
               <h3 className="form-text">Name</h3>

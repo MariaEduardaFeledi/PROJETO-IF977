@@ -5,11 +5,9 @@
 }
 
 .pricing__heading {
-  padding: 50px;
-  padding-left: 200px;
-  color: #E7530B;
-  font-size: 30px;
-  font-weight: 900;
+  text-align: center;
+  color: #252e48;
+  padding: 30px;
 }
 
 @keyframes scroll {
