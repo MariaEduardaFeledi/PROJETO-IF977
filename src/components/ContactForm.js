@@ -3,6 +3,12 @@ import { Button } from "./Button";
 import "./ContactForm.css";
 //import axios from "axios";
 
+const encode = (data) => {
+  return Object.keys(data)
+    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+};
+
 class ContactForm extends React.Component {
   constructor(props) {
     super(props);
