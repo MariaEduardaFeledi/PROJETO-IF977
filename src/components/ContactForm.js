@@ -49,6 +49,22 @@ class ContactForm extends React.Component {
       });
   }
 
+  handleSubmit = (e) => {
+    this.setState({ status: "sending" });
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "contact-form": "contact", ...this.state }),
+    })
+      .then(() => {
+        this.setState({ status: "success" });
+        this.resetForm();
+      })
+      .catch((error) => this.setState({ status: "fail" }));
+
+    e.preventDefault();
+  };
+
   resetForm() {
     this.setState({ name: "", email: "", subject: "", message: "" });
   }
@@ -73,10 +89,13 @@ class ContactForm extends React.Component {
       <div className="contact-form-container ">
         <form
           className="contact-form"
-          onSubmit={this.submitEmail.bind(this)}
+          onSubmit={this.handleSubmit}
           method="POST"
         >
-          <h1 className="contact-form-title">If you think we can help you the data you need for your next project, don't hesitate to get in touch.</h1>
+          <h1 className="contact-form-title">
+            If you think we can help you the data you need for your next
+            project, don't hesitate to get in touch.
+          </h1>
           <ul className="form__items">
             <div className="contact-input-item">
               <h3 className="form-text">Name</h3>
