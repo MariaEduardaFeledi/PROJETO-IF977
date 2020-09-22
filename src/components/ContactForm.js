@@ -1,81 +1,84 @@
-import React from "react";
-//import { Button } from "./Button";
-import "./ContactForm.css";
-//import NetlifyForm from "react-netlify-form";
+import React, { useState } from "react";
 
-const encode = (data) => {
-  return Object.keys(data)
-    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
-};
+function ContactForm() {
+  const [name, setName] = useState("");
+  const [status, setStatus] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
-class ContactForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { name: "", email: "", message: "" };
-  }
+  const encode = (data) => {
+    const formData = new FormData();
+    Object.keys(data).forEach((k) => {
+      formData.append(k, data[k]);
+    });
+    return formData;
+  };
 
-  /* Here’s the juicy bit for posting the form submission */
+  const handleSubmit = (e) => {
+    const data = { "form-name": "contact", name, email, message };
 
-  handleSubmit = (e) => {
     fetch("/", {
       method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...this.state }),
+      // headers: { "Content-Type": 'multipart/form-data; boundary=random' },
+      body: encode(data),
     })
-      .then(() => alert("Success!"))
-      .catch((error) => alert(error));
+      .then(() => setStatus("Form Submission Successful!!"))
+      .catch((error) => setStatus("Form Submission Failed!"));
 
     e.preventDefault();
   };
 
-  handleChange = (e) => this.setState({ [e.target.name]: e.target.value });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    if (name === "name") {
+      return setName(value);
+    }
+    if (name === "email") {
+      return setEmail(value);
+    }
+    if (name === "message") {
+      return setMessage(value);
+    }
+  };
 
-  render() {
-    const { name, email, message } = this.state;
-    return (
-      <form
-        onSubmit={this.handleSubmit}
-        netlify
-        method="post"
-        data-netlify="true"
-      >
+  return (
+    <div className="App">
+      <form onSubmit={handleSubmit} action="/thank-you/">
         <p>
           <label>
+            Your Name:{" "}
             <input
               type="text"
               name="name"
               value={name}
-              onChange={this.handleChange}
+              onChange={handleChange}
             />
           </label>
         </p>
         <p>
           <label>
+            Your Email:{" "}
             <input
               type="email"
               name="email"
               value={email}
-              onChange={this.handleChange}
+              onChange={handleChange}
             />
           </label>
         </p>
         <p>
           <label>
-            <textarea
-              name="message"
-              value={message}
-              onChange={this.handleChange}
-            />
+            Message:{" "}
+            <textarea name="message" value={message} onChange={handleChange} />
           </label>
         </p>
         <p>
           <button type="submit">Send</button>
         </p>
       </form>
-    );
-  }
+      <h3>{status}</h3>
+    </div>
+  );
 }
 
 export default ContactForm;
-//Message sent! Thanks for getting in contact
