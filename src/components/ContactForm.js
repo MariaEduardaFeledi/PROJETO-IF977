@@ -1,7 +1,7 @@
 import React from "react";
-import { Button } from "./Button";
+//import { Button } from "./Button";
 import "./ContactForm.css";
-import NetlifyForm from "react-netlify-form";
+//import NetlifyForm from "react-netlify-form";
 
 const encode = (data) => {
   return Object.keys(data)
