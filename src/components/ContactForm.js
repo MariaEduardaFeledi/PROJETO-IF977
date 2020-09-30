@@ -1,25 +1,38 @@
 import React from "react";
 
-function ContactForm() {
+import { NetlifyForm, Honeypot } from "react-netlify-forms";
+
+export default function ContactForm() {
   return (
-    <form name="contact" method="POST" data-netlify="true">
-      <p>
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" />
-      </p>
-      <p>
-        <label for="email">Email</label>
-        <input type="text" id="email" name="email" />
-      </p>
-      <p>
-        <label for="message">Message</label>
-        <textarea id="message" name="message"></textarea>
-      </p>
-      <p>
-        <button type="submit">Send</button>
-      </p>
-    </form>
+    <NetlifyForm name="Contact" action="/thanks" honeypotName="bot-field">
+      {({ handleChange, success, error }) => (
+        <>
+          <Honeypot />
+          {success && <p>Thanks for contacting us!</p>}
+          {error && (
+            <p>
+              Sorry, we could not reach our servers. Please try again later.
+            </p>
+          )}
+          <div>
+            <label htmlFor="name">Name:</label>
+            <input type="text" name="name" id="name" onChange={handleChange} />
+          </div>
+          <div>
+            <label htmlFor="message">Message:</label>
+            <textarea
+              type="text"
+              name="message"
+              id="message"
+              rows="4"
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <button type="submit">Submit</button>
+          </div>
+        </>
+      )}
+    </NetlifyForm>
   );
 }
-
-export default ContactForm;
