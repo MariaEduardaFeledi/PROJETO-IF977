@@ -1,26 +1,24 @@
 import React from "react";
-import NetlifyForm from "react-netlify-form";
 
 function ContactForm() {
   return (
-    <NetlifyForm name="Contact Form">
-      {({ loading, error, success }) => (
-        <div>
-          {loading && <div>Loading...</div>}
-          {error && (
-            <div>Your information was not sent. Please try again later.</div>
-          )}
-          {success && <div>Thank you for contacting us!</div>}
-          {!loading && !success && (
-            <div>
-              <input type="text" name="Name" required />
-              <textarea name="Message" required />
-              <button>Submit</button>
-            </div>
-          )}
-        </div>
-      )}
-    </NetlifyForm>
+    <form name="contact" method="POST" data-netlify="true">
+      <p>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" />
+      </p>
+      <p>
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" />
+      </p>
+      <p>
+        <label for="message">Message</label>
+        <textarea id="message" name="message"></textarea>
+      </p>
+      <p>
+        <button type="submit">Send</button>
+      </p>
+    </form>
   );
 }
 
