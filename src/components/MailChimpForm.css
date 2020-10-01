@@ -27,14 +27,24 @@
   margin-bottom: 24px;
   padding: 24px;
   color: #fff;
+  background-color: #212121;
+  margin: rgb(5, 2, 2) 0px;
+  padding: 8px 0px;
+  border-radius: 20px;
 }
 
 .footer-subscription-heading {
   margin-bottom: 24px;
   font-size: 24px;
+  margin-bottom: 3px;
+  font-weight: 600;
+  color: #fff;
+  margin-top: 5px;
 }
 
 .footer-subscription-text {
   margin-bottom: 24px;
   font-size: 20px;
+  color: #c1c1c1;
+  font-weight: 600;
 }

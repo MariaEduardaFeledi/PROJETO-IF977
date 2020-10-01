@@ -28,11 +28,13 @@
 .btn--medium {
   padding: 8px 20px;
   font-size: 18px;
+  transition: all 0.2s ease-out;
 }
 
 .btn--large {
   padding: 12px 26px;
   font-size: 20px;
+  transition: all 0.2s ease-out;
 }
 
 .btn--mobile {
@@ -51,6 +53,7 @@
 .btn--wide {
   padding: 12px 64px;
   font-size: 20px;
+  transition: all 0.2s ease-out;
 }
 
 .btn--large:hover,
@@ -78,13 +81,13 @@
 }
 
 .blue {
-  background-color: #6C63FF;
+  background-color: #6c63ff;
   color: #fff;
   border: none;
 }
 
-.blue:hover{
-  background-color:#E7530B;
+.blue:hover {
+  background-color: #e7530b;
   color: #fff;
   border: none;
 }

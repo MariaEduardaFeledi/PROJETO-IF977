@@ -50,7 +50,7 @@ class Mailchimp extends React.Component {
     return (
       <section className="footer-subscription">
         <p className="footer-subscription-heading dark">
-          Join our mailing list to receive new and updates about Garner
+          Join our mailing list!
         </p>
         <p className="footer-subscription-text dark">
           You can unsubscribe at any time.
@@ -69,6 +69,7 @@ class Mailchimp extends React.Component {
               />
             ))}
             <Button
+              className="submit-button"
               buttonColor="blue"
               disabled={status === "sending" || status === "success"}
               type="submit"

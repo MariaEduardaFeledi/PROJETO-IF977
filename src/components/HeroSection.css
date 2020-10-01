@@ -55,7 +55,7 @@
 }
 
 .dark {
-  color: #e7530b;
+  color: #252e48;
 }
 
 .darkBg {
@@ -67,6 +67,7 @@
   margin-bottom: 35px;
   font-size: 18px;
   line-height: 24px;
+  font-weight: 600;
 }
 
 .home__hero-img-wrapper {
@@ -88,20 +89,20 @@ img {
   display: inline-block;
 }
 
-@media screen and (max-width: 820px) {
+@media screen and (max-width: 1000px) {
   .footer-links {
     padding-top: 2rem;
   }
 }
 
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 1200px) {
   .container {
     padding-right: 30px;
     padding-left: 30px;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
   .home__hero-text-wrapper {
     padding-bottom: 65px;
   }
