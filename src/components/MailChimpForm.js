@@ -1,8 +1,8 @@
-import './MailChimpForm.css';
-import { Button } from './Button';
-import React from "react"
-import jsonp from "jsonp"
-import PropTypes from 'prop-types';
+import "./MailChimpForm.css";
+import { Button } from "./Button";
+import React from "react";
+import jsonp from "jsonp";
+import PropTypes from "prop-types";
 
 class Mailchimp extends React.Component {
   state = {};
@@ -10,65 +10,92 @@ class Mailchimp extends React.Component {
   handleSubmit(evt) {
     evt.preventDefault();
     const { fields, action } = this.props;
-    const values = fields.map(field => {
-      return `${field.name}=${encodeURIComponent(this.state[field.name])}`;
-    }).join("&");
+    const values = fields
+      .map((field) => {
+        return `${field.name}=${encodeURIComponent(this.state[field.name])}`;
+      })
+      .join("&");
     const path = `${action}&${values}`;
-    const url = path.replace('/post?', '/post-json?');
+    const url = path.replace("/post?", "/post-json?");
     /* eslint-disable-next-line */
     const regex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-    const email = this.state['EMAIL'];
-    (!regex.test(email)) ? this.setState({ status: "empty" }) : this.sendData(url);
-  };
+    const email = this.state["EMAIL"];
+    !regex.test(email)
+      ? this.setState({ status: "empty" })
+      : this.sendData(url);
+  }
 
   sendData(url) {
     this.setState({ status: "sending" });
     jsonp(url, { param: "c" }, (err, data) => {
       if (data.msg.includes("already subscribed")) {
-        this.setState({ status: 'duplicate' });
+        this.setState({ status: "duplicate" });
       } else if (err) {
-        this.setState({ status: 'error' });
-      } else if (data.result !== 'success') {
-        this.setState({ status: 'error' });
+        this.setState({ status: "error" });
+      } else if (data.result !== "success") {
+        this.setState({ status: "error" });
       } else {
-        this.setState({ status: 'success' });
-      };
+        this.setState({ status: "success" });
+      }
     });
   }
 
   render() {
-    const { fields, styles, className} = this.props;
+    const { fields, styles, className } = this.props;
     const messages = {
       ...Mailchimp.defaultProps.messages,
-      ...this.props.messages
-    }
+      ...this.props.messages,
+    };
     const { status } = this.state;
     return (
-      <div className='input-areas'>
-        <form onSubmit={this.handleSubmit.bind(this)} className={className}>
-          {fields.map(input =>
-            <input
-              className='email-input'
-              {...input}
-              key={input.name}
-              onChange={({ target }) => this.setState({ [input.name]: target.value })}
-              defaultValue={this.state[input.name]}
-            />
-          )}
-          <Button buttonColor='blue' disabled={status === "sending" || status === "success"}
-            type="submit">
-            {messages.button}
-          </Button>
+      <section className="footer-subscription">
+        <p className="footer-subscription-heading dark">
+          Join our mailing list to receive new and updates about Garner
+        </p>
+        <p className="footer-subscription-text dark">
+          You can unsubscribe at any time.
+        </p>
+        <div className="input-areas">
+          <form onSubmit={this.handleSubmit.bind(this)} className={className}>
+            {fields.map((input) => (
+              <input
+                className="email-input"
+                {...input}
+                key={input.name}
+                onChange={({ target }) =>
+                  this.setState({ [input.name]: target.value })
+                }
+                defaultValue={this.state[input.name]}
+              />
+            ))}
+            <Button
+              buttonColor="blue"
+              disabled={status === "sending" || status === "success"}
+              type="submit"
+            >
+              {messages.button}
+            </Button>
 
-          <div className='msg-alert'>
-            {status === "sending" && <p style={styles.sendingMsg}>{messages.sending}</p>}
-            {status === "success" && <p style={styles.successMsg}>{messages.success}</p>}
-            {status === "duplicate" && <p style={styles.duplicateMsg}>{messages.duplicate}</p>}
-            {status === "empty" && <p style={styles.errorMsg}>{messages.empty}</p>}
-            {status === "error" && <p style={styles.errorMsg}>{messages.error}</p>}
-          </div>
-        </form>
-      </div>
+            <div className="msg-alert">
+              {status === "sending" && (
+                <p style={styles.sendingMsg}>{messages.sending}</p>
+              )}
+              {status === "success" && (
+                <p style={styles.successMsg}>{messages.success}</p>
+              )}
+              {status === "duplicate" && (
+                <p style={styles.duplicateMsg}>{messages.duplicate}</p>
+              )}
+              {status === "empty" && (
+                <p style={styles.errorMsg}>{messages.empty}</p>
+              )}
+              {status === "error" && (
+                <p style={styles.errorMsg}>{messages.error}</p>
+              )}
+            </div>
+          </form>
+        </div>
+      </section>
     );
   }
 }
@@ -80,23 +107,23 @@ Mailchimp.defaultProps = {
     error: "An unexpected internal error has occurred.",
     empty: "You must write an e-mail.",
     duplicate: "Too many subscribe attempts for this email address",
-    button: "Join us"
+    button: "Join us",
   },
   buttonClassName: "",
   styles: {
     sendingMsg: {
-      color: "#0652DD"
+      color: "#0652DD",
     },
     successMsg: {
-      color: "#009432"
+      color: "#009432",
     },
     duplicateMsg: {
-      color: "#EE5A24"
+      color: "#EE5A24",
     },
     errorMsg: {
-      color: "#ED4C67"
-    }
-  }
+      color: "#ED4C67",
+    },
+  },
 };
 
 Mailchimp.propTypes = {

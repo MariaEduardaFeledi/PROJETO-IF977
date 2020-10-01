@@ -33,7 +33,7 @@
 }
 
 .top-line {
-  color: #FFF;
+  color: #fff;
   font-size: 16px;
   line-height: 16px;
   font-weight: 700;
@@ -42,10 +42,9 @@
   margin-bottom: 16px;
 }
 
-.darkblue{
-  color: #6C63FF;
+.darkblue {
+  color: #6c63ff;
 }
-
 
 .heading {
   margin-bottom: 24px;
@@ -56,11 +55,11 @@
 }
 
 .dark {
-  color: #E7530B;
+  color: #e7530b;
 }
 
 .darkBg {
-  background-color: #E7530B;
+  background-color: #e7530b;
 }
 
 .home__hero-subtitle {
@@ -89,28 +88,6 @@ img {
   display: inline-block;
 }
 
-.footer-subscription {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin-bottom: 24px;
-  padding: 24px;
-  color: #fff;
-}
-
-
-.footer-subscription-heading {
-  margin-bottom: 24px;
-  font-size: 24px;
-}
-
-.footer-subscription-text {
-  margin-bottom: 24px;
-  font-size: 20px;
-}
-
 @media screen and (max-width: 820px) {
   .footer-links {
     padding-top: 2rem;
@@ -133,25 +110,4 @@ img {
     max-width: 100%;
     flex-basis: 100%;
   }
-}
-
-.footer-subscription {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin-bottom: 24px;
-  padding: 24px;
-  color: #fff;
-}
-
-.footer-subscription-heading {
-  margin-bottom: 24px;
-  font-size: 24px;
-}
-
-.footer-subscription-text {
-  margin-bottom: 24px;
-  font-size: 20px;
 }
