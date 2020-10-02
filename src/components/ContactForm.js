@@ -45,10 +45,10 @@ class ContactForm extends React.Component {
         console.log(response.status);
         console.log(response.statusCode);
         console.log(response);
-        if (response.status === "success") {
+        if (response.MessageId !== undefined) {
           this.setState({ status: "success" });
           this.resetForm();
-        } else if (response.status === "fail") {
+        } else {
           this.setState({ status: "fail" });
         }
       });
