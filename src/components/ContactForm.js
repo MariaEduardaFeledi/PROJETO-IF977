@@ -42,9 +42,6 @@ class ContactForm extends React.Component {
     )
       .then((response) => response.json())
       .then((response) => {
-        console.log(response.status);
-        console.log(response.statusCode);
-        console.log(response);
         if (response.MessageId !== undefined) {
           this.setState({ status: "success" });
           this.resetForm();
