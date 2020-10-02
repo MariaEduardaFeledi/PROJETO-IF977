@@ -2,9 +2,9 @@ import React from "react";
 import "./Footer.css";
 import { Link } from "react-router-dom";
 import {
-  FaFacebook,
-  FaInstagram,
-  FaYoutube,
+  //FaFacebook,
+  //FaInstagram,
+  //FaYoutube,
   FaTwitter,
   FaLinkedin,
 } from "react-icons/fa";
@@ -25,25 +25,14 @@ function Footer() {
           </div>
           <div className="footer-link-items">
             <h2>Contact Us</h2>
-            <Link to="/">Contact</Link>
-            <Link to="/">Support</Link>
-            <Link to="/">Destinations</Link>
-            <Link to="/">Sponsorships</Link>
+            <Link to="/contact">Contact</Link>
+            <Link to="/contact">Support</Link>
           </div>
         </div>
         <div className="footer-link-wrapper">
           <div className="footer-link-items">
-            <h2>Videos</h2>
-            <Link to="/">Submit Video</Link>
-            <Link to="/">Ambassadors</Link>
-            <Link to="/">Agency</Link>
-            <Link to="/">Influencer</Link>
-          </div>
-          <div className="footer-link-items">
             <h2>Social Media</h2>
             <Link to="/">Instagram</Link>
-            <Link to="/">Facebook</Link>
-            <Link to="/">Youtube</Link>
             <Link to="/">Twitter</Link>
           </div>
         </div>
@@ -62,37 +51,13 @@ function Footer() {
               className="social-icon-link"
               to="/"
               target="_blank"
-              aria-label="Facebook"
-            >
-              <FaFacebook />
-            </Link>
-            <Link
-              className="social-icon-link"
-              to="/"
-              target="_blank"
-              aria-label="Instagram"
-            >
-              <FaInstagram />
-            </Link>
-            <Link
-              className="social-icon-link"
-              to={"/"}
-              target="_blank"
-              aria-label="Youtube"
-            >
-              <FaYoutube />
-            </Link>
-            <Link
-              className="social-icon-link"
-              to="/"
-              target="_blank"
               aria-label="Twitter"
             >
               <FaTwitter />
             </Link>
             <Link
               className="social-icon-link"
-              to="/"
+              to={"//www.linkedin.com/in/kip-parker-773b00182/"}
               target="_blank"
               aria-label="LinkedIn"
             >

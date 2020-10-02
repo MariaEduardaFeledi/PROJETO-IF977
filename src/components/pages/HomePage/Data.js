@@ -23,7 +23,7 @@ export const homeObjTwo = {
   topLine: "",
   headline: "Start earning instantly",
   description:
-    "Get everything set up and ready in under. All you need to do is download the app and add you information",
+    "Get everything set up and ready in minutes. All you need to do is download the app and add you information",
   buttonLabel: "Join us",
   buttonLocation: "",
   imgStart: "start",

@@ -1,7 +1,14 @@
 import React from "react";
 import "./Cards.css";
 import TextCardItem from "./TextCardItem";
-import {FaBrain, FaDice, FaLock, FaBalanceScale, FaBullseye, FaHeart} from "react-icons/fa";
+import {
+  FaBrain,
+  FaDice,
+  FaLock,
+  FaBalanceScale,
+  FaBullseye,
+  FaHeart,
+} from "react-icons/fa";
 
 function Cards() {
   return (
@@ -16,7 +23,7 @@ function Cards() {
               blob="images/blob1.svg"
               heading="Artificial Intelligence"
               paragraphs={[
-                "Artificial Intelligence will be humanity's more important creation, We gather the data to run more meaningful experiments to put AI to better use to help path the road to a more compassionate singularity.",
+                "Artificial Intelligence will be humanity's most important creation, We gather the data to run more meaningful experiments that puts AI to better use in order to help pave the way to a more compassionate singularity.",
               ]}
             />
           </ul>
@@ -29,7 +36,6 @@ function Cards() {
               paragraphs={[
                 "One of the hardest problems in machine learning safety is keeping the goals of our algorithms, in line with those of ourselves.",
                 "We believe that integrating humans closer into the training loop of these algorithms will be a start on aligning our goals more effectively.",
-
               ]}
             />
             <TextCardItem
@@ -64,7 +70,7 @@ function Cards() {
               paragraphs={[
                 "Biased data is a very real problem with machine learning and data science, especially in production",
                 "If one categories,  or manifolds of the data is under-represented in the dataset, it can cause problems in the real world",
-                "We plan to role the app out on a large scale, allowing everyone to contribute towards projects they care about, lessening the effect of bias"
+                "We plan to role the app out on a large scale, allowing everyone to contribute towards projects they care about, lessening the effect of bias",
               ]}
             />
             <TextCardItem

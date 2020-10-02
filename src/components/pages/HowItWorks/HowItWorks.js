@@ -1,8 +1,9 @@
 import React from "react";
+import "./HowItWorks.css";
 
 export default function HowItWorks() {
   return (
-    <div>
+    <div className="text-page">
       <h1>HTML Ipsum Presents</h1>
 
       <p>
