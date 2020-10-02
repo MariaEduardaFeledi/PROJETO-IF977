@@ -29,16 +29,22 @@ class ContactForm extends React.Component {
   submitEmail(e) {
     e.preventDefault();
     this.setState({ status: "sending" });
-    fetch("http://localhost:3002/send", {
-      method: "POST",
-      body: JSON.stringify(this.state),
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    })
+    fetch(
+      "https://1b2u76kybi.execute-api.eu-west-2.amazonaws.com/production/email/send",
+      {
+        method: "POST",
+        body: JSON.stringify(this.state),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      }
+    )
       .then((response) => response.json())
       .then((response) => {
+        console.log(response.status);
+        console.log(response.statusCode);
+        console.log(response);
         if (response.status === "success") {
           this.setState({ status: "success" });
           this.resetForm();
