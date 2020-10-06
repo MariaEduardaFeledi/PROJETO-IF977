@@ -6,8 +6,8 @@ import About from "./components/pages/About/About";
 import Contact from "./components/pages/Contact/Contact";
 import HowItWorks from "./components/pages/HowItWorks/HowItWorks";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Footer from "./components/pages/Footer.js/Footer";
+import Footer from "./components/pages/Footer/Footer";
+import Navbar from "./components/pages/NavBar/Navbar";
 
 function App() {
   return (
