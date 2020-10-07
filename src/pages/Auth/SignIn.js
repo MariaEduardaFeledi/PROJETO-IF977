@@ -65,7 +65,7 @@ export default class SignUpForm extends Component {
             onChange={this.onEmailChange.bind(this)}
           />
           <h3 className="form-text">
-            Create password
+            password
             <span className="form-span">minimun length of 8 characters</span>
           </h3>
           <input
@@ -76,6 +76,12 @@ export default class SignUpForm extends Component {
             required
             onChange={this.onPasswordChange.bind(this)}
           />
+          <p>
+            Forgotten your password?
+            <Link to="/reset-password" className="form-link-small">
+              Reset it here.
+            </Link>
+          </p>
           <div className="form-bottom-content">
             <Button buttonColor="blue" type="submit" buttonSize="btn--form">
               Sign up!
@@ -84,7 +90,7 @@ export default class SignUpForm extends Component {
           <div className="form-bottom-content inset">
             <p>
               Dont have an account yet?
-              <Link to="/sign-in" className="form-link-small">
+              <Link to="/sign-up" className="form-link-small">
                 Sign up!
               </Link>
             </p>

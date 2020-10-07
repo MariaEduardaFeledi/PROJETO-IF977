@@ -12,6 +12,7 @@ import Navbar from "./pages/NavBar/Navbar";
 import SignIn from "./pages/Auth/SignIn";
 import SignUp from "./pages/Auth/SignUp";
 import ConfirmEmail from "./pages/Auth/ConfirmEmail";
+import ResetPassword from "./pages/Auth/ResetPassword";
 
 import Amplify, { Auth } from "aws-amplify";
 import aws_exports from "./aws-exports";
@@ -47,6 +48,7 @@ class App extends Component {
           <Route path="/how-it-works" component={HowItWorks} />
           <Route path="/sign-in" component={SignIn} />
           <Route path="/sign-up" component={SignUp} />
+          <Route path="/reset-password" component={ResetPassword} />
           <Route path="/confirm-email/:email?" component={ConfirmEmail} />
           <Route path="*" component={NotFound} />
           {this.state.authenticated ? (
