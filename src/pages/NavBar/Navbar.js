@@ -7,7 +7,7 @@ import { MdFingerprint } from "react-icons/md";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
 
-function Navbar() {
+function Navbar(props) {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
@@ -27,6 +27,8 @@ function Navbar() {
   }, []);
 
   window.addEventListener("resize", showButton);
+
+  console.log(props);
 
   return (
     <>
@@ -64,43 +66,65 @@ function Navbar() {
                   Contact
                 </Link>
               </li>
-              <li className="nav-btn">
-                {button ? (
-                  <Link to="/sign-in" className="btn-link">
-                    <Button buttonStyle="btn--outline">Sign in</Button>
-                  </Link>
-                ) : (
-                  <Link to="/sign-in" className="btn-link">
-                    <Button
-                      buttonStyle="btn--outline"
-                      buttonSize="btn--mobile"
-                      onClick={closeMobileMenu}
-                    >
-                      Sign in
-                    </Button>
-                  </Link>
-                )}
-              </li>
-              <li className="nav-btn">
-                {button ? (
-                  <Link to="/sign-up" className="btn-link">
-                    <Button buttonStyle="btn--primary" buttonColor="green">
-                      Sign up
-                    </Button>
-                  </Link>
-                ) : (
-                  <Link to="/sign-up" className="btn-link">
-                    <Button
-                      buttonStyle="btn--primary"
-                      buttonSize="btn--mobile"
-                      buttonColor="green"
-                      onClick={closeMobileMenu}
-                    >
-                      Sign up
-                    </Button>
-                  </Link>
-                )}
-              </li>
+              {props.isAuthenticated ? (
+                <li className="nav-btn">
+                  {button ? (
+                    <Link to="/manage-pools" className="btn-link">
+                      <Button buttonStyle="btn--outline">Manage</Button>
+                    </Link>
+                  ) : (
+                    <Link to="/manage-pools" className="btn-link">
+                      <Button
+                        buttonStyle="btn--outline"
+                        buttonSize="btn--mobile"
+                        onClick={closeMobileMenu}
+                      >
+                        Manage
+                      </Button>
+                    </Link>
+                  )}
+                </li>
+              ) : (
+                <>
+                  <li className="nav-btn">
+                    {button ? (
+                      <Link to="/sign-in" className="btn-link">
+                        <Button buttonStyle="btn--outline">Sign in</Button>
+                      </Link>
+                    ) : (
+                      <Link to="/sign-in" className="btn-link">
+                        <Button
+                          buttonStyle="btn--outline"
+                          buttonSize="btn--mobile"
+                          onClick={closeMobileMenu}
+                        >
+                          Sign in
+                        </Button>
+                      </Link>
+                    )}
+                  </li>
+                  <li className="nav-btn">
+                    {button ? (
+                      <Link to="/sign-up" className="btn-link">
+                        <Button buttonStyle="btn--primary" buttonColor="green">
+                          Sign up
+                        </Button>
+                      </Link>
+                    ) : (
+                      <Link to="/sign-up" className="btn-link">
+                        <Button
+                          buttonStyle="btn--primary"
+                          buttonSize="btn--mobile"
+                          buttonColor="green"
+                          onClick={closeMobileMenu}
+                        >
+                          Sign up
+                        </Button>
+                      </Link>
+                    )}
+                  </li>
+                </>
+              )}
             </ul>
           </div>
         </nav>

@@ -12,15 +12,35 @@ import Navbar from "./pages/NavBar/Navbar";
 import SignIn from "./pages/Auth/SignIn";
 import SignUp from "./pages/Auth/SignUp";
 
-import Amplify from "aws-amplify";
+import Amplify, { Auth } from "aws-amplify";
 import aws_exports from "./aws-exports";
 Amplify.configure(aws_exports);
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      data: [],
+      authenticated: false,
+    };
+  }
+
+  componentDidMount() {
+    Auth.currentAuthenticatedUser()
+      .then((val) => {
+        this.setState({ authenticated: true, data: val });
+        console.log(val);
+      })
+      .catch((err) => {
+        console.log(err.message.toString());
+        this.setState({ authenticated: false });
+      });
+  }
+
   render() {
     return (
       <Router>
-        <Navbar />
+        <Navbar isAuthenticated={this.state.authenticated} />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/contact" component={Contact} />
