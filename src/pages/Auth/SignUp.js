@@ -3,6 +3,7 @@ import { Auth } from "aws-amplify";
 import { Button } from "./../../components/Button";
 import { Link } from "react-router-dom";
 import ReCAPTCHA from "react-google-recaptcha";
+import "./AuthStyle.css";
 
 export default class SignUpForm extends Component {
   constructor(props) {
@@ -13,14 +14,11 @@ export default class SignUpForm extends Component {
       password: "",
       confirmPassword: "",
       email: "",
-      confirmationCode: "",
-      confirmationEmail: "",
       signUpStatus: "",
       signConfirmationStatus: "",
       recaptcha: "",
     };
     this.signUp = this.signUp.bind(this);
-    this.confirmSignUp = this.confirmSignUp.bind(this);
   }
 
   signUp(e) {
@@ -55,19 +53,6 @@ export default class SignUpForm extends Component {
     }
   }
 
-  confirmSignUp(e) {
-    e.preventDefault();
-    this.setState({ signUpConfirmationStatus: "loading" });
-    const { confirmationEmail, confirmationCode } = this.state;
-    Auth.confirmSignUp(confirmationEmail, confirmationCode)
-      .then(() => {
-        this.setState({ signUpConfirmationStatus: "success" });
-      })
-      .catch((err) => {
-        this.setState({ signUpConfirmationStatus: err.message.toString() });
-      });
-  }
-
   onNameChange(event) {
     this.setState({ name: event.target.value });
   }
@@ -79,12 +64,6 @@ export default class SignUpForm extends Component {
   }
   onConfirmPasswordChange(event) {
     this.setState({ confirmPassword: event.target.value });
-  }
-  onConfirmationCodeChange(event) {
-    this.setState({ confirmationCode: event.target.value });
-  }
-  onConfirmationEmailChange(event) {
-    this.setState({ confirmationEmail: event.target.value });
   }
 
   onRecaptchaChange(value) {
@@ -127,34 +106,10 @@ export default class SignUpForm extends Component {
       );
     }
 
-    let signUpConfirmationText;
-    if (this.state.signUpConfirmationStatus === "") {
-      signUpConfirmationText = <p></p>;
-    } else if (this.state.signUpConfirmationStatus === "loading") {
-      signUpConfirmationText = <p style={{ color: "#009432" }}>Verifying...</p>;
-    } else if (this.state.signUpConfirmationStatus === "success") {
-      signUpConfirmationText = (
-        <p style={{ color: "#009432" }}>Email verified!</p>
-      );
-    } else {
-      signUpConfirmationText = (
-        <p style={{ color: "#ED4C67" }}>
-          {this.state.signUpConfirmationStatus}
-        </p>
-      );
-    }
-
     return (
-      <div className="contact-form-container">
-        <div className="form-center">
-          <h1>Already have an account?</h1>
-          <Link to="/sign-in" className="btn-link">
-            <Button buttonColor="blue" type="submit" buttonSize="btn--wide">
-              Sign In!
-            </Button>
-          </Link>
-        </div>
+      <div className="auth-form-container">
         <form onSubmit={this.signUp}>
+          <h3 class="form-label">Sign up</h3>
           <h3 className="form-text">Name</h3>
           <input
             className="contact-email-input"
@@ -171,7 +126,10 @@ export default class SignUpForm extends Component {
             required
             onChange={this.onEmailChange.bind(this)}
           />
-          <h3 className="form-text">Create a new password</h3>
+          <h3 className="form-text">
+            Create password
+            <span className="form-span">minimun length of 8 characters</span>
+          </h3>
           <input
             className="contact-email-input"
             id="password"
@@ -180,8 +138,7 @@ export default class SignUpForm extends Component {
             required
             onChange={this.onPasswordChange.bind(this)}
           />
-          <p>minimun length of 8 characters</p>
-          <h3 className="form-text">Re-type new password</h3>
+          <h3 className="form-text">Re-type password</h3>
           <input
             className="contact-email-input"
             id="confirmpassword"
@@ -190,41 +147,29 @@ export default class SignUpForm extends Component {
             required
             onChange={this.onConfirmPasswordChange.bind(this)}
           />
-          <ReCAPTCHA
-            sitekey="6Ldgw9QZAAAAAALNtFYTojLR-najbhARAlK3SbP9"
-            onChange={this.onRecaptchaChange.bind(this)}
-          />
+          <div className="form-bottom-content">
+            <ReCAPTCHA
+              sitekey="6Ldgw9QZAAAAAALNtFYTojLR-najbhARAlK3SbP9"
+              onChange={this.onRecaptchaChange.bind(this)}
+            />
 
-          <div className="form-center">
-            {signUpText}
-            <Button buttonColor="blue" type="submit" buttonSize="btn--wide">
+            <Button
+              buttonColor="blue"
+              type="submit"
+              buttonSize="btn--form"
+              className="test"
+            >
               Sign up!
             </Button>
           </div>
-        </form>
-        <h1>Confirm code here</h1>
-        <form onSubmit={this.confirmSignUp}>
-          <h3 className="form-text">Email</h3>
-          <input
-            className="contact-email-input"
-            id="confirm-email"
-            type="email"
-            required
-            onChange={this.onConfirmationEmailChange.bind(this)}
-          />
-          <h3 className="form-text">Confirmation Code</h3>
-          <input
-            className="contact-email-input"
-            id="confirmationCode"
-            type="text"
-            required
-            onChange={this.onConfirmationCodeChange.bind(this)}
-          />
-          <div className="form-center">
-            {signUpConfirmationText}
-            <Button buttonColor="blue" type="submit" buttonSize="btn--wide">
-              Verify email!
-            </Button>
+          <div className="form-bottom-content inset">
+            <p>
+              Already have an account?
+              <Link to="/sign-in" className="form-link-small">
+                Sign in!
+              </Link>
+            </p>
+            {signUpText}
           </div>
         </form>
       </div>

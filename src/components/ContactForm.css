@@ -15,12 +15,13 @@
 .contact-email-input {
   padding: 8px 24px;
   border-radius: 5px;
-  font-size: 18px;
-  margin-bottom: 5px;
+  font-size: 20px;
   border: 1px solid #fff;
-  box-shadow: 0px 3px 18px rgba(108, 99, 255, 0.3);
+  background-color: black;
   transition: all 0.3s ease-out;
   width: 100%;
+  color: white;
+  margin-bottom: 15px;
 }
 
 .contact-email-input:hover {
@@ -34,7 +35,6 @@
 
 .contact-input-item {
   width: 100%;
-  margin: 20px;
 }
 
 .contact-form-container {
@@ -47,11 +47,10 @@
 }
 
 .form-text {
-  margin-left: 15px;
-  padding-bottom: 15px;
   color: #252e48;
   font-size: 22px;
   line-height: 24px;
+  margin-bottom: 15px;
 }
 
 .form-center {

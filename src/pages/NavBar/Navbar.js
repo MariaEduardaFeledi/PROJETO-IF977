@@ -28,8 +28,6 @@ function Navbar(props) {
 
   window.addEventListener("resize", showButton);
 
-  console.log(props);
-
   return (
     <>
       <IconContext.Provider value={{ color: "#fff" }}>

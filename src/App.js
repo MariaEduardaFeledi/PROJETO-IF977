@@ -11,6 +11,7 @@ import Navbar from "./pages/NavBar/Navbar";
 
 import SignIn from "./pages/Auth/SignIn";
 import SignUp from "./pages/Auth/SignUp";
+import ConfirmEmail from "./pages/Auth/ConfirmEmail";
 
 import Amplify, { Auth } from "aws-amplify";
 import aws_exports from "./aws-exports";
@@ -29,10 +30,8 @@ class App extends Component {
     Auth.currentAuthenticatedUser()
       .then((val) => {
         this.setState({ authenticated: true, data: val });
-        console.log(val);
       })
       .catch((err) => {
-        console.log(err.message.toString());
         this.setState({ authenticated: false });
       });
   }
@@ -48,7 +47,13 @@ class App extends Component {
           <Route path="/how-it-works" component={HowItWorks} />
           <Route path="/sign-in" component={SignIn} />
           <Route path="/sign-up" component={SignUp} />
+          <Route path="/confirm-email/:email?" component={ConfirmEmail} />
           <Route path="*" component={NotFound} />
+          {this.state.authenticated ? (
+            <Route path="*" component={NotFound} />
+          ) : (
+            <></>
+          )}
         </Switch>
         <Footer />
       </Router>

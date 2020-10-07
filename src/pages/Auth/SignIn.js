@@ -53,16 +53,9 @@ export default class SignUpForm extends Component {
     }
 
     return (
-      <div className="contact-form-container">
-        <div className="form-center">
-          <h1>Dont yet have an account?</h1>
-          <Link to="/sign-up" className="btn-link">
-            <Button buttonColor="blue" type="submit" buttonSize="btn--wide">
-              Sign up!
-            </Button>
-          </Link>
-        </div>
+      <div className="auth-form-container">
         <form onSubmit={this.signIn}>
+          <h3 class="form-label">Sign in</h3>
           <h3 className="form-text">Email</h3>
           <input
             className="contact-email-input"
@@ -71,7 +64,10 @@ export default class SignUpForm extends Component {
             required
             onChange={this.onEmailChange.bind(this)}
           />
-          <h3 className="form-text">password</h3>
+          <h3 className="form-text">
+            Create password
+            <span className="form-span">minimun length of 8 characters</span>
+          </h3>
           <input
             className="contact-email-input"
             id="password"
@@ -80,12 +76,19 @@ export default class SignUpForm extends Component {
             required
             onChange={this.onPasswordChange.bind(this)}
           />
-
-          <div className="form-center">
-            {signUpText}
-            <Button buttonColor="blue" type="submit" buttonSize="btn--wide">
+          <div className="form-bottom-content">
+            <Button buttonColor="blue" type="submit" buttonSize="btn--form">
               Sign up!
             </Button>
+          </div>
+          <div className="form-bottom-content inset">
+            <p>
+              Dont have an account yet?
+              <Link to="/sign-in" className="form-link-small">
+                Sign up!
+              </Link>
+            </p>
+            {signUpText}
           </div>
         </form>
       </div>
