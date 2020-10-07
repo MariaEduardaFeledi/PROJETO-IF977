@@ -57,12 +57,13 @@ export default class ConfirmEmailForm extends Component {
     return (
       <div className="auth-form-container">
         <form onSubmit={this.confirmSignUp}>
+          <h3 class="form-label">Confirm email</h3>
           <h3 className="form-text">Email</h3>
           <input
             className="contact-email-input"
             id="confirm-email"
             type="email"
-            value={this.props.match.params.email || ""}
+            defaultValue={this.props.match.params.email || ""}
             required
             onChange={this.onConfirmationEmailChange.bind(this)}
           />
