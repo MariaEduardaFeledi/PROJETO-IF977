@@ -63,31 +63,31 @@ function Cards() {
               ]}
             />
           </ul>
+          <ul className="cards__items">
+            <TextCardItem
+              icon={FaBalanceScale}
+              color="#a670ff"
+              blob="images/blob5.svg"
+              heading="Bias"
+              paragraphs={[
+                "Biased data is a very real problem with machine learning and data science, especially in production",
+                "If one categories,  or manifolds of the data is under-represented in the dataset, it can cause problems in the real world",
+                "We plan to role the app out on a large scale, allowing everyone to contribute towards projects they care about, lessening the effect of bias",
+              ]}
+            />
+            <TextCardItem
+              icon={FaHeart}
+              color="#EDBC1D"
+              blob="images/blob6.svg"
+              heading="Data Quality"
+              paragraphs={[
+                "Today's machine learning algorithms are sensitive to the data they are given and struggle with noisy data, and performance suffers.",
+                "Hopefully, we will soon have algorithms more robust against noisy data, as a lot of real-world data is noisy.",
+                "But in the meantime, we use cross-validation, and other algorithms to ensure the quality of the data meets your criteria.",
+              ]}
+            />
+          </ul>
         </div>
-        <ul className="cards__items">
-          <TextCardItem
-            icon={FaBalanceScale}
-            color="#a670ff"
-            blob="images/blob5.svg"
-            heading="Bias"
-            paragraphs={[
-              "Biased data is a very real problem with machine learning and data science, especially in production",
-              "If one categories,  or manifolds of the data is under-represented in the dataset, it can cause problems in the real world",
-              "We plan to role the app out on a large scale, allowing everyone to contribute towards projects they care about, lessening the effect of bias",
-            ]}
-          />
-          <TextCardItem
-            icon={FaHeart}
-            color="#EDBC1D"
-            blob="images/blob6.svg"
-            heading="Data Quality"
-            paragraphs={[
-              "Today's machine learning algorithms are sensitive to the data they are given and struggle with noisy data, and performance suffers.",
-              "Hopefully, we will soon have algorithms more robust against noisy data, as a lot of real-world data is noisy.",
-              "But in the meantime, we use cross-validation, and other algorithms to ensure the quality of the data meets your criteria.",
-            ]}
-          />
-        </ul>
       </div>
     </div>
   );
