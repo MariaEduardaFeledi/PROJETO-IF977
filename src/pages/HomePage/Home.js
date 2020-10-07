@@ -17,7 +17,6 @@ class Home extends Component {
   render() {
     return (
       <>
-        <h1></h1>
         <HeroSection {...homeObjOne} />
         <HeroSection {...homeObjTwo} />
         <HeroSection {...homeObjThree} />
