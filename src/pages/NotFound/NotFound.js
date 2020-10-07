@@ -1,5 +1,5 @@
 import React from "react";
-import HeroSection from "../../HeroSection";
+import HeroSection from "../../components/HeroSection";
 import { homeObjOne } from "./Data";
 
 export default function Home() {

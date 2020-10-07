@@ -1,8 +1,8 @@
-import React from "react";
+import React, { Component } from "react";
 import { Button } from "./Button";
 import "./ContactForm.css";
 
-class ContactForm extends React.Component {
+class ContactForm extends Component {
   constructor(props) {
     super(props);
     this.state = {

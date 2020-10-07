@@ -1,10 +1,10 @@
 import "./MailChimpForm.css";
 import { Button } from "./Button";
-import React from "react";
+import React, { Component } from "react";
 import jsonp from "jsonp";
 import PropTypes from "prop-types";
 
-class Mailchimp extends React.Component {
+class Mailchimp extends Component {
   state = {};
 
   handleSubmit(evt) {
