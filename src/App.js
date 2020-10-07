@@ -5,6 +5,7 @@ import Home from "./pages/HomePage/Home";
 import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
 import HowItWorks from "./pages/HowItWorks/HowItWorks";
+import GettingStarted from "./pages/GettingStarted";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Footer from "./pages/Footer/Footer";
 import Navbar from "./pages/NavBar/Navbar";
@@ -50,12 +51,13 @@ class App extends Component {
           <Route path="/sign-up" component={SignUp} />
           <Route path="/reset-password" component={ResetPassword} />
           <Route path="/confirm-email/:email?" component={ConfirmEmail} />
-          <Route path="*" component={NotFound} />
+
           {this.state.authenticated ? (
-            <Route path="*" component={NotFound} />
+            <Route path="/get-started" component={GettingStarted} />
           ) : (
             <></>
           )}
+          <Route path="*" component={NotFound} />
         </Switch>
         <Footer />
       </Router>

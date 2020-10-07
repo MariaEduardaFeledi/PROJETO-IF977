@@ -6,6 +6,7 @@ import "./Navbar.css";
 import { MdFingerprint } from "react-icons/md";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
+import { Auth } from "aws-amplify";
 
 function Navbar(props) {
   const [click, setClick] = useState(false);
@@ -65,23 +66,43 @@ function Navbar(props) {
                 </Link>
               </li>
               {props.isAuthenticated ? (
-                <li className="nav-btn">
-                  {button ? (
-                    <Link to="/manage-pools" className="btn-link">
-                      <Button buttonStyle="btn--outline">Manage</Button>
-                    </Link>
-                  ) : (
-                    <Link to="/manage-pools" className="btn-link">
+                <>
+                  <li className="nav-btn">
+                    {button ? (
+                      <Link to="/get-started" className="btn-link">
+                        <Button buttonStyle="btn--outline">Get Started!</Button>
+                      </Link>
+                    ) : (
+                      <Link to="/get-started" className="btn-link">
+                        <Button
+                          buttonStyle="btn--outline"
+                          buttonSize="btn--mobile"
+                          onClick={closeMobileMenu}
+                        >
+                          Get Started!
+                        </Button>
+                      </Link>
+                    )}
+                  </li>
+                  <li className="nav-btn">
+                    {button ? (
+                      <Button
+                        buttonStyle="btn--outline"
+                        onClick={Auth.signOut()}
+                      >
+                        Log out
+                      </Button>
+                    ) : (
                       <Button
                         buttonStyle="btn--outline"
                         buttonSize="btn--mobile"
-                        onClick={closeMobileMenu}
+                        onClick={Auth.signOut()}
                       >
-                        Manage
+                        Log out
                       </Button>
-                    </Link>
-                  )}
-                </li>
+                    )}
+                  </li>
+                </>
               ) : (
                 <>
                   <li className="nav-btn">
