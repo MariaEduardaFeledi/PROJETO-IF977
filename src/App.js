@@ -17,22 +17,7 @@ import aws_exports from "./aws-exports";
 Amplify.configure(aws_exports);
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      signedUp: false,
-    };
-    this.handleSignup = this.handleSignup.bind(this);
-  }
-
-  handleSignup() {
-    this.setState({
-      signedUp: true,
-    });
-  }
-
   render() {
-    //const { signedUp } = this.state;
     return (
       <Router>
         <Navbar />
