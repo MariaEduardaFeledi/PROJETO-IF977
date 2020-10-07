@@ -52,11 +52,10 @@ class App extends Component {
           <Route path="/reset-password" component={ResetPassword} />
           <Route path="/confirm-email/:email?" component={ConfirmEmail} />
 
-          {this.state.authenticated ? (
+          {this.state.authenticated && (
             <Route path="/get-started" component={GettingStarted} />
-          ) : (
-            <></>
           )}
+
           <Route path="*" component={NotFound} />
         </Switch>
         <Footer />
