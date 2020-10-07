@@ -15,6 +15,8 @@ import SignUp from "./pages/Auth/SignUp";
 import ConfirmEmail from "./pages/Auth/ConfirmEmail";
 import ResetPassword from "./pages/Auth/ResetPassword";
 
+import ScrollToTop from "./components/ScrollToTop";
+
 import Amplify, { Auth } from "aws-amplify";
 import aws_exports from "./aws-exports";
 Amplify.configure(aws_exports);
@@ -41,24 +43,26 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Navbar isAuthenticated={this.state.authenticated} />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/contact" component={Contact} />
-          <Route path="/about" component={About} />
-          <Route path="/how-it-works" component={HowItWorks} />
-          <Route path="/sign-in" component={SignIn} />
-          <Route path="/sign-up" component={SignUp} />
-          <Route path="/reset-password" component={ResetPassword} />
-          <Route path="/confirm-email/:email?" component={ConfirmEmail} />
+        <ScrollToTop>
+          <Navbar isAuthenticated={this.state.authenticated} />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/contact" component={Contact} />
+            <Route path="/about" component={About} />
+            <Route path="/how-it-works" component={HowItWorks} />
+            <Route path="/sign-in" component={SignIn} />
+            <Route path="/sign-up" component={SignUp} />
+            <Route path="/reset-password" component={ResetPassword} />
+            <Route path="/confirm-email/:email?" component={ConfirmEmail} />
 
-          {this.state.authenticated && (
-            <Route path="/get-started" component={GettingStarted} />
-          )}
+            {this.state.authenticated && (
+              <Route path="/get-started" component={GettingStarted} />
+            )}
 
-          <Route path="*" component={NotFound} />
-        </Switch>
-        <Footer />
+            <Route path="*" component={NotFound} />
+          </Switch>
+          <Footer />
+        </ScrollToTop>
       </Router>
     );
   }
