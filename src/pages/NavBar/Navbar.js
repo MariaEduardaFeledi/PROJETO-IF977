@@ -9,6 +9,12 @@ import { IconContext } from "react-icons/lib";
 import { Auth } from "aws-amplify";
 
 function Navbar(props) {
+  const [authenticated, setAuthenticated] = useState(false);
+
+  useEffect(() => {
+    setAuthenticated(props.isAuthenticated);
+  }, [props.isAuthenticated]);
+
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
@@ -26,6 +32,11 @@ function Navbar(props) {
   useEffect(() => {
     showButton();
   }, []);
+
+  const signOut = () => {
+    Auth.signOut();
+    props.checkAuth();
+  };
 
   window.addEventListener("resize", showButton);
 
@@ -65,7 +76,7 @@ function Navbar(props) {
                   Contact
                 </Link>
               </li>
-              {props.isAuthenticated ? (
+              {authenticated ? (
                 <>
                   <li className="nav-btn">
                     {button ? (
@@ -86,17 +97,14 @@ function Navbar(props) {
                   </li>
                   <li className="nav-btn">
                     {button ? (
-                      <Button
-                        buttonStyle="btn--outline"
-                        onClick={Auth.signOut()}
-                      >
+                      <Button buttonStyle="btn--outline" onClick={signOut}>
                         Log out
                       </Button>
                     ) : (
                       <Button
                         buttonStyle="btn--outline"
                         buttonSize="btn--mobile"
-                        onClick={Auth.signOut()}
+                        onClick={signOut}
                       >
                         Log out
                       </Button>

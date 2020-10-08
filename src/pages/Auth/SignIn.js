@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { Auth } from "aws-amplify";
 import { Button } from "./../../components/Button";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import "./AuthStyle.css";
 
-export default class SignUpForm extends Component {
+class SignUpForm extends Component {
   constructor(props) {
     super(props);
 
@@ -25,6 +26,8 @@ export default class SignUpForm extends Component {
     })
       .then(() => {
         this.setState({ signInStatus: "success" });
+        this.props.checkAuth();
+        this.props.history.push("/get-started");
       })
       .catch((err) => {
         this.setState({ signInStatus: err.message.toString() });
@@ -55,7 +58,7 @@ export default class SignUpForm extends Component {
     return (
       <div className="auth-form-container">
         <form onSubmit={this.signIn}>
-          <h3 class="form-label">Sign in</h3>
+          <h3 className="form-label">Sign in</h3>
           <h3 className="form-text">Email</h3>
           <input
             className="contact-email-input"
@@ -101,3 +104,5 @@ export default class SignUpForm extends Component {
     );
   }
 }
+
+export default withRouter(SignUpForm);

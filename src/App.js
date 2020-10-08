@@ -28,9 +28,10 @@ class App extends Component {
       data: [],
       authenticated: false,
     };
+    this.checkAuth = this.checkAuth.bind(this);
   }
 
-  componentDidMount() {
+  checkAuth() {
     Auth.currentAuthenticatedUser()
       .then((val) => {
         this.setState({ authenticated: true, data: val });
@@ -40,25 +41,33 @@ class App extends Component {
       });
   }
 
+  componentDidMount() {
+    this.checkAuth();
+  }
+
   render() {
     return (
       <Router>
         <ScrollToTop>
-          <Navbar isAuthenticated={this.state.authenticated} />
+          <Navbar
+            isAuthenticated={this.state.authenticated}
+            checkAuth={this.checkAuth}
+          />
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/contact" component={Contact} />
             <Route path="/about" component={About} />
             <Route path="/how-it-works" component={HowItWorks} />
-            <Route path="/sign-in" component={SignIn} />
             <Route path="/sign-up" component={SignUp} />
+            <Route
+              path="/sign-in"
+              component={() => <SignIn checkAuth={this.checkAuth} />}
+            />
             <Route path="/reset-password" component={ResetPassword} />
             <Route path="/confirm-email/:email?" component={ConfirmEmail} />
-
             {this.state.authenticated && (
               <Route path="/get-started" component={GettingStarted} />
             )}
-
             <Route path="*" component={NotFound} />
           </Switch>
           <Footer />

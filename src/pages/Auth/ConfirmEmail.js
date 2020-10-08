@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { Auth } from "aws-amplify";
 import { Button } from "./../../components/Button";
+import { withRouter } from "react-router-dom";
 import "./AuthStyle.css";
 
-export default class ConfirmEmailForm extends Component {
+class ConfirmEmailForm extends Component {
   constructor(props) {
     super(props);
 
@@ -21,6 +22,7 @@ export default class ConfirmEmailForm extends Component {
     Auth.confirmSignUp(confirmationEmail, confirmationCode)
       .then(() => {
         this.setState({ signUpConfirmationStatus: "success" });
+        this.props.history.push("/sign-in");
       })
       .catch((err) => {
         this.setState({ signUpConfirmationStatus: err.message.toString() });
@@ -86,3 +88,5 @@ export default class ConfirmEmailForm extends Component {
     );
   }
 }
+
+export default withRouter(ConfirmEmailForm);
