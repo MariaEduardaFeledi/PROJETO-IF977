@@ -37,15 +37,18 @@ class App extends Component {
   checkAuth() {
     Auth.currentAuthenticatedUser()
       .then((val) => {
+        let a = (
+          val.signInUserSession.accessToken.payload["cognito:groups"] ?? []
+        ).includes("admin");
+
         this.setState({
           authenticated: true,
           data: val,
-          admin: val.signInUserSession.accessToken.payload[
-            "cognito:groups"
-          ].includes("admin"),
+          admin: a,
         });
       })
       .catch((err) => {
+        console.log("print");
         this.setState({ authenticated: false });
       });
   }
