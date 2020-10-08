@@ -6,6 +6,8 @@ import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
 import HowItWorks from "./pages/HowItWorks/HowItWorks";
 import GettingStarted from "./pages/GettingStarted";
+import CreatePool from "./pages/ManagePools/CreatePool";
+import ManagePools from "./pages/ManagePools";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Footer from "./pages/Footer/Footer";
 import Navbar from "./pages/NavBar/Navbar";
@@ -27,6 +29,7 @@ class App extends Component {
     this.state = {
       data: [],
       authenticated: false,
+      admin: false,
     };
     this.checkAuth = this.checkAuth.bind(this);
   }
@@ -34,7 +37,13 @@ class App extends Component {
   checkAuth() {
     Auth.currentAuthenticatedUser()
       .then((val) => {
-        this.setState({ authenticated: true, data: val });
+        this.setState({
+          authenticated: true,
+          data: val,
+          admin: val.signInUserSession.accessToken.payload[
+            "cognito:groups"
+          ].includes("admin"),
+        });
       })
       .catch((err) => {
         this.setState({ authenticated: false });
@@ -66,7 +75,16 @@ class App extends Component {
             <Route path="/reset-password" component={ResetPassword} />
             <Route path="/confirm-email/:email?" component={ConfirmEmail} />
             {this.state.authenticated && (
-              <Route path="/get-started" component={GettingStarted} />
+              <Route
+                path="/get-started"
+                component={() => <GettingStarted admin={this.state.admin} />}
+              />
+            )}
+            {this.state.admin && (
+              <Route path="/manage-pools" component={ManagePools} />
+            )}
+            {this.state.admin && (
+              <Route path="/create-pool" component={CreatePool} />
             )}
             <Route path="*" component={NotFound} />
           </Switch>

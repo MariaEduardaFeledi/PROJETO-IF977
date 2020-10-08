@@ -1,12 +1,23 @@
 import React from "react";
 import HeroSection from "../../components/HeroSection";
-import { homeObjOne, homeObjTwo } from "./Data";
+import { homeObjOne, homeObjTwo, homeObjThree } from "./Data";
+import { withRouter } from "react-router-dom";
 
-export default function GettingStarted() {
+function GettingStarted(props) {
   return (
     <>
-      <HeroSection {...homeObjOne} />
-      <HeroSection {...homeObjTwo} />
+      {props.admin ? (
+        <>
+          <HeroSection {...homeObjThree} />
+        </>
+      ) : (
+        <>
+          <HeroSection {...homeObjOne} />
+          <HeroSection {...homeObjTwo} />
+        </>
+      )}
     </>
   );
 }
+
+export default withRouter(GettingStarted);

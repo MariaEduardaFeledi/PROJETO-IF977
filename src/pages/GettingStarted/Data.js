@@ -12,7 +12,7 @@ export const homeObjOne = {
   buttonLocation: "/about",
   imgStart: "",
   img: "images/undraw_time_management_30iu.svg",
-  alt: "Person using phone",
+  alt: "Person on clock",
   form: true,
 };
 
@@ -28,6 +28,22 @@ export const homeObjTwo = {
   buttonLocation: "contact",
   imgStart: "start",
   img: "images/undraw_software_engineer_lvl5.svg",
-  alt: "Person with money",
+  alt: "Person using computer",
+  form: false,
+};
+
+export const homeObjThree = {
+  lightBg: true,
+  lightText: false,
+  lightTextDesc: false,
+  topLine: "",
+  headline: "Get familiar with the software",
+  description:
+    "Thank you for getting in contact, we have given you permissions to access, create and manage pools",
+  buttonLabel: "Manage pools",
+  buttonLocation: "manage-pools",
+  imgStart: "start",
+  img: "images/undraw_software_engineer_lvl5.svg",
+  alt: "Person using computer",
   form: false,
 };

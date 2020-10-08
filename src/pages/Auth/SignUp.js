@@ -109,7 +109,7 @@ export default class SignUpForm extends Component {
     return (
       <div className="auth-form-container">
         <form onSubmit={this.signUp}>
-          <h3 class="form-label">Sign up</h3>
+          <h3 className="form-label">Sign up</h3>
           <h3 className="form-text">Name</h3>
           <input
             className="contact-email-input"

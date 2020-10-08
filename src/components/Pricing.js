@@ -17,22 +17,24 @@ function Pricing() {
     "https://d30s7yzk2az89n.cloudfront.net/images/brands/b892272-1200w-326ppi.png",
     "https://d30s7yzk2az89n.cloudfront.net/images/brands/b082087-1200w-326ppi.png",
     "https://d30s7yzk2az89n.cloudfront.net/images/brands/b889842-1200w-326ppi.png",
-    "https://d30s7yzk2az89n.cloudfront.net/images/brands/b607661-1200w-326ppi.png"
+    "https://d30s7yzk2az89n.cloudfront.net/images/brands/b607661-1200w-326ppi.png",
   ];
 
   return (
     <div className="pricing__section">
-      <h1 className = "pricing__heading">We offer redemptions in hundreds of different gift cards</h1>
+      <h1 className="pricing__heading">
+        We offer redemptions in hundreds of different gift cards
+      </h1>
       <div className="slider">
         <div className="slide-track">
-          {images.map((image) => (
-            <div className='slide-container'>
-              <img src={image} alt="" className="slide"/>
+          {images.map((image, key) => (
+            <div className="slide-container" key={key}>
+              <img src={image} alt="" className="slide" />
             </div>
           ))}
-          {images.map((image) => (
-            <div className='slide-container'>
-              <img src={image} alt="" className="slide"/>
+          {images.map((image, key) => (
+            <div className="slide-container" key={key}>
+              <img src={image} alt="" className="slide" />
             </div>
           ))}
         </div>
