@@ -34,8 +34,9 @@ function Navbar(props) {
   }, []);
 
   const signOut = () => {
-    Auth.signOut();
-    props.checkAuth();
+    Auth.signOut()
+      .then(() => props.checkAuth())
+      .catch((err) => console.log(err));
   };
 
   window.addEventListener("resize", showButton);
