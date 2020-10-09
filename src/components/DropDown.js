@@ -42,13 +42,6 @@ export class DropDown extends Component {
                   style={{ color: "#6c63ff", fontWeight: 700 }}
                   className="dd-list-item"
                   key={key}
-                  onClick={() => {
-                    this.setState({
-                      headerTitle: item,
-                      itemID: key,
-                      itemSelected: true,
-                    });
-                  }}
                 >
                   {item} <FaCheck />
                 </li>
@@ -62,6 +55,7 @@ export class DropDown extends Component {
                       itemID: key,
                       itemSelected: true,
                     });
+                    this.props.output(item);
                   }}
                 >
                   {item}

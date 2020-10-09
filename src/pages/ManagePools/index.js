@@ -4,10 +4,62 @@ import "./ManagePools.css";
 import { FaPlus } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
 import { Link } from "react-router-dom";
+import { API, graphqlOperation } from "aws-amplify";
+
+export const listPools = /* GraphQL */ `
+  query ListPools(
+    $filter: ModelPoolFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listPools(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        title
+        description
+        tnc
+        image
+        requiredtrust
+        catagory {
+          id
+          title
+          catagory
+          createdOn
+          updatedOn
+        }
+        samples {
+          nextToken
+        }
+        createdOn
+        updatedOn
+      }
+      nextToken
+    }
+  }
+`;
 
 class ManagePools extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      result: [],
+    };
+    this.GetPools = this.GetPools.bind(this);
+  }
+
+  GetPools() {
+    API.graphql(graphqlOperation(listPools))
+
+      .then((val) => {
+        this.setState({ result: val.data.listPools.items });
+        console.log(val.data.listPools.items);
+      })
+      .catch((err) => console.log(err));
+  }
+
   componentDidMount() {
-    console.log("Load tiles here!");
+    this.GetPools();
   }
 
   render() {
@@ -16,18 +68,15 @@ class ManagePools extends Component {
         <IconContext.Provider value={{ color: "#fff" }}>
           <div className="cards__screen">
             <ul className="cards__manager">
-              <ImageCardItem
-                src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/pretty-place-sunrise-kevin-senter.jpg"
-                text="Travel through the Islands of Bali in a Private Cruise"
-                label="Luxury"
-                path="/services"
-              />
-              <ImageCardItem
-                src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/pretty-place-sunrise-kevin-senter.jpg"
-                text="Travel through the Islands of Bali in a Private Cruise"
-                label="Text to text init"
-                path="/services"
-              />
+              {this.state.result.map((item, key) => (
+                <ImageCardItem
+                  src={item.image}
+                  text={item.title}
+                  label="Video comparison"
+                  path="/services"
+                  key={key}
+                />
+              ))}
               <li className="add-pool-li">
                 <Link to="/create-pool" className="btn-link">
                   <button className="add-pool-button">
