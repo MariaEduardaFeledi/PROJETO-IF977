@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./DropDown.css";
 import { FaAngleUp, FaAngleDown, FaCheck } from "react-icons/fa";
-import { IconContext } from "react-icons/lib";
 
 export class DropDown extends Component {
   constructor(props) {

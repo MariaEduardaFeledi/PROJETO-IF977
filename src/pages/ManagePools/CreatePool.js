@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Auth } from "aws-amplify";
 import { Button } from "./../../components/Button";
 import { DropDown } from "./../../components/DropDown";
 import { Link, withRouter } from "react-router-dom";
@@ -24,19 +23,6 @@ class CreateForm extends Component {
   }
 
   render() {
-    let signUpText;
-    if (this.state.signInStatus === "") {
-      signUpText = <p></p>;
-    } else if (this.state.signInStatus === "loading") {
-      signUpText = <p style={{ color: "#009432" }}>Signing in...</p>;
-    } else if (this.state.signInStatus === "success") {
-      signUpText = <p style={{ color: "#009432" }}>Signed in!</p>;
-    } else {
-      signUpText = (
-        <p style={{ color: "#ED4C67" }}>{this.state.signInStatus}</p>
-      );
-    }
-
     return (
       <div className="auth-form-container">
         <form onSubmit={this.signIn}>
