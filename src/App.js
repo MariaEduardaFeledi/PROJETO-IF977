@@ -6,8 +6,7 @@ import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
 import HowItWorks from "./pages/HowItWorks/HowItWorks";
 import GettingStarted from "./pages/GettingStarted";
-import CreatePool from "./pages/ManagePools/CreatePool";
-import ManagePools from "./pages/ManagePools";
+import Admin from "./pages/ManagePools";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Footer from "./pages/Footer/Footer";
 import Navbar from "./pages/NavBar/Navbar";
@@ -83,12 +82,7 @@ class App extends Component {
                 component={() => <GettingStarted admin={this.state.admin} />}
               />
             )}
-            {this.state.admin && (
-              <Route path="/manage-pools" component={ManagePools} />
-            )}
-            {this.state.admin && (
-              <Route path="/create-pool" component={CreatePool} />
-            )}
+            {this.state.admin && <Route path="/Admin" component={Admin} />}
             <Route path="*" component={NotFound} />
           </Switch>
           <Footer />

@@ -10,6 +10,6 @@ export const homeObjOne = {
   buttonLocation: "/",
   imgStart: "",
   img: "images/undraw_Taken_if77.svg",
-  alt: "Person using phone",
+  alt: "Ghost under UFO",
   form: false,
 };

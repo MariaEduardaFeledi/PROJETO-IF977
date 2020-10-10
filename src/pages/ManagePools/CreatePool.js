@@ -79,7 +79,7 @@ class CreateForm extends Component {
       TNC: "",
       dd: "",
       fruit: ["apple", "orange", "strawberry", "grape"],
-      slider: 0,
+      slider: 0.5,
       Status: "",
     };
     this.onDropDownChange = this.onDropDownChange.bind(this);
@@ -106,8 +106,11 @@ class CreateForm extends Component {
         },
       })
     )
-      .then((val) => console.log(val))
-      .catch((err) => console.log(err));
+      .then((val) => {
+        this.setState({ Status: "success" });
+        this.props.history.push("/manage-pools");
+      })
+      .catch((err) => this.setState({ Status: err.message.toString() }));
   }
 
   onNameChange(event) {
@@ -124,10 +127,21 @@ class CreateForm extends Component {
     this.setState({ dd: event });
   }
   onInitialSliderChange(event) {
-    this.setState({ password: event.target.value });
+    this.setState({ slider: event.target.value });
   }
 
   render() {
+    let confirmation;
+    if (this.state.Status === "") {
+      confirmation = <p></p>;
+    } else if (this.state.Status === "loading") {
+      confirmation = <p style={{ color: "#009432" }}>Creating Pool..</p>;
+    } else if (this.state.Status === "success") {
+      confirmation = <p style={{ color: "#009432" }}>Pool Created</p>;
+    } else {
+      confirmation = <p style={{ color: "#ED4C67" }}>{this.state.Status}</p>;
+    }
+
     return (
       <div className="auth-form-container">
         <form onSubmit={this.onSubmit}>
@@ -201,7 +215,7 @@ class CreateForm extends Component {
           <div className="form-bottom-content">
             <input
               type="range"
-              onChange={this.onTNCChange.bind(this)}
+              onChange={this.onInitialSliderChange.bind(this)}
               min="0"
               max="1"
               step="0.001"
@@ -212,6 +226,7 @@ class CreateForm extends Component {
             </h3>
           </div>
           <div className="form-bottom-content">
+            {confirmation}
             <Button
               buttonColor="blue"
               type="submit"
