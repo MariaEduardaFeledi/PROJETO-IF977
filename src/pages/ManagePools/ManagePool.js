@@ -70,7 +70,7 @@ class ManagePools extends Component {
               </div>
             )}
             <li className="add-pool-li">
-              <Link to="/admin/create-pool" className="btn-link">
+              <Link to="/manage-pools/create-pool" className="btn-link">
                 <button className="add-pool-button">
                   <FaPlus className="add-pool-icon" />
                 </button>

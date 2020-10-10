@@ -16,10 +16,15 @@ export const createPool = /* GraphQL */ `
       tnc
       image
       requiredtrust
+      status
+      catagoryID
       catagory {
         id
         title
         catagory
+        xtype
+        ytype
+        status
         createdOn
         updatedOn
       }
@@ -37,8 +42,10 @@ export const createPool = /* GraphQL */ `
         }
         nextToken
       }
-      createdOn
+      createdAt
       updatedOn
+      owner
+      createdOn
     }
   }
 `;
@@ -103,6 +110,7 @@ class CreateForm extends Component {
           image: "https://garnerdefaultbackgrounds.s3.eu-west-2.amazonaws.com/"
             .concat(bg)
             .concat(".svg"),
+          catagory: "UNPUBLISHED",
         },
       })
     )
@@ -110,7 +118,9 @@ class CreateForm extends Component {
         this.setState({ Status: "success" });
         this.props.history.push("/manage-pools");
       })
-      .catch((err) => this.setState({ Status: err.message.toString() }));
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   onNameChange(event) {

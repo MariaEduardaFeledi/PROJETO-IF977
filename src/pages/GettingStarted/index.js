@@ -6,7 +6,7 @@ import { withRouter } from "react-router-dom";
 function GettingStarted(props) {
   return (
     <>
-      {props.admin ? (
+      {props.gatherer ? (
         <>
           <HeroSection {...homeObjThree} />
         </>

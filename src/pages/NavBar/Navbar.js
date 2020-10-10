@@ -10,10 +10,14 @@ import { Auth } from "aws-amplify";
 
 function Navbar(props) {
   const [authenticated, setAuthenticated] = useState(false);
+  const [gatherer, setGatherer] = useState(false);
+  const [admin, setAdmin] = useState(false);
 
   useEffect(() => {
     setAuthenticated(props.isAuthenticated);
-  }, [props.isAuthenticated]);
+    setGatherer(props.gatherer);
+    setAdmin(props.admin);
+  }, [props.isAuthenticated, props.gatherer, props.admin]);
 
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
@@ -79,23 +83,67 @@ function Navbar(props) {
               </li>
               {authenticated ? (
                 <>
-                  <li className="nav-btn">
-                    {button ? (
-                      <Link to="/get-started" className="btn-link">
-                        <Button buttonStyle="btn--outline">Get Started!</Button>
-                      </Link>
-                    ) : (
-                      <Link to="/get-started" className="btn-link">
-                        <Button
-                          buttonStyle="btn--outline"
-                          buttonSize="btn--mobile"
-                          onClick={closeMobileMenu}
-                        >
-                          Get Started!
-                        </Button>
-                      </Link>
-                    )}
-                  </li>
+                  {gatherer && (
+                    <li className="nav-btn">
+                      {button ? (
+                        <Link to="/manage-pools" className="btn-link">
+                          <Button buttonStyle="btn--outline">
+                            Manage Pools
+                          </Button>
+                        </Link>
+                      ) : (
+                        <Link to="/manage-pools" className="btn-link">
+                          <Button
+                            buttonStyle="btn--outline"
+                            buttonSize="btn--mobile"
+                            onClick={closeMobileMenu}
+                          >
+                            Manage Pools
+                          </Button>
+                        </Link>
+                      )}
+                    </li>
+                  )}
+                  {admin && (
+                    <li className="nav-btn">
+                      {button ? (
+                        <Link to="/admin" className="btn-link">
+                          <Button buttonStyle="btn--outline">Admin</Button>
+                        </Link>
+                      ) : (
+                        <Link to="/admin" className="btn-link">
+                          <Button
+                            buttonStyle="btn--outline"
+                            buttonSize="btn--mobile"
+                            onClick={closeMobileMenu}
+                          >
+                            Admin
+                          </Button>
+                        </Link>
+                      )}
+                    </li>
+                  )}
+                  {!admin && !gatherer && (
+                    <li className="nav-btn">
+                      {button ? (
+                        <Link to="/get-started" className="btn-link">
+                          <Button buttonStyle="btn--outline">
+                            Get Started!
+                          </Button>
+                        </Link>
+                      ) : (
+                        <Link to="/get-started" className="btn-link">
+                          <Button
+                            buttonStyle="btn--outline"
+                            buttonSize="btn--mobile"
+                            onClick={closeMobileMenu}
+                          >
+                            Get Started!
+                          </Button>
+                        </Link>
+                      )}
+                    </li>
+                  )}
                   <li className="nav-btn">
                     {button ? (
                       <Button buttonStyle="btn--outline" onClick={signOut}>

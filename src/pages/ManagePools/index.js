@@ -4,19 +4,22 @@ import ManagePools from "./ManagePool.js";
 import CreatePool from "./CreatePool.js";
 import Pool from "./ModifyPool.js";
 import "./ManagePools.css";
+import ScrollToTop from "./../../components/ScrollToTop";
 
-class Admin extends Component {
+class ManagePoolRoute extends Component {
   render() {
     return (
       <Router>
-        <Switch>
-          <Route exact path="/admin" component={ManagePools} />
-          <Route path="/admin/create-pool" component={CreatePool} />
-          <Route path="/admin/pool/:poolId?" component={Pool} />
-        </Switch>
+        <ScrollToTop>
+          <Switch>
+            <Route exact path="/manage-pools" component={ManagePools} />
+            <Route path="/manage-pools/create-pool" component={CreatePool} />
+            <Route path="/manage-pools/pool/:poolId?" component={Pool} />
+          </Switch>
+        </ScrollToTop>
       </Router>
     );
   }
 }
 
-export default Admin;
+export default ManagePoolRoute;

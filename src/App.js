@@ -6,7 +6,8 @@ import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
 import HowItWorks from "./pages/HowItWorks/HowItWorks";
 import GettingStarted from "./pages/GettingStarted";
-import Admin from "./pages/ManagePools";
+import ManagePoolRoute from "./pages/ManagePools";
+import AdminRoute from "./pages/Admin";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Footer from "./pages/Footer/Footer";
 import Navbar from "./pages/NavBar/Navbar";
@@ -29,6 +30,7 @@ class App extends Component {
       data: [],
       authenticated: false,
       admin: false,
+      gatherer: false,
     };
     this.checkAuth = this.checkAuth.bind(this);
   }
@@ -40,10 +42,15 @@ class App extends Component {
           val.signInUserSession.accessToken.payload["cognito:groups"] ?? []
         ).includes("admin");
 
+        let g = (
+          val.signInUserSession.accessToken.payload["cognito:groups"] ?? []
+        ).includes("gatherer");
+
         this.setState({
           authenticated: true,
           data: val,
           admin: a,
+          gatherer: g,
         });
       })
       .catch((err) => {
@@ -63,6 +70,8 @@ class App extends Component {
           <Navbar
             isAuthenticated={this.state.authenticated}
             checkAuth={this.checkAuth}
+            gatherer={this.state.gatherer}
+            admin={this.state.admin}
           />
           <Switch>
             <Route exact path="/" component={Home} />
@@ -79,10 +88,15 @@ class App extends Component {
             {this.state.authenticated && (
               <Route
                 path="/get-started"
-                component={() => <GettingStarted admin={this.state.admin} />}
+                component={() => (
+                  <GettingStarted gatherer={this.state.gatherer} />
+                )}
               />
             )}
-            {this.state.admin && <Route path="/Admin" component={Admin} />}
+            {this.state.gatherer && (
+              <Route path="/Manage-pools" component={ManagePoolRoute} />
+            )}
+            {this.state.admin && <Route path="/admin" component={AdminRoute} />}
             <Route path="*" component={NotFound} />
           </Switch>
           <Footer />
