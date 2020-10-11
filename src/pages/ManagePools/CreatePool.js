@@ -50,6 +50,22 @@ export const createPool = /* GraphQL */ `
   }
 `;
 
+const listCatagorys = /* GraphQL */ `
+  query ListCatagorys(
+    $filter: ModelCatagoryFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listCatagorys(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        title
+      }
+      nextToken
+    }
+  }
+`;
+
 const defaultBackgrounds = [
   "Aare",
   "Clarence",
@@ -82,45 +98,79 @@ class CreateForm extends Component {
     this.state = {
       name: "",
       description: "",
-      catagory: "",
       TNC: "",
-      dd: "",
-      fruit: ["apple", "orange", "strawberry", "grape"],
+      dd: -1,
+      catagoryIds: [],
+      catagoryTitles: [],
       slider: 0.5,
       Status: "",
     };
     this.onDropDownChange = this.onDropDownChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.getCatagories = this.getCatagories.bind(this);
+  }
+
+  getCatagories() {
+    const filter = {
+      status: { eq: "PUBLISHED" },
+    };
+
+    API.graphql(graphqlOperation(listCatagorys), {
+      filter,
+    })
+
+      .then((val) => {
+        this.setState({
+          catagoryIds: val.data.listCatagorys.items.map(
+            (catagory) => catagory.id
+          ),
+          catagoryTitles: val.data.listCatagorys.items.map(
+            (catagory) => catagory.title
+          ),
+        });
+        console.log(val.data.listCatagorys.items);
+      })
+      .catch((err) => console.log(err));
+  }
+
+  componentDidMount() {
+    this.getCatagories();
   }
 
   onSubmit(e) {
     e.preventDefault();
     this.setState({ signInStatus: "loading" });
-    const { name, description, TNC, slider } = this.state;
+    const { name, description, TNC, slider, catagoryIds, dd } = this.state;
     const bg =
       defaultBackgrounds[Math.floor(Math.random() * defaultBackgrounds.length)];
 
-    API.graphql(
-      graphqlOperation(createPool, {
-        input: {
-          title: name,
-          description: description,
-          tnc: TNC,
-          requiredtrust: slider,
-          image: "https://garnerdefaultbackgrounds.s3.eu-west-2.amazonaws.com/"
-            .concat(bg)
-            .concat(".svg"),
-          catagory: "UNPUBLISHED",
-        },
-      })
-    )
-      .then((val) => {
-        this.setState({ Status: "success" });
-        this.props.history.push("/manage-pools");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    if (dd !== -1) {
+      API.graphql(
+        graphqlOperation(createPool, {
+          input: {
+            title: name,
+            description: description,
+            tnc: TNC,
+            requiredtrust: slider,
+            image: "https://garnerdefaultbackgrounds.s3.eu-west-2.amazonaws.com/"
+              .concat(bg)
+              .concat(".svg"),
+            status: "UNPUBLISHED",
+            catagoryID: catagoryIds[dd],
+          },
+        })
+      )
+        .then((val) => {
+          this.setState({ Status: "success" });
+          this.props.history.push("/manage-pools");
+        })
+        .catch((err) => {
+          console.log(err);
+          this.setState({ Status: err });
+        });
+    } else {
+      this.setState({ Status: "Please select a catagory" });
+    }
   }
 
   onNameChange(event) {
@@ -209,8 +259,8 @@ class CreateForm extends Component {
             </span>
           </h3>
           <DropDown
-            title="Select fruit"
-            list={this.state.fruit}
+            title="Select Catagory"
+            list={this.state.catagoryTitles}
             output={this.onDropDownChange}
             on
           />

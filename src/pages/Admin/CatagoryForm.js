@@ -1,27 +1,8 @@
 import React, { Component } from "react";
-import { FaTrashAlt } from "react-icons/fa";
 import { API, graphqlOperation } from "aws-amplify";
 import { Button } from "./../../components/Button";
 import "./../ManagePools/ManagePools.css";
 import "./Admin.css";
-
-const deleteCatagory = /* GraphQL */ `
-  mutation DeleteCatagory(
-    $input: DeleteCatagoryInput!
-    $condition: ModelCatagoryConditionInput
-  ) {
-    deleteCatagory(input: $input, condition: $condition) {
-      id
-      title
-      catagory
-      xtype
-      ytype
-      status
-      createdOn
-      updatedOn
-    }
-  }
-`;
 
 const updateCatagory = /* GraphQL */ `
   mutation UpdateCatagory(
@@ -52,28 +33,17 @@ export default class CatagoryForm extends Component {
       xtype: this.props.item.xtype,
       ytype: this.props.item.ytype,
       status: this.props.item.status,
+      changed: false,
+      error: "",
     };
     this.PushCatagoryUpdate = this.PushCatagoryUpdate.bind(this);
-  }
-  deletecat() {
-    const { id } = this.state.data;
-    console.log(id);
-    API.graphql(
-      graphqlOperation(deleteCatagory, {
-        input: {
-          id: id,
-        },
-      })
-    )
-      .then((val) => {
-        console.log(val);
-      })
-      .catch((err) => console.log(err));
   }
 
   PushCatagoryUpdate(e) {
     e.preventDefault();
+
     const { id, title, catagory, xtype, ytype, status } = this.state;
+    console.log(title);
     API.graphql(
       graphqlOperation(updateCatagory, {
         input: {
@@ -88,36 +58,40 @@ export default class CatagoryForm extends Component {
     )
       .then((val) => {
         console.log(val);
+        this.setState({ error: "", changed: false });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        this.setState({ error: err.errors[0].message, changed: true });
+      });
   }
 
   onTitleChange(event) {
-    this.setState({ email: event.target.value });
+    this.setState({ title: event.target.value, changed: true });
   }
 
   onCatagoryChange(event) {
-    this.setState({ email: event.target.value });
+    this.setState({ catagory: event.target.value, changed: true });
   }
 
   onXTypeChange(event) {
-    this.setState({ email: event.target.value });
+    this.setState({ xtype: event.target.value, changed: true });
   }
 
   onYTypeChange(event) {
-    this.setState({ email: event.target.value });
+    this.setState({ ytype: event.target.value, changed: true });
   }
 
   onStatusChange(event) {
-    this.setState({ email: event.target.value });
+    this.setState({ status: event.target.value, changed: true });
   }
 
   render() {
     return (
       <li className="catagory_input_form">
-        <button onClick={() => this.deletecat()}>
-          <FaTrashAlt />
-        </button>
+        {this.state.changed && (
+          <p style={{ color: "#ED4C67" }}>Unsaved Changes!</p>
+        )}
         <form onSubmit={this.PushCatagoryUpdate}>
           <div className="form-bottom-content">
             <h3 className="form-label">{this.state.title}</h3>
@@ -165,6 +139,7 @@ export default class CatagoryForm extends Component {
           <Button buttonColor="blue" type="submit">
             Save Changes
           </Button>
+          <p style={{ color: "#ED4C67" }}>{this.state.error}</p>
         </form>
       </li>
     );

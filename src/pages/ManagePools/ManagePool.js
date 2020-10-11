@@ -16,6 +16,9 @@ export const listPools = /* GraphQL */ `
         id
         title
         image
+        catagory {
+          title
+        }
       }
       nextToken
     }
@@ -55,7 +58,7 @@ class ManagePools extends Component {
               <ImageCardItem
                 src={item.image}
                 text={item.title}
-                label="Video comparison"
+                label={item.catagory.title}
                 path={"/admin/pool/".concat(item.id)}
                 key={key}
               />

@@ -55,7 +55,7 @@ export class DropDown extends Component {
                       itemID: key,
                       itemSelected: true,
                     });
-                    this.props.output(item);
+                    this.props.output(key);
                   }}
                 >
                   {item}
