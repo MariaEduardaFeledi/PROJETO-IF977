@@ -13,10 +13,16 @@ export const getPool = /* GraphQL */ `
       tnc
       image
       requiredtrust
+      status
+      catagoryID
       catagory {
         id
         title
         catagory
+        xtype
+        ytype
+        status
+        owner
         createdOn
         updatedOn
       }
@@ -34,8 +40,10 @@ export const getPool = /* GraphQL */ `
         }
         nextToken
       }
-      createdOn
+      createdAt
       updatedOn
+      owner
+      createdOn
     }
   }
 `;
@@ -79,7 +87,15 @@ class ModifyPool extends Component {
     } else if (this.state.fetch === false) {
       return <HeroSection {...homeObjOne} />;
     }
-    return <div></div>;
+    return (
+      <div>
+        <div className="side_nav">
+          <div>hello</div>
+          <div>hello</div>
+          <div>hello</div>
+        </div>
+      </div>
+    );
   }
 }
 

@@ -59,7 +59,7 @@ class ManagePools extends Component {
                 src={item.image}
                 text={item.title}
                 label={item.catagory.title}
-                path={"/admin/pool/".concat(item.id)}
+                path={"/manage-pools/pool/".concat(item.id)}
                 key={key}
               />
             ))}
