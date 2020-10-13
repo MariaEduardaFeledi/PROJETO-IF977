@@ -106,7 +106,7 @@ class CreateForm extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    this.setState({ signInStatus: "loading" });
+    this.setState({ Status: "loading" });
     const { name, description, TNC, slider, catagoryIds, dd } = this.state;
     const bg =
       defaultBackgrounds[Math.floor(Math.random() * defaultBackgrounds.length)];

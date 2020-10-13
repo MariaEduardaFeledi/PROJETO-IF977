@@ -52,6 +52,7 @@ function Footer() {
               to="/"
               target="_blank"
               aria-label="Twitter"
+              rel="noreferrer"
             >
               <FaTwitter />
             </Link>
@@ -60,6 +61,7 @@ function Footer() {
               to={"//www.linkedin.com/in/kip-parker-773b00182/"}
               target="_blank"
               aria-label="LinkedIn"
+              rel="noreferrer"
             >
               <FaLinkedin />
             </Link>
