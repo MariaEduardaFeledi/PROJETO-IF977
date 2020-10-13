@@ -6,7 +6,7 @@ export const homeObjOne = {
   lightTextDesc: true,
   topLine: "",
   headline:
-    "We provide an ethical crowdsourcing platform to gather human-centric data.",
+    "Increasing the reach of AI by putting data crowdsourcing at the heart of the problem.",
   description: "",
   buttonLabel: "Introduction",
   buttonLocation: "/about",

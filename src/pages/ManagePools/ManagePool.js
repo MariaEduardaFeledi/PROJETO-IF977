@@ -3,7 +3,7 @@ import ImageCardItem from "./../../components/ImageCardItem";
 import "./ManagePools.css";
 import { FaPlus, FaHandPointRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { API, graphqlOperation } from "aws-amplify";
+import { API, graphqlOperation, Auth } from "aws-amplify";
 
 export const listPools = /* GraphQL */ `
   query ListPools(
@@ -15,7 +15,12 @@ export const listPools = /* GraphQL */ `
       items {
         id
         title
-        image
+        image {
+          bucket
+          region
+          key
+        }
+        status
         catagory {
           title
         }
@@ -36,11 +41,21 @@ class ManagePools extends Component {
   }
 
   GetPools() {
-    API.graphql(graphqlOperation(listPools))
-
+    Auth.currentAuthenticatedUser()
       .then((val) => {
-        this.setState({ result: val.data.listPools.items });
-        console.log(val.data.listPools.items);
+        API.graphql(
+          graphqlOperation(listPools, {
+            filter: { owner: { eq: val.username } },
+          })
+        )
+
+          .then((val) => {
+            this.setState({ result: val.data.listPools.items });
+          })
+          .catch((err) => {
+            console.log(err);
+            this.setState({ result: err });
+          });
       })
       .catch((err) => console.log(err));
   }
@@ -56,7 +71,7 @@ class ManagePools extends Component {
           <ul className="cards__manager">
             {this.state.result.map((item, key) => (
               <ImageCardItem
-                src={item.image}
+                src={item.image.key}
                 text={item.title}
                 label={item.catagory.title}
                 path={"/manage-pools/pool/".concat(item.id)}

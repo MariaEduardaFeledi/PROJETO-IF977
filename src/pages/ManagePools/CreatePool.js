@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { Button } from "./../../components/Button";
 import { DropDown } from "./../../components/DropDown";
 import { Link, withRouter } from "react-router-dom";
-import { API, graphqlOperation } from "aws-amplify";
+import { API, graphqlOperation, Auth } from "aws-amplify";
+import aws_exports from "./../../aws-exports";
 
 export const createPool = /* GraphQL */ `
   mutation CreatePool(
@@ -11,41 +12,6 @@ export const createPool = /* GraphQL */ `
   ) {
     createPool(input: $input, condition: $condition) {
       id
-      title
-      description
-      tnc
-      image
-      requiredtrust
-      status
-      catagoryID
-      catagory {
-        id
-        title
-        catagory
-        xtype
-        ytype
-        status
-        createdOn
-        updatedOn
-      }
-      samples {
-        items {
-          poolID
-          id
-          x
-          y
-          labeledby
-          verififiedby
-          modifiedOn
-          createdOn
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedOn
-      owner
-      createdOn
     }
   }
 `;
@@ -67,28 +33,28 @@ const listCatagorys = /* GraphQL */ `
 `;
 
 const defaultBackgrounds = [
-  "Aare",
-  "Clarence",
-  "Doubs",
-  "Hinterrhein",
-  "Inn",
-  "Kander",
-  "Linth",
-  "Mataura",
-  "Mohaka",
-  "Ngaruroro",
-  "Oreti",
-  "Rangitikei",
-  "Reuss",
-  "Rhône",
-  "Taieri",
-  "Thur",
-  "Vorderrhein",
-  "Waiau",
-  "Waihou",
-  "Waimakariri",
-  "Wairau",
-  "Whangaehu",
+  "Aare.svg",
+  "Clarence.svg",
+  "Doubs.svg",
+  "Hinterrhein.svg",
+  "Inn.svg",
+  "Kander.svg",
+  "Linth.svg",
+  "Mataura.svg",
+  "Mohaka.svg",
+  "Ngaruroro.svg",
+  "Oreti.svg",
+  "Rangitikei.svg",
+  "Reuss.svg",
+  "Rhône.svg",
+  "Taieri.svg",
+  "Thur.svg",
+  "Vorderrhein.svg",
+  "Waiau.svg",
+  "Waihou.svg",
+  "Waimakariri.svg",
+  "Wairau.svg",
+  "Whangaehu.svg",
 ];
 
 class CreateForm extends Component {
@@ -115,9 +81,11 @@ class CreateForm extends Component {
       status: { eq: "PUBLISHED" },
     };
 
-    API.graphql(graphqlOperation(listCatagorys), {
-      filter,
-    })
+    API.graphql(
+      graphqlOperation(listCatagorys, {
+        filter: filter,
+      })
+    )
 
       .then((val) => {
         this.setState({
@@ -128,7 +96,6 @@ class CreateForm extends Component {
             (catagory) => catagory.title
           ),
         });
-        console.log(val.data.listCatagorys.items);
       })
       .catch((err) => console.log(err));
   }
@@ -144,30 +111,39 @@ class CreateForm extends Component {
     const bg =
       defaultBackgrounds[Math.floor(Math.random() * defaultBackgrounds.length)];
 
+    const image = {
+      bucket: aws_exports.aws_user_files_s3_bucket,
+      region: aws_exports.aws_user_files_s3_bucket_region,
+      key: bg,
+    };
+
     if (dd !== -1) {
-      API.graphql(
-        graphqlOperation(createPool, {
-          input: {
-            title: name,
-            description: description,
-            tnc: TNC,
-            requiredtrust: slider,
-            image: "https://garnerdefaultbackgrounds.s3.eu-west-2.amazonaws.com/"
-              .concat(bg)
-              .concat(".svg"),
-            status: "UNPUBLISHED",
-            catagoryID: catagoryIds[dd],
-          },
-        })
-      )
+      Auth.currentAuthenticatedUser()
         .then((val) => {
-          this.setState({ Status: "success" });
-          this.props.history.push("/manage-pools");
+          API.graphql(
+            graphqlOperation(createPool, {
+              input: {
+                title: name,
+                description: description,
+                tnc: TNC,
+                requiredtrust: slider,
+                image: image,
+                status: "UNPUBLISHED",
+                catagoryID: catagoryIds[dd],
+                owner: val.username,
+              },
+            })
+          )
+            .then((val) => {
+              this.setState({ Status: "success" });
+              this.props.history.push("/manage-pools");
+            })
+            .catch((err) => {
+              console.log(err);
+              this.setState({ Status: err.message });
+            });
         })
-        .catch((err) => {
-          console.log(err);
-          this.setState({ Status: err });
-        });
+        .catch((err) => console.log(err));
     } else {
       this.setState({ Status: "Please select a catagory" });
     }
@@ -183,7 +159,6 @@ class CreateForm extends Component {
     this.setState({ TNC: event.target.value });
   }
   onDropDownChange(event) {
-    console.log(event);
     this.setState({ dd: event });
   }
   onInitialSliderChange(event) {
@@ -287,12 +262,7 @@ class CreateForm extends Component {
           </div>
           <div className="form-bottom-content">
             {confirmation}
-            <Button
-              buttonColor="blue"
-              type="submit"
-              buttonSize="btn--form"
-              onClick={() => {}}
-            >
+            <Button buttonColor="blue" type="submit" buttonSize="btn--form">
               Save!
             </Button>
           </div>
