@@ -1,17 +1,29 @@
-//import React from "react";
+import React from "react";
+import Typer from "../../components/Typer";
 
 export const homeObjOne = {
   lightBg: false,
   lightText: true,
   lightTextDesc: true,
   topLine: "",
-  headline:
-    "Increasing the reach of AI by putting data crowdsourcing at the heart of the problem.",
+  headline: (
+    <Typer
+      dataText={[
+        "Labeling data with crowdsourcing",
+        "Building bespoke datasets",
+        "Putting humans in the loop",
+        "Opening doors to new ideas",
+        "Enabling exciting Discoveries",
+        "Tackling biased data",
+        "Learning from human preferences",
+      ]}
+    />
+  ),
   description: "",
   buttonLabel: "Introduction",
   buttonLocation: "/about",
   imgStart: "",
-  img: "images/undraw_insert_08ir.svg",
+  img: "absurd/07.png",
   alt: "Person using phone",
   form: false,
 };
@@ -27,7 +39,7 @@ export const homeObjTwo = {
   buttonLabel: "Join us",
   buttonLocation: "",
   imgStart: "start",
-  img: "images/undraw_make_it_rain_iwk4.svg",
+  img: "absurd/08.png",
   alt: "Person with money",
   form: true,
 };
@@ -43,7 +55,7 @@ export const homeObjThree = {
   buttonLabel: "Learn More about us",
   buttonLocation: "/about",
   imgStart: "",
-  img: "images/undraw_connected_world_wuay.svg",
+  img: "absurd/06.png",
   alt: "Vault",
   form: false,
 };

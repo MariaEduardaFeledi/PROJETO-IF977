@@ -9,7 +9,7 @@ export const homeObjOne = {
   buttonLabel: "Take me home!",
   buttonLocation: "/",
   imgStart: "",
-  img: "images/undraw_Taken_if77.svg",
+  img: "absurd/12.png",
   alt: "Ghost under UFO",
   form: false,
 };

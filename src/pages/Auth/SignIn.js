@@ -86,7 +86,7 @@ class SignUpForm extends Component {
             </Link>
           </p>
           <div className="form-bottom-content">
-            <Button buttonColor="blue" type="submit" buttonSize="btn--form">
+            <Button Color="#f1f3f6" type="submit" buttonSize="btn--form">
               Sign up!
             </Button>
           </div>

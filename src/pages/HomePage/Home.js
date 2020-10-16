@@ -1,7 +1,7 @@
 import React from "react";
 import HeroSection from "../../components/HeroSection";
 import { homeObjOne, homeObjTwo, homeObjThree } from "./Data";
-import Pricing from "../../components/Pricing";
+//import Pricing from "../../components/Pricing";
 
 function Home() {
   return (
@@ -9,9 +9,9 @@ function Home() {
       <HeroSection {...homeObjOne} />
       <HeroSection {...homeObjTwo} />
       <HeroSection {...homeObjThree} />
-      <Pricing />
     </>
   );
 }
 
 export default Home;
+//<Pricing />

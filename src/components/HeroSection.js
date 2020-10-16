@@ -67,13 +67,18 @@ function HeroSection({
                   <Link to={buttonLocation}>
                     {lightTextDesc ? (
                       <Button
-                        buttonStyle="btn--outline"
                         buttonSize="btn--mobile"
+                        Color="#2d3436"
+                        Font="white"
                       >
                         {buttonLabel}
                       </Button>
                     ) : (
-                      <Button buttonSize="btn--wide" buttonColor="blue">
+                      <Button
+                        buttonSize="btn--wide"
+                        Color="#f1f3f6"
+                        Font="#252e48"
+                      >
                         {buttonLabel}
                       </Button>
                     )}

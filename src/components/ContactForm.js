@@ -131,7 +131,7 @@ class ContactForm extends Component {
 
           <div className="form-center">
             {resultText}
-            <Button buttonColor="blue" type="submit" buttonSize="btn--wide">
+            <Button Color="#f1f3f6" type="submit" buttonSize="btn--wide">
               Submit
             </Button>
           </div>

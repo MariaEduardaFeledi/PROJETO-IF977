@@ -14,18 +14,24 @@
 
 .contact-email-input {
   padding: 8px 24px;
-  border-radius: 5px;
+  border-radius: 10px;
   font-size: 20px;
   border: 1px solid #fff;
   transition: all 0.3s ease-out;
   width: 100%;
-  box-shadow: 0px 3px 18px rgba(108, 99, 255, 0.3);
+  border: none;
+  background-color: #f1f3f6;
+  box-shadow: inset 5px 5px 10px 0px rgba(0, 0, 0, 0.2),
+    inset -5px -5px 10px 0px rgba(255, 255, 255, 1),
+    0px 0px 4px rgba(255, 255, 255, 0);
   margin-bottom: 15px;
 }
 
 .contact-email-input:hover {
-  box-shadow: 0px 3px 25px rgba(108, 99, 255, 0.5);
-  transition: all 0.3s ease-out;
+  box-shadow: inset 0 0 15px rgba(55, 84, 170, 0),
+    inset 0 0 20px rgba(255, 255, 255, 0), 5px 5px 10px 0px rgba(0, 0, 0, 0.2),
+    -5px -5px 10px 0px rgba(255, 255, 255, 1),
+    inset 0px 0px 4px rgba(255, 255, 255, 0);
 }
 
 .contact-email-input::placeholder {
@@ -39,7 +45,6 @@
 }
 
 .contact-form-container {
-  background-color: #f8f8ff;
   width: 100%;
 }
 

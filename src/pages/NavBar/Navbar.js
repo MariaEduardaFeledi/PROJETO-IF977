@@ -165,16 +165,44 @@ function Navbar(props) {
                   <li className="nav-btn">
                     {button ? (
                       <Link to="/sign-up" className="btn-link">
-                        <Button buttonStyle="btn--outline">Sign up</Button>
+                        <Button
+                          buttonStyle="btn--primary"
+                          Color="#2d3436"
+                          Font="white"
+                        >
+                          Sign up
+                        </Button>
                       </Link>
                     ) : (
                       <Link to="/sign-up" className="btn-link">
                         <Button
-                          buttonStyle="btn--outline"
+                          buttonStyle="btn--primary"
                           buttonSize="btn--mobile"
                           onClick={closeMobileMenu}
                         >
                           Sign up
+                        </Button>
+                      </Link>
+                    )}
+                  </li>
+                  <li className="nav-btn">
+                    {button ? (
+                      <Link to="/sign-up" className="btn-link">
+                        <Button
+                          buttonStyle="btn--primary"
+                          Color="#2d3436"
+                          Font="white"
+                        >
+                          Get early access
+                        </Button>
+                      </Link>
+                    ) : (
+                      <Link to="/sign-up" className="btn-link">
+                        <Button
+                          buttonSize="btn--mobile"
+                          onClick={closeMobileMenu}
+                        >
+                          Get early access
                         </Button>
                       </Link>
                     )}

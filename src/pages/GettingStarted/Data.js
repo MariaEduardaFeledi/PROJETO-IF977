@@ -11,7 +11,7 @@ export const homeObjOne = {
   buttonLabel: "Introduction",
   buttonLocation: "/about",
   imgStart: "",
-  img: "images/undraw_time_management_30iu.svg",
+  img: "absurd/01.png",
   alt: "Person on clock",
   form: true,
 };
@@ -27,7 +27,7 @@ export const homeObjTwo = {
   buttonLabel: "Get in contact",
   buttonLocation: "contact",
   imgStart: "start",
-  img: "images/undraw_software_engineer_lvl5.svg",
+  img: "absurd/05.png",
   alt: "Person using computer",
   form: false,
 };
@@ -43,7 +43,7 @@ export const homeObjThree = {
   buttonLabel: "Manage pools",
   buttonLocation: "manage-pools",
   imgStart: "start",
-  img: "images/undraw_software_engineer_lvl5.svg",
+  img: "absurd/09.png",
   alt: "Person using computer",
   form: false,
 };

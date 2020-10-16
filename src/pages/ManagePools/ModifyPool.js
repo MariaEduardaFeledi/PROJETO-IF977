@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import "./ManagePools.css";
 import HeroSection from "../../components/HeroSection";
 import { homeObjOne } from "./../NotFound/Data.js";
-import { Storage, API, graphqlOperation } from "aws-amplify";
-import aws_exports from "./../../aws-exports";
+import { API, graphqlOperation } from "aws-amplify";
 import ChangeAppearance from "./appearance";
 import { Button } from "./../../components/Button";
 

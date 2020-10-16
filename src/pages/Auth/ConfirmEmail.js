@@ -79,7 +79,7 @@ class ConfirmEmailForm extends Component {
           />
           <div className="form-center">
             {signUpConfirmationText}
-            <Button buttonColor="blue" type="submit" buttonSize="btn--wide">
+            <Button Color="#f1f3f6" type="submit" buttonSize="btn--wide">
               Verify email!
             </Button>
           </div>

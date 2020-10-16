@@ -70,7 +70,7 @@ export default class ResetPasswordForm extends Component {
           </p>
           <div className="form-center">
             {signUpConfirmationText}
-            <Button buttonColor="blue" type="submit" buttonSize="btn--wide">
+            <Button Color="#f1f3f6" type="submit" buttonSize="btn--wide">
               Request reset
             </Button>
           </div>

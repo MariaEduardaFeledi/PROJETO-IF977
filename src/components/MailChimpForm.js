@@ -70,7 +70,8 @@ class Mailchimp extends Component {
             ))}
             <Button
               className="submit-button"
-              buttonColor="blue"
+              Color="#212121"
+              Font="white"
               disabled={status === "sending" || status === "success"}
               type="submit"
             >

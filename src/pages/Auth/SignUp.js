@@ -154,7 +154,7 @@ export default class SignUpForm extends Component {
             />
 
             <Button
-              buttonColor="blue"
+              Color="#f1f3f6"
               type="submit"
               buttonSize="btn--form"
               className="test"
