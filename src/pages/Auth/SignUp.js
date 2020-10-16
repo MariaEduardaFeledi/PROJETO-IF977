@@ -166,7 +166,7 @@ export default class SignUpForm extends Component {
             <p>
               Already have an account?
               <Link to="/sign-in" className="form-link-small">
-                Sign in!
+                Sign in here
               </Link>
             </p>
             {signUpText}

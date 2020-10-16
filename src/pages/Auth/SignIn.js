@@ -87,14 +87,14 @@ class SignUpForm extends Component {
           </p>
           <div className="form-bottom-content">
             <Button Color="#f1f3f6" type="submit" buttonSize="btn--form">
-              Sign up!
+              Sign in!
             </Button>
           </div>
           <div className="form-bottom-content inset">
             <p>
               Dont have an account yet?
               <Link to="/sign-up" className="form-link-small">
-                Sign up!
+                Sign up here
               </Link>
             </p>
             {signUpText}
