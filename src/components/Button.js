@@ -7,7 +7,10 @@ const SIZES = [
   "btn--mobile",
   "btn--wide",
   "btn--form",
+  "btn--glow",
 ];
+
+const GLOWS = ["", "orange"];
 
 export const Button = ({
   children,
@@ -16,12 +19,13 @@ export const Button = ({
   buttonSize,
   Color,
   Font,
+  Glow,
 }) => {
   const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0];
-
+  const checkGlow = GLOWS.includes(Glow) ? Glow : GLOWS[0];
   return (
     <button
-      className={`btn ${checkButtonSize}`}
+      className={`btn ${checkButtonSize} ${checkGlow}`}
       onClick={onClick}
       type={type}
       style={{ background: Color, color: Font }}

@@ -87,14 +87,19 @@ function Navbar(props) {
                     <li className="nav-btn">
                       {button ? (
                         <Link to="/manage-pools" className="btn-link">
-                          <Button buttonStyle="btn--outline">
+                          <Button
+                            buttonStyle="btn--primary"
+                            Font="white"
+                            Glow="orange"
+                          >
                             Manage Pools
                           </Button>
                         </Link>
                       ) : (
                         <Link to="/manage-pools" className="btn-link">
                           <Button
-                            buttonStyle="btn--outline"
+                            Font="white"
+                            Glow="orange"
                             buttonSize="btn--mobile"
                             onClick={closeMobileMenu}
                           >
@@ -108,12 +113,20 @@ function Navbar(props) {
                     <li className="nav-btn">
                       {button ? (
                         <Link to="/admin" className="btn-link">
-                          <Button buttonStyle="btn--outline">Admin</Button>
+                          <Button
+                            buttonStyle="btn--outline"
+                            buttonStyle="btn--primary"
+                            Color="#2d3436"
+                            Font="white"
+                          >
+                            Admin
+                          </Button>
                         </Link>
                       ) : (
                         <Link to="/admin" className="btn-link">
                           <Button
-                            buttonStyle="btn--outline"
+                            Color="#2d3436"
+                            Font="white"
                             buttonSize="btn--mobile"
                             onClick={closeMobileMenu}
                           >
@@ -146,12 +159,19 @@ function Navbar(props) {
                   )}
                   <li className="nav-btn">
                     {button ? (
-                      <Button buttonStyle="btn--outline" onClick={signOut}>
+                      <Button
+                        buttonStyle="btn--primary"
+                        Color="#2d3436"
+                        Font="white"
+                        onClick={signOut}
+                      >
                         Log out
                       </Button>
                     ) : (
                       <Button
-                        buttonStyle="btn--outline"
+                        buttonStyle="btn--primary"
+                        Color="#2d3436"
+                        Font="white"
                         buttonSize="btn--mobile"
                         onClick={signOut}
                       >
@@ -176,8 +196,9 @@ function Navbar(props) {
                     ) : (
                       <Link to="/sign-up" className="btn-link">
                         <Button
-                          buttonStyle="btn--primary"
                           buttonSize="btn--mobile"
+                          Font="white"
+                          Color="#2d3436"
                           onClick={closeMobileMenu}
                         >
                           Sign up
@@ -188,11 +209,7 @@ function Navbar(props) {
                   <li className="nav-btn">
                     {button ? (
                       <Link to="/sign-up" className="btn-link">
-                        <Button
-                          buttonStyle="btn--primary"
-                          Color="#2d3436"
-                          Font="white"
-                        >
+                        <Button buttonStyle="btn--primary" Glow="orange">
                           Get early access
                         </Button>
                       </Link>
@@ -200,6 +217,8 @@ function Navbar(props) {
                       <Link to="/sign-up" className="btn-link">
                         <Button
                           buttonSize="btn--mobile"
+                          Font="white"
+                          Glow="orange"
                           onClick={closeMobileMenu}
                         >
                           Get early access
