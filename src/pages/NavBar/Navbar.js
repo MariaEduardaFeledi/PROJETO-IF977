@@ -207,13 +207,13 @@ function Navbar(props) {
                   </li>
                   <li className="nav-btn">
                     {button ? (
-                      <Link to="/sign-up" className="btn-link">
+                      <Link to="/early-access" className="btn-link">
                         <Button buttonStyle="btn--primary" Glow="orange">
                           Get early access
                         </Button>
                       </Link>
                     ) : (
-                      <Link to="/sign-up" className="btn-link">
+                      <Link to="/early-access" className="btn-link">
                         <Button
                           buttonSize="btn--mobile"
                           Font="white"

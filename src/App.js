@@ -7,6 +7,7 @@ import Contact from "./pages/Contact/Contact";
 import HowItWorks from "./pages/HowItWorks/HowItWorks";
 import GettingStarted from "./pages/GettingStarted";
 import ManagePoolRoute from "./pages/ManagePools";
+import EarlyAccess from "./pages/EarlyAccess";
 import AdminRoute from "./pages/Admin";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Footer from "./pages/Footer/Footer";
@@ -78,6 +79,7 @@ class App extends Component {
             <Route path="/contact" component={Contact} />
             <Route path="/about" component={About} />
             <Route path="/how-it-works" component={HowItWorks} />
+            <Route path="/early-access" component={EarlyAccess} />
             <Route path="/sign-up" component={SignUp} />
             <Route
               path="/sign-in"
