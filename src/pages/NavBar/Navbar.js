@@ -115,7 +115,6 @@ function Navbar(props) {
                         <Link to="/admin" className="btn-link">
                           <Button
                             buttonStyle="btn--outline"
-                            buttonStyle="btn--primary"
                             Color="#2d3436"
                             Font="white"
                           >
