@@ -89,7 +89,10 @@
 .no_pools_div {
   background-color: white;
   border-radius: 100px;
-  box-shadow: 0px 3px 18px rgba(108, 99, 255, 0.3);
+  box-shadow: inset 0 0 15px rgba(55, 84, 170, 0),
+    inset 0 0 20px rgba(255, 255, 255, 0), 7px 7px 15px rgba(55, 84, 170, 0.15),
+    -7px -7px 20px rgba(255, 255, 255, 1),
+    inset 0px 0px 4px rgba(255, 255, 255, 0.2);
   animation: pop-in 0.5s forwards;
 }
 
@@ -104,8 +107,10 @@
   z-index: 1;
   overflow-x: hidden;
   width: 200px;
-  background-color: white;
-  box-shadow: 0px 3px 18px rgba(108, 99, 255, 0.3);
+  box-shadow: inset 0 0 15px rgba(55, 84, 170, 0),
+    inset 0 0 20px rgba(255, 255, 255, 0), 7px 7px 15px rgba(55, 84, 170, 0.15),
+    -7px -7px 20px rgba(255, 255, 255, 1),
+    inset 0px 0px 4px rgba(255, 255, 255, 0.2);
 }
 
 .pool-page-content {
@@ -134,7 +139,7 @@
 }
 
 .pool-manage-menu-hr {
-  border-top: 1px solid rgba(108, 99, 255, 0.3);
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .pool-side-nav-list {

@@ -136,7 +136,7 @@ export default class CatagoryForm extends Component {
             defaultValue={this.state.status}
             onChange={this.onStatusChange.bind(this)}
           />
-          <Button buttonColor="blue" type="submit">
+          <Button type="submit" Color="#f1f3f6">
             Save Changes
           </Button>
           <p style={{ color: "#ED4C67" }}>{this.state.error}</p>

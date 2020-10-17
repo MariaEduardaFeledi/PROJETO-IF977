@@ -176,7 +176,7 @@ export default class ChangeAppearance extends React.Component {
             />
             <div className="form-bottom-content">
               {confirmation}
-              <Button buttonColor="blue" type="submit" buttonSize="btn--form">
+              <Button buttonSize="btn--form" Color="#f1f3f6" type="submit">
                 Save!
               </Button>
             </div>

@@ -106,7 +106,7 @@ class ModifyPool extends Component {
             <hr className="pool-manage-menu-hr" />
             <h3 className="pool-manage-menu-item">Export data</h3>
             <hr className="pool-manage-menu-hr" />
-            <Button buttonColor="blue" type="submit" buttonSize="btn--mobile">
+            <Button Color="#f1f3f6" type="submit" buttonSize="btn--mobile">
               Publish
             </Button>
           </div>
