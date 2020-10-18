@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Auth } from "aws-amplify";
 import { Button } from "./../../components/Button";
 import { Link } from "react-router-dom";
-import ReCAPTCHA from "react-google-recaptcha";
 import "./AuthStyle.css";
 
 export default class SignUpForm extends Component {
@@ -16,7 +15,6 @@ export default class SignUpForm extends Component {
       email: "",
       signUpStatus: "",
       signConfirmationStatus: "",
-      recaptcha: "",
     };
     this.signUp = this.signUp.bind(this);
   }
@@ -24,12 +22,10 @@ export default class SignUpForm extends Component {
   signUp(e) {
     e.preventDefault();
     this.setState({ signUpStatus: "loading" });
-    const { name, password, confirmPassword, email, recaptcha } = this.state;
+    const { name, password, confirmPassword, email } = this.state;
 
     if (password !== confirmPassword) {
       this.setState({ signUpStatus: "password" });
-    } else if (recaptcha === "") {
-      this.setState({ signUpStatus: "captcha" });
     } else {
       Auth.signUp({
         username: email,
@@ -37,12 +33,6 @@ export default class SignUpForm extends Component {
         attributes: {
           name: name,
         },
-        validationData: [
-          {
-            Name: "recaptchaToken",
-            Value: recaptcha,
-          },
-        ],
       })
         .then(() => {
           this.setState({ signUpStatus: "success" });
@@ -66,11 +56,6 @@ export default class SignUpForm extends Component {
     this.setState({ confirmPassword: event.target.value });
   }
 
-  onRecaptchaChange(value) {
-    this.setState({ recaptcha: value });
-    console.log(value);
-  }
-
   render() {
     let signUpText;
     if (this.state.signUpStatus === "") {
@@ -85,21 +70,6 @@ export default class SignUpForm extends Component {
       );
     } else if (this.state.signUpStatus === "password") {
       signUpText = <p style={{ color: "#ED4C67" }}>Passwords do not match!</p>;
-    } else if (this.state.signUpStatus === "captcha") {
-      signUpText = (
-        <p style={{ color: "#ED4C67" }}>
-          Please enter the recaptcha before proceeding
-        </p>
-      );
-    } else if (
-      this.state.signUpStatus ===
-      "PreSignUp failed with error Recaptcha verification failed."
-    ) {
-      signUpText = (
-        <p style={{ color: "#ED4C67" }}>
-          Dont be trying to act suss, do the recaptcha if you can.
-        </p>
-      );
     } else {
       signUpText = (
         <p style={{ color: "#ED4C67" }}>{this.state.signUpStatus}</p>
@@ -148,11 +118,6 @@ export default class SignUpForm extends Component {
             onChange={this.onConfirmPasswordChange.bind(this)}
           />
           <div className="form-bottom-content">
-            <ReCAPTCHA
-              sitekey="6Ldgw9QZAAAAAALNtFYTojLR-najbhARAlK3SbP9"
-              onChange={this.onRecaptchaChange.bind(this)}
-            />
-
             <Button
               Color="#f1f3f6"
               type="submit"
@@ -161,6 +126,7 @@ export default class SignUpForm extends Component {
             >
               Sign up!
             </Button>
+            {signUpText}
           </div>
           <div className="form-bottom-content inset">
             <p>
@@ -169,7 +135,6 @@ export default class SignUpForm extends Component {
                 Sign in here
               </Link>
             </p>
-            {signUpText}
           </div>
         </form>
       </div>
