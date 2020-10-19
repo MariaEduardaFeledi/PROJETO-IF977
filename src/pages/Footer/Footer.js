@@ -31,9 +31,31 @@ function Footer() {
         </div>
         <div className="footer-link-wrapper">
           <div className="footer-link-items">
-            <h2>Social Media</h2>
-            <Link to="/">Instagram</Link>
-            <Link to="/">Twitter</Link>
+            <h2>Illustrations</h2>
+            <Link
+              to={"//absurd.design/"}
+              target="_blank"
+              aria-label="Absurd Designs"
+              rel="noreferrer"
+            >
+              Absurd Design
+            </Link>
+            <Link
+              to={"//products.ls.graphics/paaatterns/"}
+              target="_blank"
+              aria-label="Paaatterns"
+              rel="noreferrer"
+            >
+              Paaatterns
+            </Link>
+            <Link
+              to={"//undraw.co/illustrations"}
+              target="_blank"
+              aria-label="Undraw"
+              rel="noreferrer"
+            >
+              Undraw
+            </Link>
           </div>
         </div>
       </div>
