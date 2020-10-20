@@ -21,7 +21,6 @@ function Footer() {
             <Link to="/">Testimonials</Link>
             <Link to="/">Careers</Link>
             <Link to="/">Investors</Link>
-            <Link to="/">Terms of Service</Link>
           </div>
           <div className="footer-link-items">
             <h2>Contact Us</h2>
@@ -58,6 +57,14 @@ function Footer() {
             </Link>
           </div>
         </div>
+        <div className="footer-link-wrapper">
+          <div className="footer-link-items">
+            <h2>Legal</h2>
+            <Link to="/terms-and-conditions">Terms and conditions</Link>
+            <Link to="/privacy-policy">Privacy policy</Link>
+            <Link to="/cookie-consent">Cookie consent</Link>
+          </div>
+        </div>
       </div>
       <section className="social-media">
         <div className="social-media-wrap">
@@ -71,7 +78,7 @@ function Footer() {
           <div className="social-icons">
             <Link
               className="social-icon-link"
-              to="/"
+              to="//twitter.com/home/"
               target="_blank"
               aria-label="Twitter"
               rel="noreferrer"

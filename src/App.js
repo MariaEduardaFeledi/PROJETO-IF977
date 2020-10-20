@@ -4,7 +4,10 @@ import NotFound from "./pages/NotFound/NotFound";
 import Home from "./pages/HomePage/Home";
 import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
-import HowItWorks from "./pages/HowItWorks/HowItWorks";
+import HowItWorks from "./pages/TextPages/HowItWorks";
+import TermsAndConditions from "./pages/TextPages/TermsAndConditions";
+import PrivacyPolicy from "./pages/TextPages/PrivacyPolicy";
+import CookieConsent from "./pages/TextPages/CookieConsent";
 import GettingStarted from "./pages/GettingStarted";
 import ManagePoolRoute from "./pages/ManagePools";
 import EarlyAccess from "./pages/EarlyAccess";
@@ -80,6 +83,12 @@ class App extends Component {
             <Route path="/about" component={About} />
             <Route path="/how-it-works" component={HowItWorks} />
             <Route path="/early-access" component={EarlyAccess} />
+            <Route path="/privacy-policy" component={PrivacyPolicy} />
+            <Route
+              path="/terms-and-conditions"
+              component={TermsAndConditions}
+            />
+            <Route path="/cookie-consent" component={CookieConsent} />
             <Route path="/sign-up" component={SignUp} />
             <Route
               path="/sign-in"

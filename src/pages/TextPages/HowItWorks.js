@@ -1,10 +1,10 @@
 import React from "react";
-import "./HowItWorks.css";
+import "./TextPage.css";
 
 export default function HowItWorks() {
   return (
     <div className="text-page">
-      <h1>HTML Ipsum Presents</h1>
+      <h1>HTML Ipsum Presentsb</h1>
 
       <p>
         <strong>Pellentesque habitant morbi tristique</strong> senectus et netus
