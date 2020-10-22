@@ -104,6 +104,7 @@
 }
 
 .pool-side-nav {
+  background: #2d3436;
   z-index: 1;
   overflow-x: hidden;
   width: 200px;
@@ -171,4 +172,15 @@
   position: absolute;
   top: 20px;
   left: 20px;
+}
+
+.key-icon {
+  float: right;
+  height: 24px;
+  width: 27px;
+  margin-left: 10px;
+}
+
+.key-icon:hover {
+  color: #ee5a24;
 }

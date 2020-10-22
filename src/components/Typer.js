@@ -12,13 +12,21 @@ class Typer extends Component {
 
     this.state = {
       text: "",
+      output: "",
       isDeleting: false,
       loopNum: 0,
       typingSpeed: 175,
+      dimensions: null,
     };
   }
 
   componentDidMount() {
+    this.setState({
+      dimensions: {
+        width: this.container.offsetWidth,
+        height: this.container.offsetHeight,
+      },
+    });
     this.handleType();
   }
 
@@ -34,6 +42,30 @@ class Typer extends Component {
         : fullText.substring(0, text.length + 1),
       typingSpeed: isDeleting ? 30 : 175,
     });
+
+    /*
+    let output = fullText.split(" ");
+
+    console.log(this.state);
+    let width = 0;
+    let itemwidth = 400;
+    let bruh = output.map((item, pos) => {
+      width += item.length * 25;
+      if (width > itemwidth) {
+        console.log(true);
+        width = 0;
+        retu rn <br /> + item;
+      } else {
+        console.log(false);
+        return " " + item;
+      }
+    });
+    //console.log(bruh);
+
+    //this.setState({
+    //  output: bruh,
+    //});
+    */
 
     if (!isDeleting && text === fullText) {
       setTimeout(() => this.setState({ isDeleting: true }), 900);
@@ -53,7 +85,7 @@ class Typer extends Component {
 
   render() {
     return (
-      <p style={{ height: "200px" }}>
+      <p style={{ height: "200px" }} ref={(el) => (this.container = el)}>
         <span>{this.state.text}</span>
         <span className="cursor" />
       </p>

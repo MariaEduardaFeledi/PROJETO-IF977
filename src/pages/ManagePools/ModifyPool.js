@@ -3,7 +3,8 @@ import "./ManagePools.css";
 import HeroSection from "../../components/HeroSection";
 import { homeObjOne } from "./../NotFound/Data.js";
 import { API, graphqlOperation } from "aws-amplify";
-import ChangeAppearance from "./appearance";
+import ChangeAppearance from "./Appearance";
+import ChangeBackEnd from "./BackEnd";
 import { Button } from "./../../components/Button";
 
 const getPool = /* GraphQL */ `
@@ -32,24 +33,10 @@ const getPool = /* GraphQL */ `
         createdOn
         updatedOn
       }
-      samples {
-        items {
-          poolID
-          id
-          x
-          y
-          labeledby
-          verififiedby
-          modifiedOn
-          createdOn
-          updatedAt
-        }
-        nextToken
-      }
       createdAt
-      updatedOn
+      updatedAt
+      privateKey
       owner
-      createdOn
     }
   }
 `;
@@ -62,8 +49,14 @@ class ModifyPool extends Component {
       fetch: false,
       result: [],
       image: "",
+      content: "backend",
     };
     this.GetPool = this.GetPool.bind(this);
+    this.changeContent = this.changeContent.bind(this);
+  }
+
+  changeContent(val) {
+    this.setState({ content: val });
   }
 
   GetPool() {
@@ -96,22 +89,52 @@ class ModifyPool extends Component {
       <div className="pool-page-container">
         <div className="pool-side-nav">
           <div className="pool-side-nav-list">
-            <h3 className="pool-manage-menu-item">Manage</h3>
+            <button
+              className="pool-manage-menu-item"
+              onClick={() => this.changeContent("manage")}
+            >
+              Appearance
+            </button>
             <hr className="pool-manage-menu-hr" />
-            <h3 className="pool-manage-menu-item">Back-end</h3>
+            <button
+              className="pool-manage-menu-item"
+              onClick={() => this.changeContent("backend")}
+            >
+              Back-end
+            </button>
             <hr className="pool-manage-menu-hr" />
-            <h3 className="pool-manage-menu-item">Statistics</h3>
+            <button
+              className="pool-manage-menu-item"
+              onClick={() => this.changeContent("statistics")}
+            >
+              Statistics
+            </button>
             <hr className="pool-manage-menu-hr" />
-            <h3 className="pool-manage-menu-item">Billing</h3>
+            <button
+              className="pool-manage-menu-item"
+              onClick={() => this.changeContent("billing")}
+            >
+              Billing
+            </button>
             <hr className="pool-manage-menu-hr" />
-            <h3 className="pool-manage-menu-item">Export data</h3>
+            <button
+              className="pool-manage-menu-item"
+              onClick={() => this.changeContent("exportdata")}
+            >
+              Export data
+            </button>
             <hr className="pool-manage-menu-hr" />
-            <Button Color="#f1f3f6" type="submit" buttonSize="btn--mobile">
+            <Button type="submit" buttonSize="btn--mobile" Glow="orange">
               Publish
             </Button>
           </div>
         </div>
-        <ChangeAppearance result={this.state.result} />
+        {this.state.content === "manage" && (
+          <ChangeAppearance result={this.state.result} />
+        )}
+        {this.state.content === "backend" && (
+          <ChangeBackEnd result={this.state.result} />
+        )}
       </div>
     );
   }

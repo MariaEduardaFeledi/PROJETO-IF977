@@ -1,7 +1,7 @@
 import React from "react";
-import aws_exports from "./../../aws-exports";
+import aws_exports from "../../aws-exports";
 import { Storage, API, graphqlOperation } from "aws-amplify";
-import { Button } from "./../../components/Button";
+import { Button } from "../../components/Button";
 
 const updatePool = /* GraphQL */ `
   mutation UpdatePool(
@@ -76,7 +76,7 @@ export default class ChangeAppearance extends React.Component {
 
   onSubmit(e) {
     e.preventDefault();
-    this.setState({ Status: "success" });
+    this.setState({ Status: "loading" });
     const { id, title, description, tnc } = this.state;
 
     console.log(id);
