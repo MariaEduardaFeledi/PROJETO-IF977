@@ -3,8 +3,8 @@ import "./ManagePools.css";
 import HeroSection from "../../components/HeroSection";
 import { homeObjOne } from "./../NotFound/Data.js";
 import { API, graphqlOperation } from "aws-amplify";
-import ChangeAppearance from "./Appearance";
-import ChangeBackEnd from "./BackEnd";
+import ChangeAppearance from "./Appearance.js";
+import ChangeBackEnd from "./BackEnd.js";
 import { Button } from "./../../components/Button";
 
 const getPool = /* GraphQL */ `
