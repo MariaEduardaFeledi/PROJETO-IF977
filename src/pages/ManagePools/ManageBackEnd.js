@@ -29,7 +29,7 @@ export default class ChangeAppearance extends React.Component {
     this.state = {
       id: props.result.id,
       result: props.result,
-      privateKey: props.result.privateKey ?? "",
+      privateKey: props.result.privateKey && "",
       keyVisibility: false,
     };
     this.onSubmit = this.onSubmit.bind(this);
