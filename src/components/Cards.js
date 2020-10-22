@@ -23,7 +23,11 @@ function Cards() {
               blob="images/blob1.svg"
               heading="Artificial Intelligence"
               paragraphs={[
-                "Artificial Intelligence will be humanity's most important creation, We gather the data to run more meaningful experiments that puts AI to better use in order to help pave the way to a more compassionate singularity.",
+                "Artificial will be humanity's most important creation.",
+                "A lot of progress is happening in the field of machine learning every day, creating novel architectures and improving accuracies.",
+                "Although previously not much attention has been paid to the data powering these discoveries, other than just increasing the size of the datasets we gather. This trajectory we are on will not hold as we move forward.",
+                "We hope to help produce more meaningful data to put AI to better use to help pave a more compassionate, human-centric intelligence."
+                
               ]}
             />
           </ul>
@@ -34,20 +38,22 @@ function Cards() {
               blob="images/blob2.svg"
               heading="Goal Alignment"
               paragraphs={[
-                "One of the hardest problems in machine learning safety is keeping the goals of our algorithms, in line with those of ourselves.",
-                "We believe that integrating humans closer into the training loop of these algorithms will be a start on aligning our goals more effectively.",
+                "Goal alignment is and will be one of the most important decisions in the creation process of AI systems. ",
+                "Currently to you need to apply expert knowledge to the task which stops a lot of people from having access to these systems.",
+                "We Believe that integrating humans closer into the training of the algorithms will align the goals of the machine with our own, furthermore removing the barriers of expert knowledge.",
+                "As long as you can define the problem we can solve it."
               ]}
             />
             <TextCardItem
               icon={FaDice}
               color="#F5773D"
               blob="images/blob3.svg"
-              heading="Current AI systems"
+              heading="Current AI systems misuse"
               paragraphs={[
                 //"While current machine learning systems are not believed to be intelligent, or even near there, they provide an intresting platform to run experiments and test very human ",
-                "Current machine learning systems have proven they can perform very well in single-domain tasks, without a doubt the next milestone is improving the generalization ability",
-                "Although where there is the is an abundance of data today's algorithms will excel, Unfortunately, some of the main industries getting the most out of machine learning are Gambling, Advertising, and the Military",
-                "We will only accept projects we deem will have a positive impact on society.",
+                "While today's AI systems have proven they can handle single domain tasks very well, if we are to believe going forward these systems will evolve into smarter, more general reasoning machines we are far from an optimal situation.",
+                "Where data is abundant these algorithms will excel, and unfortunately, some of the main industries benefitting from this technology are Advertising, Gambling, And the Military.",
+                "We will only accept projects we deem will have a positive impact.",
               ]}
             />
           </ul>
@@ -58,8 +64,9 @@ function Cards() {
               blob="images/blob4.svg"
               heading="User control"
               paragraphs={[
-                "Users will get payed per sample of data gathered.",
-                "We want the users to have total control over their data, when they gather data for a project of their choice they will have the option to redeem it.",
+                "We will remain fully transparent with the purpose and use of your data.",
+                "We will only track data that is important to the pools of data you willingly help contribute towards.",
+                "We don't sell your information without your consent."
               ]}
             />
           </ul>
@@ -70,8 +77,8 @@ function Cards() {
               blob="images/blob5.svg"
               heading="Bias"
               paragraphs={[
-                "Biased data is a very real problem with machine learning and data science, especially in production",
-                "If one categories,  or manifolds of the data is under-represented in the dataset, it can cause problems in the real world",
+                "Data bias is a problem in today's AI systems, and the effects of this are especially apparent in production situations.",
+                "If parts of the are under-represented it can cause problems and biases in the final product that can affect people's experiences with it.",
                 "We plan to role the app out on a large scale, allowing everyone to contribute towards projects they care about, lessening the effect of bias",
               ]}
             />

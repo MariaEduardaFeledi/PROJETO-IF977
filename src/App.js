@@ -58,7 +58,7 @@ class App extends Component {
         });
       })
       .catch((err) => {
-        console.log("print");
+        console.log(err);
         this.setState({ authenticated: false });
       });
   }
