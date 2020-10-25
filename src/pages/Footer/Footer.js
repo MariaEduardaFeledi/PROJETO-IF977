@@ -56,8 +56,6 @@ function Footer() {
               Undraw
             </Link>
           </div>
-        </div>
-        <div className="footer-link-wrapper">
           <div className="footer-link-items">
             <h2>Legal</h2>
             <Link to="/terms-and-conditions">Terms and conditions</Link>
