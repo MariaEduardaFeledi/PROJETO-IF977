@@ -2,6 +2,7 @@ import React from "react";
 import { API, graphqlOperation } from "aws-amplify";
 import { Button } from "../../components/Button";
 import { FaCopy, FaEye, FaEyeSlash } from "react-icons/fa";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 const updatePool = /* GraphQL */ `
   mutation UpdatePool(
@@ -29,7 +30,7 @@ export default class ChangeAppearance extends React.Component {
     this.state = {
       id: props.result.id,
       result: props.result,
-      privateKey: props.result.privateKey && "",
+      privateKey: props.result.privateKey || "",
       keyVisibility: false,
     };
     this.onSubmit = this.onSubmit.bind(this);
@@ -68,21 +69,6 @@ export default class ChangeAppearance extends React.Component {
         console.log(err);
         this.setState({ Status: err.message });
       });
-  }
-
-  /**this.setState({
-          Status: "success",
-          privateKey: "b",
-        });
-        console.log(val.data.updatePool); */
-
-  copyToClipboard(e) {
-    //this.textArea.select();
-    //document.execCommand("copy");
-    // This is just personal preference.
-    // I prefer to not show the whole text area selected.
-    //e.target.focus();
-    this.setState({ Status: "copied" });
   }
 
   toggleVisiblity() {
@@ -134,10 +120,12 @@ export default class ChangeAppearance extends React.Component {
                   onClick={() => this.toggleVisiblity()}
                 />
               )}
-              <FaCopy
-                className="key-icon"
-                onClick={() => this.copyToClipboard()}
-              />
+              <CopyToClipboard
+                text={this.state.privateKey}
+                onCopy={() => this.setState({ Status: "copied" })}
+              >
+                <FaCopy className="key-icon" />
+              </CopyToClipboard>
             </h2>
 
             <div className="form-bottom-content">
