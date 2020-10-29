@@ -18,9 +18,9 @@ function Footer() {
           <div className="footer-link-items">
             <h2>About Us</h2>
             <Link to="/how-it-works">How it works</Link>
-            <Link to="/">Testimonials</Link>
-            <Link to="/">Careers</Link>
-            <Link to="/">Investors</Link>
+            <Link to="/testimonials">Testimonials</Link>
+            <Link to="/careers">Careers</Link>
+            <Link to="/investors">Investors</Link>
           </div>
           <div className="footer-link-items">
             <h2>Contact Us</h2>

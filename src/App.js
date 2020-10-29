@@ -4,6 +4,9 @@ import NotFound from "./pages/NotFound/NotFound";
 import Home from "./pages/HomePage/Home";
 import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
+import Testimonials from "./pages/TextPages/Testimonials";
+import Careers from "./pages/TextPages/Careers";
+import Investors from "./pages/TextPages/Investors";
 import HowItWorks from "./pages/TextPages/HowItWorks";
 import TermsAndConditions from "./pages/TextPages/TermsAndConditions";
 import PrivacyPolicy from "./pages/TextPages/PrivacyPolicy";
@@ -82,6 +85,9 @@ class App extends Component {
             <Route path="/contact" component={Contact} />
             <Route path="/about" component={About} />
             <Route path="/how-it-works" component={HowItWorks} />
+            <Route path="/testimonials" component={Testimonials} />
+            <Route path="/careers" component={Careers} />
+            <Route path="/investors" component={Investors} />
             <Route path="/early-access" component={EarlyAccess} />
             <Route path="/privacy-policy" component={PrivacyPolicy} />
             <Route
