@@ -2,6 +2,7 @@ import React from "react";
 import aws_exports from "../../aws-exports";
 import { Storage, API, graphqlOperation } from "aws-amplify";
 import { Button } from "../../components/Button";
+import { v4 as uuidv4 } from "uuid";
 
 const updatePool = /* GraphQL */ `
   mutation UpdatePool(
@@ -49,15 +50,17 @@ export default class ChangeAppearance extends React.Component {
   }
 
   onImageUpload(e) {
+    const key = uuidv4();
+
     const file = e.target.files[0];
 
     Storage.configure({ level: "public" });
-    Storage.put(file.name, file, { contentType: "image/png" }).then((val) => {
+    Storage.put(key, file, { contentType: "image/png" }).then(() => {
       this.setState({ image: URL.createObjectURL(file) });
       const image = {
         bucket: aws_exports.aws_user_files_s3_bucket,
         region: aws_exports.aws_user_files_s3_bucket_region,
-        key: file.name,
+        key: key,
       };
 
       this.addImageToDB(image);
