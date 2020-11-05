@@ -12,7 +12,12 @@ class ImageCardItem extends React.Component {
   }
 
   componentDidMount() {
-    Storage.get(this.props.src).then((val) => this.setState({ image: val }));
+    console.log(this.props.imageData);
+    const { key, bucket, region } = this.props.imageData;
+    console.log(bucket, region);
+    Storage.get(key, {
+      config: { bucket: bucket, region: region },
+    }).then((val) => this.setState({ image: val }));
   }
 
   render() {

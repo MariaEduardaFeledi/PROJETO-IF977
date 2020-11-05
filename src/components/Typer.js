@@ -31,6 +31,7 @@ class Typer extends Component {
   }
 
   handleType = () => {
+    //dataText = ['text1', 'text2'];
     const { dataText } = this.props;
     const { isDeleting, loopNum, text, typingSpeed } = this.state;
     const i = loopNum % dataText.length;

@@ -71,7 +71,7 @@ class ManagePools extends Component {
           <ul className="cards__manager">
             {this.state.result.map((item, key) => (
               <ImageCardItem
-                src={item.image.key}
+                imageData={item.image}
                 text={item.title}
                 label={item.catagory.title}
                 path={"/manage-pools/pool/".concat(item.id)}
