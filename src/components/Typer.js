@@ -27,24 +27,30 @@ class Typer extends Component {
         height: this.container.offsetHeight,
       },
     });
+    this._ismounted = true;
     this.handleType();
   }
 
+  componentWillUnmount() {
+    this._ismounted = false;
+  }
+
   handleType = () => {
-    //dataText = ['text1', 'text2'];
-    const { dataText } = this.props;
-    const { isDeleting, loopNum, text, typingSpeed } = this.state;
-    const i = loopNum % dataText.length;
-    const fullText = dataText[i];
+    if (this._ismounted) {
+      //dataText = ['text1', 'text2'];
+      const { dataText } = this.props;
+      const { isDeleting, loopNum, text, typingSpeed } = this.state;
+      const i = loopNum % dataText.length;
+      const fullText = dataText[i];
 
-    this.setState({
-      text: isDeleting
-        ? fullText.substring(0, text.length - 1)
-        : fullText.substring(0, text.length + 1),
-      typingSpeed: isDeleting ? 30 : 175,
-    });
+      this.setState({
+        text: isDeleting
+          ? fullText.substring(0, text.length - 1)
+          : fullText.substring(0, text.length + 1),
+        typingSpeed: isDeleting ? 30 : 175,
+      });
 
-    /*
+      /*
     let output = fullText.split(" ");
 
     console.log(this.state);
@@ -68,20 +74,21 @@ class Typer extends Component {
     //});
     */
 
-    if (!isDeleting && text === fullText) {
-      setTimeout(() => this.setState({ isDeleting: true }), 900);
-    } else if (isDeleting && text === "") {
-      setTimeout(
-        () =>
-          this.setState({
-            isDeleting: false,
-            loopNum: loopNum + 1,
-          }),
-        600
-      );
-    }
+      if (!isDeleting && text === fullText) {
+        setTimeout(() => this.setState({ isDeleting: true }), 900);
+      } else if (isDeleting && text === "") {
+        setTimeout(
+          () =>
+            this.setState({
+              isDeleting: false,
+              loopNum: loopNum + 1,
+            }),
+          600
+        );
+      }
 
-    setTimeout(this.handleType, typingSpeed);
+      setTimeout(this.handleType, typingSpeed);
+    }
   };
 
   render() {

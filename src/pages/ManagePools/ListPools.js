@@ -74,7 +74,9 @@ class ListPools extends Component {
                 imageData={item.image}
                 text={item.title}
                 label={item.catagory.title}
-                path={"/manage-pools/pool/".concat(item.id)}
+                path={"/manage-pools/pool/"
+                  .concat(item.id)
+                  .concat("/appearance")}
                 key={key}
               />
             ))}

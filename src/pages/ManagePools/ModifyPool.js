@@ -46,7 +46,6 @@ const getPool = /* GraphQL */ `
 
 class ModifyPool extends Component {
   constructor(props) {
-    console.log(props);
     super(props);
     this.state = {
       id: this.props.match.params.poolId || "",
