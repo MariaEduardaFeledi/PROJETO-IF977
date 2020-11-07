@@ -6,6 +6,9 @@ import { API, graphqlOperation } from "aws-amplify";
 import ChangeAppearance from "./ManageVisual";
 import ChangeBackEnd from "./ManageBackEnd";
 import { Button } from "./../../components/Button";
+import { Switch, Route, Link } from "react-router-dom";
+import ScrollToTop from "./../../components/ScrollToTop";
+import NotFound from "../NotFound/NotFound";
 
 const getPool = /* GraphQL */ `
   query GetPool($id: ID!) {
@@ -43,6 +46,7 @@ const getPool = /* GraphQL */ `
 
 class ModifyPool extends Component {
   constructor(props) {
+    console.log(props);
     super(props);
     this.state = {
       id: this.props.match.params.poolId || "",
@@ -52,11 +56,6 @@ class ModifyPool extends Component {
       content: "backend",
     };
     this.GetPool = this.GetPool.bind(this);
-    this.changeContent = this.changeContent.bind(this);
-  }
-
-  changeContent(val) {
-    this.setState({ content: val });
   }
 
   GetPool() {
@@ -79,6 +78,7 @@ class ModifyPool extends Component {
   componentDidMount() {
     this.GetPool();
   }
+
   render() {
     if (this.state.result === [] && this.state.fetch === true) {
       return <></>;
@@ -89,52 +89,37 @@ class ModifyPool extends Component {
       <div className="pool-page-container">
         <div className="pool-side-nav">
           <div className="pool-side-nav-list">
-            <button
-              className="pool-manage-menu-item"
-              onClick={() => this.changeContent("manage")}
-            >
-              Appearance
-            </button>
+            <Link to={`${this.props.match.url}/appearance`}>Appearance</Link>
             <hr className="pool-manage-menu-hr" />
-            <button
-              className="pool-manage-menu-item"
-              onClick={() => this.changeContent("backend")}
-            >
-              Back-end
-            </button>
+            <Link to={`${this.props.match.url}/backend`}>Back end</Link>
             <hr className="pool-manage-menu-hr" />
-            <button
-              className="pool-manage-menu-item"
-              onClick={() => this.changeContent("statistics")}
-            >
-              Statistics
-            </button>
+            <Link to="/manage-pools/pool/:poolId?/back-end">Statistics</Link>
             <hr className="pool-manage-menu-hr" />
-            <button
-              className="pool-manage-menu-item"
-              onClick={() => this.changeContent("billing")}
-            >
-              Billing
-            </button>
+            <Link to="/manage-pools/pool/:poolId?/back-end">Billing</Link>
             <hr className="pool-manage-menu-hr" />
-            <button
-              className="pool-manage-menu-item"
-              onClick={() => this.changeContent("exportdata")}
-            >
-              Export data
-            </button>
+            <Link to="/manage-pools/pool/:poolId?/back-end">Export data</Link>
             <hr className="pool-manage-menu-hr" />
             <Button type="submit" buttonSize="btn--mobile" Glow="orange">
               Publish
             </Button>
           </div>
         </div>
-        {this.state.content === "manage" && (
-          <ChangeAppearance result={this.state.result} />
-        )}
-        {this.state.content === "backend" && (
-          <ChangeBackEnd result={this.state.result} />
-        )}
+
+        <ScrollToTop>
+          <Switch>
+            <Route
+              exact
+              path={`${this.props.match.url}/appearance`}
+              component={() => <ChangeAppearance result={this.state.result} />}
+            />
+            <Route
+              exact
+              path={`${this.props.match.url}/backend`}
+              component={() => <ChangeBackEnd result={this.state.result} />}
+            />
+            <Route path="*" component={NotFound} />
+          </Switch>
+        </ScrollToTop>
       </div>
     );
   }
