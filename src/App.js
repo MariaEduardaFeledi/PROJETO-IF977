@@ -45,6 +45,10 @@ class App extends Component {
   checkAuth() {
     Auth.currentAuthenticatedUser()
       .then((val) => {
+        //For testing
+        //Auth.currentCredentials()
+        //.then((val) => console.log(val))
+
         let a = (
           val.signInUserSession.accessToken.payload["cognito:groups"] ?? []
         ).includes("admin");

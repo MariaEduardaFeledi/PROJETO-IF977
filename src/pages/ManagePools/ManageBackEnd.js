@@ -1,10 +1,15 @@
 import React from "react";
-import { API, graphqlOperation } from "aws-amplify";
+import { API, graphqlOperation, Storage } from "aws-amplify";
 import { DropDown } from "./../../components/DropDown";
 import { Button } from "../../components/Button";
 import { Link } from "react-router-dom";
 import { FaCopy, FaEye, FaEyeSlash } from "react-icons/fa";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+
+import { v4 as uuidv4 } from "uuid";
+//import aws_exports from "../../aws-exports";
+
+import Dropzone from "react-dropzone";
 
 const updatePool = /* GraphQL */ `
   mutation UpdatePool(
@@ -56,6 +61,28 @@ export default class ChangeAppearance extends React.Component {
     };
     this.onSubmit = this.onSubmit.bind(this);
     this.onDropDownChange = this.onDropDownChange.bind(this);
+    this.onDrop = this.onDrop.bind(this);
+  }
+
+  onDrop(files) {
+    files.forEach((file) => {
+      const key =
+        uuidv4() + "." + file.name.split(".")[file.name.split(".").length - 1];
+
+      //can you configure storage in-line? directly in put
+      Storage.configure({ level: "protected", bucket: "pooldata211140-dev" });
+
+      Storage.put(key, file, { contentType: "image/png" }).then(() => {
+        this.setState({ image: URL.createObjectURL(file) });
+        //const image = {
+        //  bucket: aws_exports.aws_user_files_s3_bucket,
+        //  region: aws_exports.aws_user_files_s3_bucket_region,
+        //  key: key,
+        //};
+
+        //this.addImageToDB(image);
+      });
+    });
   }
 
   getCatagories() {
@@ -227,6 +254,18 @@ export default class ChangeAppearance extends React.Component {
               output={this.onDropDownChange}
               initial={0}
             />
+            <Dropzone onDrop={(acceptedFiles) => this.onDrop(acceptedFiles)}>
+              {({ getRootProps, getInputProps }) => (
+                <section>
+                  <div {...getRootProps()}>
+                    <input {...getInputProps()} />
+                    <p>
+                      Drag 'n' drop some files here, or click to select files
+                    </p>
+                  </div>
+                </section>
+              )}
+            </Dropzone>
           </form>
         </div>
       </div>
