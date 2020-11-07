@@ -53,14 +53,6 @@ class App extends Component {
           val.signInUserSession.accessToken.payload["cognito:groups"] ?? []
         ).includes("gatherer");
 
-        Auth.currentSession().then((session) =>
-          console.log(session.getAccessToken().getJwtToken())
-        );
-
-        //headers = {
-        // Authorization: session.getAccessToken().getJwtToken(),
-        //};
-
         this.setState({
           authenticated: true,
           data: val,

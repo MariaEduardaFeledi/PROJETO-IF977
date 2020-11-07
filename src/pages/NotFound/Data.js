@@ -9,7 +9,7 @@ export const homeObjOne = {
   buttonLabel: "Take me home!",
   buttonLocation: "/",
   imgStart: "",
-  img: "absurd/12.png",
-  alt: "Ghost under UFO",
+  img: "https://garner.app/absurd/12.png",
+  alt: "Page not found",
   form: false,
 };

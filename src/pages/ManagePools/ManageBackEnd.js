@@ -56,7 +56,6 @@ export default class ChangeAppearance extends React.Component {
     };
     this.onSubmit = this.onSubmit.bind(this);
     this.onDropDownChange = this.onDropDownChange.bind(this);
-    console.log(props.result);
   }
 
   getCatagories() {
