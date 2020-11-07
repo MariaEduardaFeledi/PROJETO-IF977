@@ -1,6 +1,8 @@
 import React from "react";
 import { API, graphqlOperation } from "aws-amplify";
+import { DropDown } from "./../../components/DropDown";
 import { Button } from "../../components/Button";
+import { Link } from "react-router-dom";
 import { FaCopy, FaEye, FaEyeSlash } from "react-icons/fa";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
@@ -23,6 +25,22 @@ export const getPool = /* GraphQL */ `
   }
 `;
 
+const listCatagorys = /* GraphQL */ `
+  query ListCatagorys(
+    $filter: ModelCatagoryFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listCatagorys(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        title
+      }
+      nextToken
+    }
+  }
+`;
+
 export default class ChangeAppearance extends React.Component {
   constructor(props) {
     super(props);
@@ -32,8 +50,45 @@ export default class ChangeAppearance extends React.Component {
       result: props.result,
       privateKey: props.result.privateKey || "",
       keyVisibility: false,
+      catagoryIds: [],
+      catagoryTitles: [],
+      dd: 0,
     };
     this.onSubmit = this.onSubmit.bind(this);
+    this.onDropDownChange = this.onDropDownChange.bind(this);
+    console.log(props.result);
+  }
+
+  getCatagories() {
+    const filter = {
+      status: { eq: "PUBLISHED" },
+    };
+
+    API.graphql(
+      graphqlOperation(listCatagorys, {
+        filter: filter,
+      })
+    )
+
+      .then((val) => {
+        this.setState({
+          catagoryIds: val.data.listCatagorys.items.map(
+            (catagory) => catagory.id
+          ),
+          catagoryTitles: val.data.listCatagorys.items.map(
+            (catagory) => catagory.title
+          ),
+        });
+      })
+      .catch((err) => console.log(err));
+  }
+
+  componentDidMount() {
+    this.getCatagories();
+  }
+
+  onDropDownChange(event) {
+    this.setState({ dd: event });
   }
 
   onSubmit(e) {
@@ -103,7 +158,7 @@ export default class ChangeAppearance extends React.Component {
             <h3 className="form-text">
               Private key
               <span className="form-span">
-                Keep this key super secret, don't let anyone else see it
+                Use this key to manage the pool from the backend
               </span>
             </h3>
             <h2 className="contact-email-input">
@@ -134,6 +189,45 @@ export default class ChangeAppearance extends React.Component {
                 Reset key
               </Button>
             </div>
+          </form>
+          <form onSubmit={this.onSubmit}>
+            <h3 className="form-text">
+              Sample cross-verification level
+              <span className="form-span">
+                This is a temporary estimation, and will be adjusted when
+                gathering begins.
+              </span>
+            </h3>
+            <div className="form-bottom-content">
+              <input
+                type="range"
+                //onChange={this.onInitialSliderChange.bind(this)}
+                min="0"
+                max="1"
+                step="0.001"
+              />
+              <h3 className="form-text">
+                Initial estimated cost per sample{" "}
+                <span style={{ color: "#6c63ff" }}>£0.0102</span>
+              </h3>
+            </div>
+
+            <h3 className="form-text">
+              Sample format
+              <span className="form-span">
+                Also note right now not many data formats are supported, if you
+                are intrested in one that doesn't exist yet
+                <Link to="/contact" target="_blank" className="form-link-small">
+                  Contact us and we will make it happen.
+                </Link>
+              </span>
+            </h3>
+            <DropDown
+              title="Select Catagory"
+              list={this.state.catagoryTitles}
+              output={this.onDropDownChange}
+              initial={0}
+            />
           </form>
         </div>
       </div>

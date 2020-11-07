@@ -237,29 +237,7 @@ class CreateForm extends Component {
             title="Select Catagory"
             list={this.state.catagoryTitles}
             output={this.onDropDownChange}
-            on
           />
-
-          <h3 className="form-text">
-            Sample cross-verification level
-            <span className="form-span">
-              This is a temporary estimation, and will be adjusted when
-              gathering begins.
-            </span>
-          </h3>
-          <div className="form-bottom-content">
-            <input
-              type="range"
-              onChange={this.onInitialSliderChange.bind(this)}
-              min="0"
-              max="1"
-              step="0.001"
-            />
-            <h3 className="form-text">
-              Initial estimated cost per sample{" "}
-              <span style={{ color: "#6c63ff" }}>£0.0102</span>
-            </h3>
-          </div>
           <div className="form-bottom-content">
             {confirmation}
             <Button buttonColor="blue" type="submit" buttonSize="btn--form">

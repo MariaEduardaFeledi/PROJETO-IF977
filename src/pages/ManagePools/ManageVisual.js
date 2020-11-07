@@ -50,9 +50,10 @@ export default class ChangeAppearance extends React.Component {
   }
 
   onImageUpload(e) {
-    const key = uuidv4();
-
     const file = e.target.files[0];
+
+    const key =
+      uuidv4() + "." + file.name.split(".")[file.name.split(".").length - 1];
 
     Storage.configure({ level: "public" });
     Storage.put(key, file, { contentType: "image/png" }).then(() => {

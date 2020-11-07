@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import ManagePools from "./ManagePool.js";
+import ListPools from "./ListPools.js";
 import CreatePool from "./CreatePool.js";
 import Pool from "./ModifyPool.js";
 import "./ManagePools.css";
@@ -13,7 +13,7 @@ class ManagePoolRoute extends Component {
       <Router>
         <ScrollToTop>
           <Switch>
-            <Route exact path="/manage-pools" component={ManagePools} />
+            <Route exact path="/manage-pools" component={ListPools} />
             <Route path="/manage-pools/create-pool" component={CreatePool} />
             <Route path="/manage-pools/pool/:poolId?" component={Pool} />
             <Route path="*" component={NotFound} />

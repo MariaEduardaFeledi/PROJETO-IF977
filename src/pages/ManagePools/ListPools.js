@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ImageCardItem from "./../../components/ImageCardItem";
+import ImageCardItem from "../../components/ImageCardItem";
 import "./ManagePools.css";
 import { FaPlus, FaHandPointRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -30,7 +30,7 @@ export const listPools = /* GraphQL */ `
   }
 `;
 
-class ManagePools extends Component {
+class ListPools extends Component {
   constructor(props) {
     super(props);
 
@@ -101,7 +101,7 @@ class ManagePools extends Component {
   }
 }
 
-export default ManagePools;
+export default ListPools;
 
 //flex wrap
 //flex wrap wrap

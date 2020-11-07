@@ -49,7 +49,7 @@ class ModifyPool extends Component {
       fetch: false,
       result: [],
       image: "",
-      content: "manage",
+      content: "backend",
     };
     this.GetPool = this.GetPool.bind(this);
     this.changeContent = this.changeContent.bind(this);
