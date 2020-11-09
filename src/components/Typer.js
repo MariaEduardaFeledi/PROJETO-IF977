@@ -94,7 +94,8 @@ class Typer extends Component {
   render() {
     return (
       <p style={{ height: "200px" }} ref={(el) => (this.container = el)}>
-        <span>{this.state.text}</span>
+        <span>{this.props.pretext ?? ""}</span>
+        <span style={{ color: "#f2a083" }}>{this.state.text}</span>
         <span className="cursor" />
       </p>
     );
