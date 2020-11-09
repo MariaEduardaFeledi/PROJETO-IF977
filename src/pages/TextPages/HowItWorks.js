@@ -13,6 +13,17 @@ export default function HowItWorks() {
         expand the range of tasks to which it can be applied.
       </p>
 
+      <p>
+        A real-time method of data gathering has the potential to massively 
+        outperform static data collection methods of the past.
+      </p>
+
+      <p>
+        The system works as a queue, You though our python package push samples 
+        to the queue for labeling, at which point they will be distributed. 
+        Once samples have been completed they will be returned to you. 
+      </p>
+
       <h2>Reinforcement learning</h2>
 
       <p>

@@ -10,13 +10,13 @@ export const homeObjOne = {
     <Typer
       pretext="We are a realtime data crowdsourcing platform "
       dataText={[
-        "labeling data with crowdsourcing",
+        "labeling data",
         "building bespoke datasets",
         "putting humans in the loop",
         "opening doors to new ideas",
         "enabling exciting Discoveries",
         "tackling biased data",
-        "learning from human preferences",
+        "learning constantly",
       ]}
     />
   ),
@@ -36,7 +36,7 @@ export const homeObjTwo = {
   topLine: "",
   headline: "Start earning instantly",
   description:
-    "Get everything set up and ready in minutes. All you need to do is download the app and add you information",
+    "Get set up and ready to go in minutes. All you need to do is download the app and sign up.",
   buttonLabel: "Join us",
   buttonLocation: "",
   imgStart: "start",
@@ -52,7 +52,7 @@ export const homeObjThree = {
   topLine: "versatile",
   headline: "Make money anywhere anytime",
   description:
-    "You can gather no matter where you are located, All you need is a stable internet connection",
+    "You can gather no matter where you are located and contribute to data pools you care about, All you need is an internet connection",
   buttonLabel: "Learn More about us",
   buttonLocation: "/about",
   imgStart: "",
