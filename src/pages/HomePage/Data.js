@@ -8,7 +8,7 @@ export const homeObjOne = {
   topLine: "",
   headline: (
     <Typer
-      pretext="We are a realtime data crowdsourcing platform "
+      pretext="We are a realtime data crowdsourcing platform"
       dataText={[
         "labeling data",
         "building bespoke datasets",

@@ -10,6 +10,8 @@ import { Switch, Route, Link } from "react-router-dom";
 import ScrollToTop from "./../../components/ScrollToTop";
 import NotFound from "../NotFound/NotFound";
 
+import Test from "./test";
+
 const getPool = /* GraphQL */ `
   query GetPool($id: ID!) {
     getPool(id: $id) {
@@ -115,6 +117,11 @@ class ModifyPool extends Component {
               exact
               path={`${this.props.match.url}/backend`}
               component={() => <ChangeBackEnd result={this.state.result} />}
+            />
+            <Route
+              exact
+              path={`${this.props.match.url}/test`}
+              component={Test}
             />
             <Route path="*" component={NotFound} />
           </Switch>
