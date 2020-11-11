@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { API, graphqlOperation } from "aws-amplify";
 
-const onSampleCompleted = /* GraphQL */ `
+export const onSampleCompleted = /* GraphQL */ `
   subscription OnSampleCompleted($poolID: String) {
     onSampleCompleted(poolID: $poolID) {
       poolID
@@ -27,8 +27,11 @@ export default class Test extends Component {
   }
 
   listen() {
+    console.log("here");
     const subscription = API.graphql(
-      graphqlOperation(onSampleCompleted)
+      graphqlOperation(onSampleCompleted, {
+        poolID: "4f8237e1-637e-4f65-9d0c-64f211d52abb",
+      })
     ).subscribe({
       next: (data) => console.log(data),
     });
