@@ -121,7 +121,7 @@ class ModifyPool extends Component {
             <Route
               exact
               path={`${this.props.match.url}/test`}
-              component={Test}
+              component={() => <Test result={this.state.result} />}
             />
             <Route path="*" component={NotFound} />
           </Switch>

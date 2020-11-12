@@ -62,15 +62,16 @@ const checkOutSample = /* GraphQL */ `
 `;
 
 export default class Test extends Component {
-  constructor() {
+  constructor(props) {
+    console.log(props.result.privateKey);
     super();
     this.state = {
       subscription: {},
-      key: "",
-      x: "",
-      y: "",
+      key: props.result.privateKey,
+      x: "x",
+      y: "y",
       id: "",
-      poolID: "",
+      poolID: props.result.id,
     };
     this.listen = this.listen.bind(this);
     this.putSample = this.putSample.bind(this);
@@ -83,21 +84,24 @@ export default class Test extends Component {
     API.graphql(
       graphqlOperation(putSample, { key: key, input: { x: x, y: y } })
     )
-      .then((val) => console.log(val))
+      .then((val) => console.log(val.data.putSample))
       .catch((err) => console.log(err));
   }
 
   checkOutSample() {
     const { poolID } = this.state;
     API.graphql(graphqlOperation(checkOutSample, { poolID: poolID }))
-      .then((val) => console.log(val))
+      .then((val) => {
+        console.log(val.data.checkOutSample);
+        this.setState({ id: val.data.checkOutSample.id });
+      })
       .catch((err) => console.log(err));
   }
 
   checkInSample() {
     const { id, y } = this.state;
     API.graphql(graphqlOperation(checkInSample, { id: id, input: { y: y } }))
-      .then((val) => console.log(val))
+      .then((val) => console.log(val.data.checkInSample))
       .catch((err) => console.log(err));
   }
 
@@ -151,6 +155,7 @@ export default class Test extends Component {
           className="contact-email-input"
           id="key"
           type="text"
+          value={this.state.key}
           //defaultValue={this.state.title}
           onChange={this.onKeyChange.bind(this)}
         />
@@ -159,6 +164,7 @@ export default class Test extends Component {
           className="contact-email-input"
           id="x"
           type="text"
+          value={this.state.x}
           //defaultValue={this.state.title}
           onChange={this.onXChange.bind(this)}
         />
@@ -167,6 +173,7 @@ export default class Test extends Component {
           className="contact-email-input"
           id="y"
           type="text"
+          value={this.state.y}
           //defaultValue={this.state.title}
           onChange={this.onYChange.bind(this)}
         />
@@ -175,6 +182,7 @@ export default class Test extends Component {
           className="contact-email-input"
           id="id"
           type="text"
+          value={this.state.id}
           //defaultValue={this.state.title}
           onChange={this.onIDChange.bind(this)}
         />
@@ -183,6 +191,7 @@ export default class Test extends Component {
           className="contact-email-input"
           id="poolid"
           type="text"
+          value={this.state.poolID}
           //defaultValue={this.state.title}
           onChange={this.onPoolIDChange.bind(this)}
         />
