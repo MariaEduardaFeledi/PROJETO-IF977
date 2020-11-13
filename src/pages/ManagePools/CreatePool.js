@@ -130,6 +130,8 @@ class CreateForm extends Component {
                 image: image,
                 status: "UNPUBLISHED",
                 catagoryID: catagoryIds[dd],
+                xtypeID: "",
+                xtypeID: "",
                 owner: val.username,
               },
             })

@@ -3,6 +3,7 @@ import { API, graphqlOperation } from "aws-amplify";
 import { Button } from "./../../components/Button";
 import "./../ManagePools/ManagePools.css";
 import "./Admin.css";
+import { DropDown } from "../../components/DropDown";
 
 const updateCatagory = /* GraphQL */ `
   mutation UpdateCatagory(
@@ -13,8 +14,8 @@ const updateCatagory = /* GraphQL */ `
       id
       title
       catagory
-      xtype
-      ytype
+      xtypeID
+      ytypeID
       status
       createdOn
       updatedOn
@@ -26,33 +27,44 @@ export default class CatagoryForm extends Component {
   constructor(props) {
     super(props);
 
+    var datatypeData = this.props.datatypes.map((catagory) => catagory.data);
+    var datatypeID = this.props.datatypes.map((catagory) => catagory.id);
+
     this.state = {
       id: this.props.item.id,
       title: this.props.item.title,
       catagory: this.props.item.catagory,
-      xtype: this.props.item.xtype,
-      ytype: this.props.item.ytype,
+      xtype: this.props.item.xtype.data,
+      ytype: this.props.item.ytype.data,
+      xtypeID: this.props.item.xtype.id,
+      ytypeID: this.props.item.ytype.id,
       status: this.props.item.status,
       changed: false,
       error: "",
+      datatypeData: datatypeData,
+      datatypeID: datatypeID,
+      xdd: datatypeID.findIndex((id) => id === this.props.item.xtype.id),
+      ydd: datatypeID.findIndex((id) => id === this.props.item.ytype.id),
     };
     this.PushCatagoryUpdate = this.PushCatagoryUpdate.bind(this);
+    this.onXDropDownChange = this.onXDropDownChange.bind(this);
+    this.onYDropDownChange = this.onYDropDownChange.bind(this);
   }
 
   PushCatagoryUpdate(e) {
     e.preventDefault();
 
-    const { id, title, catagory, xtype, ytype, status } = this.state;
-    console.log(title);
+    const { id, title, catagory, xdd, ydd, status, datatypeID } = this.state;
+    console.log(datatypeID[xdd]);
     API.graphql(
       graphqlOperation(updateCatagory, {
         input: {
           id: id,
           title: title,
           catagory: catagory,
-          xtype: xtype,
-          ytype: ytype,
           status: status,
+          xtypeID: datatypeID[xdd],
+          ytypeID: datatypeID[ydd],
         },
       })
     )
@@ -74,16 +86,16 @@ export default class CatagoryForm extends Component {
     this.setState({ catagory: event.target.value, changed: true });
   }
 
-  onXTypeChange(event) {
-    this.setState({ xtype: event.target.value, changed: true });
-  }
-
-  onYTypeChange(event) {
-    this.setState({ ytype: event.target.value, changed: true });
-  }
-
   onStatusChange(event) {
     this.setState({ status: event.target.value, changed: true });
+  }
+
+  onXDropDownChange(event) {
+    this.setState({ xdd: event, changed: true });
+  }
+
+  onYDropDownChange(event) {
+    this.setState({ ydd: event, changed: true });
   }
 
   render() {
@@ -113,21 +125,21 @@ export default class CatagoryForm extends Component {
             onChange={this.onCatagoryChange.bind(this)}
           />
           <h3 className="form-text">X type</h3>
-          <input
-            className="contact-email-input"
-            id="xtype"
-            type="text"
-            defaultValue={this.state.xtype}
-            onChange={this.onXTypeChange.bind(this)}
+          <DropDown
+            title="Select Catagory"
+            list={this.state.datatypeData}
+            output={this.onXDropDownChange}
+            initial={this.state.xdd}
           />
+
           <h3 className="form-text">Y type</h3>
-          <input
-            className="contact-email-input"
-            id="ytype"
-            type="text"
-            defaultValue={this.state.xtype}
-            onChange={this.onYTypeChange.bind(this)}
+          <DropDown
+            title="Select Catagory"
+            list={this.state.datatypeData}
+            output={this.onYDropDownChange}
+            initial={this.state.ydd}
           />
+
           <h3 className="form-text">Status</h3>
           <input
             className="contact-email-input"

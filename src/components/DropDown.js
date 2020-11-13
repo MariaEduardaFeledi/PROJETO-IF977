@@ -19,6 +19,16 @@ export class DropDown extends Component {
     });
   }
 
+  componentDidMount() {
+    if (!this.state.itemSelected && this.props.initial != null) {
+      this.setState({
+        headerTitle: this.props.list[this.props.initial],
+        itemID: this.props.initial,
+        itemSelected: true,
+      });
+    }
+  }
+
   toggleList() {
     this.setState((prevState) => ({
       listOpen: !prevState.listOpen,

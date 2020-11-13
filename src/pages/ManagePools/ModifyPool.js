@@ -31,12 +31,13 @@ const getPool = /* GraphQL */ `
         id
         title
         catagory
-        xtype
-        ytype
+        xtype {
+          data
+        }
+        ytype {
+          data
+        }
         status
-        owner
-        createdOn
-        updatedOn
       }
       createdAt
       updatedAt
