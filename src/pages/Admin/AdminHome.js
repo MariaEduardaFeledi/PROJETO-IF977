@@ -19,17 +19,11 @@ const listCatagorys = /* GraphQL */ `
         catagory
         xtypeID
         xtype {
-          id
           data
-          createdAt
-          updatedAt
         }
         ytypeID
         ytype {
-          id
           data
-          createdAt
-          updatedAt
         }
         status
         createdOn

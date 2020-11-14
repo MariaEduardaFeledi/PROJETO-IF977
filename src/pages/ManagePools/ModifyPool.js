@@ -31,9 +31,11 @@ const getPool = /* GraphQL */ `
         id
         title
         catagory
+        xtypeID
         xtype {
           data
         }
+        ytypeID
         ytype {
           data
         }
@@ -42,7 +44,6 @@ const getPool = /* GraphQL */ `
       createdAt
       updatedAt
       privateKey
-      owner
     }
   }
 `;
