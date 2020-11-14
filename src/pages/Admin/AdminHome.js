@@ -19,10 +19,12 @@ const listCatagorys = /* GraphQL */ `
         catagory
         xtypeID
         xtype {
+          id
           data
         }
         ytypeID
         ytype {
+          id
           data
         }
         status
