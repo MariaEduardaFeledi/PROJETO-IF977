@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import "./ManagePools.css";
 import HeroSection from "../../components/HeroSection";
-import { homeObjOne } from "./../NotFound/Data.js";
+import { homeObjOne } from "../NotFound/Data.js";
 import { API, graphqlOperation } from "aws-amplify";
-import ChangeAppearance from "./ManageVisual";
-import ChangeBackEnd from "./ManageBackEnd";
-import { Button } from "./../../components/Button";
+import ChangeAppearance from "./manage/ManageVisual";
+import ChangeBackEnd from "./manage/ManageBackEnd";
+import { Button } from "../../components/Button";
 import { Switch, Route, Link } from "react-router-dom";
-import ScrollToTop from "./../../components/ScrollToTop";
+import ScrollToTop from "../../components/ScrollToTop";
 import NotFound from "../NotFound/NotFound";
 
-import Test from "./test";
+import Test from "./manage/test";
 
 const getPool = /* GraphQL */ `
   query GetPool($id: ID!) {
@@ -96,11 +96,11 @@ class ModifyPool extends Component {
             <hr className="pool-manage-menu-hr" />
             <Link to={`${this.props.match.url}/backend`}>Back end</Link>
             <hr className="pool-manage-menu-hr" />
-            <Link to="/manage-pools/pool/:poolId?/back-end">Statistics</Link>
+            <Link to={`${this.props.match.url}/statistics`}>Statistics</Link>
             <hr className="pool-manage-menu-hr" />
-            <Link to="/manage-pools/pool/:poolId?/back-end">Billing</Link>
+            <Link to={`${this.props.match.url}/billing`}>Billing</Link>
             <hr className="pool-manage-menu-hr" />
-            <Link to="/manage-pools/pool/:poolId?/back-end">Export data</Link>
+            <Link to={`${this.props.match.url}/export-data`}>Export Data</Link>
             <hr className="pool-manage-menu-hr" />
             <Button type="submit" buttonSize="btn--mobile" Glow="orange">
               Publish
@@ -118,6 +118,21 @@ class ModifyPool extends Component {
             <Route
               exact
               path={`${this.props.match.url}/backend`}
+              component={() => <ChangeBackEnd result={this.state.result} />}
+            />
+            <Route
+              exact
+              path={`${this.props.match.url}/statistics`}
+              component={() => <ChangeBackEnd result={this.state.result} />}
+            />
+            <Route
+              exact
+              path={`${this.props.match.url}/billing`}
+              component={() => <ChangeBackEnd result={this.state.result} />}
+            />
+            <Route
+              exact
+              path={`${this.props.match.url}/export-data`}
               component={() => <ChangeBackEnd result={this.state.result} />}
             />
             <Route

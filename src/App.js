@@ -12,7 +12,7 @@ import TermsAndConditions from "./pages/TextPages/TermsAndConditions";
 import PrivacyPolicy from "./pages/TextPages/PrivacyPolicy";
 import CookieConsent from "./pages/TextPages/CookieConsent";
 import GettingStarted from "./pages/GettingStarted";
-import ManagePoolRoute from "./pages/ManagePools";
+import ManagePoolRoute from "./pages/Pools";
 import EarlyAccess from "./pages/EarlyAccess";
 import AdminRoute from "./pages/Admin";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";

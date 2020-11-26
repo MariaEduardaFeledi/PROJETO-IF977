@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
 import ListPools from "./ListPools.js";
 import CreatePool from "./CreatePool.js";
-import Pool from "./ModifyPool.js";
+import Pool from "./PoolRouter.js";
 import "./ManagePools.css";
-import ScrollToTop from "./../../components/ScrollToTop";
+import ScrollToTop from "../../components/ScrollToTop";
 import NotFound from "../NotFound/NotFound";
 
 class ManagePoolRoute extends Component {

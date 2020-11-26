@@ -1,7 +1,7 @@
 import React from "react";
 import { API, graphqlOperation, Storage } from "aws-amplify";
-import { DropDown } from "./../../components/DropDown";
-import { Button } from "../../components/Button";
+import { DropDown } from "../../../components/DropDown";
+import { Button } from "../../../components/Button";
 import { Link } from "react-router-dom";
 import { FaCopy, FaEye, FaEyeSlash } from "react-icons/fa";
 import { CopyToClipboard } from "react-copy-to-clipboard";

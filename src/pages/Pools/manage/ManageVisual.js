@@ -1,7 +1,7 @@
 import React from "react";
-import aws_exports from "../../aws-exports";
+import aws_exports from "../../../aws-exports";
 import { Storage, API, graphqlOperation } from "aws-amplify";
-import { Button } from "../../components/Button";
+import { Button } from "../../../components/Button";
 import { v4 as uuidv4 } from "uuid";
 
 const updatePool = /* GraphQL */ `

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { API, graphqlOperation } from "aws-amplify";
 import { Button } from "../../components/Button";
-import "./../ManagePools/ManagePools.css";
 import "./Admin.css";
 
 const updateDataType = /* GraphQL */ `

@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { Button } from "./../../components/Button";
-import { DropDown } from "./../../components/DropDown";
+import { Button } from "../../components/Button";
+import { DropDown } from "../../components/DropDown";
 import { Link, withRouter } from "react-router-dom";
 import { API, graphqlOperation, Auth } from "aws-amplify";
-import aws_exports from "./../../aws-exports";
+import aws_exports from "../../aws-exports";
 
 export const createPool = /* GraphQL */ `
   mutation CreatePool(

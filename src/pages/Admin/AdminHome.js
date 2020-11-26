@@ -3,7 +3,6 @@ import { API, graphqlOperation } from "aws-amplify";
 import { FaPlus } from "react-icons/fa";
 import CatagoryForm from "./CatagoryForm";
 import DataTypeForm from "./DataTypeForm";
-import "./../ManagePools/ManagePools.css";
 import "./Admin.css";
 
 const listCatagorys = /* GraphQL */ `
