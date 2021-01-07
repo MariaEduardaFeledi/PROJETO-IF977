@@ -5,8 +5,8 @@ import {
   //FaFacebook,
   //FaInstagram,
   //FaYoutube,
-  FaTwitter,
   FaLinkedin,
+  FaGithub,
 } from "react-icons/fa";
 import { MdFingerprint } from "react-icons/md";
 
@@ -76,12 +76,12 @@ function Footer() {
           <div className="social-icons">
             <Link
               className="social-icon-link"
-              to="//twitter.com/home/"
+              to="//github.com/kipgparker/Garner"
               target="_blank"
               aria-label="Twitter"
               rel="noreferrer"
             >
-              <FaTwitter />
+              <FaGithub />
             </Link>
             <Link
               className="social-icon-link"
