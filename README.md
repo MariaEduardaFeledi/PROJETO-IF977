@@ -11,9 +11,6 @@ gather data smarter.
 
 ![Bitbucket open issues](https://img.shields.io/bitbucket/issues-raw/kipgparker/Garner) ![GitHub closed issues](https://img.shields.io/github/issues-closed/kipgparker/Garner)
 
-
-platform for realtime data gathering
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
