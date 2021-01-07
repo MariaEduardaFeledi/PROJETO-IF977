@@ -1,3 +1,19 @@
+## Garner is a platform to crowdsource real-time data easily!
+
+Use Garner to gather data for machine learning projects in realtime, allowing your to curate and
+gather data smarter.
+
+[Garner python inferface](https://github.com/kipgparker/Garner-python)
+
+[Sign up for a free account →](https://garner.app)
+
+[Get in contact →](https://garner.app/contact/)
+
+![Bitbucket open issues](https://img.shields.io/bitbucket/issues-raw/kipgparker/Garner) ![GitHub closed issues](https://img.shields.io/github/issues-closed/kipgparker/Garner)
+
+
+platform for realtime data gathering
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
