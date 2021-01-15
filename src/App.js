@@ -1,4 +1,8 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
+import Amplify, { Auth } from "aws-amplify";
+import aws_exports from "./aws-exports";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 import "./App.css";
 import NotFound from "./pages/NotFound/NotFound";
 import Home from "./pages/HomePage/Home";
@@ -15,34 +19,26 @@ import GettingStarted from "./pages/GettingStarted";
 import ManagePoolRoute from "./pages/Pools";
 import EarlyAccess from "./pages/EarlyAccess";
 import AdminRoute from "./pages/Admin";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Footer from "./pages/Footer/Footer";
 import Navbar from "./pages/NavBar/Navbar";
-
 import SignIn from "./pages/Auth/SignIn";
 import SignUp from "./pages/Auth/SignUp";
 import ConfirmEmail from "./pages/Auth/ConfirmEmail";
 import ResetPassword from "./pages/Auth/ResetPassword";
-
 import ScrollToTop from "./components/ScrollToTop";
 
-import Amplify, { Auth } from "aws-amplify";
-import aws_exports from "./aws-exports";
 Amplify.configure(aws_exports);
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      data: [],
-      authenticated: false,
-      admin: false,
-      gatherer: false,
-    };
-    this.checkAuth = this.checkAuth.bind(this);
-  }
+const App = () => {
+  const [authenticated, setAuthenticated] = useState(false);
+  const [admin, setAdmin] = useState();
+  const [gatherer, setGatherer] = useState();
 
-  checkAuth() {
+  useEffect(() => {
+    checkAuth();
+  }, []);
+
+  const checkAuth = () => {
     Auth.currentAuthenticatedUser()
       .then((val) => {
         //For testing
@@ -57,74 +53,60 @@ class App extends Component {
           val.signInUserSession.accessToken.payload["cognito:groups"] ?? []
         ).includes("gatherer");
 
-        this.setState({
-          authenticated: true,
-          data: val,
-          admin: a,
-          gatherer: g,
-        });
+        setAuthenticated(true);
+        setAdmin(a);
+        setGatherer(g);
       })
       .catch((err) => {
         console.log(err);
-        this.setState({ authenticated: false });
+        setAuthenticated(true);
       });
-  }
+  };
 
-  componentDidMount() {
-    this.checkAuth();
-  }
-
-  render() {
-    return (
-      <Router>
-        <ScrollToTop>
-          <Navbar
-            isAuthenticated={this.state.authenticated}
-            checkAuth={this.checkAuth}
-            gatherer={this.state.gatherer}
-            admin={this.state.admin}
+  return (
+    <Router>
+      <Navbar
+        isAuthenticated={authenticated}
+        checkAuth={checkAuth}
+        gatherer={gatherer}
+        admin={admin}
+      />
+      <ScrollToTop>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/contact" component={Contact} />
+          <Route path="/about" component={About} />
+          <Route path="/how-it-works" component={HowItWorks} />
+          <Route path="/testimonials" component={Testimonials} />
+          <Route path="/careers" component={Careers} />
+          <Route path="/investors" component={Investors} />
+          <Route path="/early-access" component={EarlyAccess} />
+          <Route path="/privacy-policy" component={PrivacyPolicy} />
+          <Route path="/terms-and-conditions" component={TermsAndConditions} />
+          <Route path="/cookie-consent" component={CookieConsent} />
+          <Route path="/sign-up" component={SignUp} />
+          <Route
+            path="/sign-in"
+            component={() => <SignIn checkAuth={checkAuth} />}
           />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/contact" component={Contact} />
-            <Route path="/about" component={About} />
-            <Route path="/how-it-works" component={HowItWorks} />
-            <Route path="/testimonials" component={Testimonials} />
-            <Route path="/careers" component={Careers} />
-            <Route path="/investors" component={Investors} />
-            <Route path="/early-access" component={EarlyAccess} />
-            <Route path="/privacy-policy" component={PrivacyPolicy} />
+          <Route path="/reset-password" component={ResetPassword} />
+          <Route path="/confirm-email/:email?" component={ConfirmEmail} />
+          {authenticated && (
             <Route
-              path="/terms-and-conditions"
-              component={TermsAndConditions}
+              path="/get-started"
+              component={() => <GettingStarted gatherer={gatherer} />}
             />
-            <Route path="/cookie-consent" component={CookieConsent} />
-            <Route path="/sign-up" component={SignUp} />
-            <Route
-              path="/sign-in"
-              component={() => <SignIn checkAuth={this.checkAuth} />}
-            />
-            <Route path="/reset-password" component={ResetPassword} />
-            <Route path="/confirm-email/:email?" component={ConfirmEmail} />
-            {this.state.authenticated && (
-              <Route
-                path="/get-started"
-                component={() => (
-                  <GettingStarted gatherer={this.state.gatherer} />
-                )}
-              />
-            )}
-            {this.state.gatherer && (
-              <Route path="/Manage-pools" component={ManagePoolRoute} />
-            )}
-            {this.state.admin && <Route path="/admin" component={AdminRoute} />}
-            <Route path="*" component={NotFound} />
-          </Switch>
-          <Footer />
-        </ScrollToTop>
-      </Router>
-    );
-  }
-}
+          )}
+          {gatherer && (
+            <Route path="/Manage-pools" component={ManagePoolRoute} />
+          )}
+          {admin && <Route path="/admin" component={AdminRoute} />}
+          <Route path="*" component={NotFound} />
+        </Switch>
+        <Footer />
+      </ScrollToTop>
+    </Router>
+  );
+};
 
 export default App;
