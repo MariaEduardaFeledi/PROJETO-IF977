@@ -8,17 +8,7 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
 import { Auth } from "aws-amplify";
 
-function Navbar(props) {
-  const [authenticated, setAuthenticated] = useState(false);
-  const [gatherer, setGatherer] = useState(false);
-  const [admin, setAdmin] = useState(false);
-
-  useEffect(() => {
-    setAuthenticated(props.isAuthenticated);
-    setGatherer(props.gatherer);
-    setAdmin(props.admin);
-  }, [props.isAuthenticated, props.gatherer, props.admin]);
-
+function Navbar({ checkAuth, admin, authenticated, gatherer }) {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
@@ -39,7 +29,7 @@ function Navbar(props) {
 
   const signOut = () => {
     Auth.signOut()
-      .then(() => props.checkAuth())
+      .then(() => checkAuth())
       .catch((err) => console.log(err));
   };
 
