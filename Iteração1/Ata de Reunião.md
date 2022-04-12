@@ -5,16 +5,17 @@
   * Augusto Miranda Pimentel Silva
   * Eraldo Jose Cassimiro do Espirito Santo
 ## Objetivos
-* Primeira definição do Big Idea do projeto
-* Definir função dos integrantes
-* Definir público-alvo
-* Definição de ferramentas para comunicação e gerenciamento de projetos
+* Definição do PT CBL Challenge
+* Definição do PT CBL guidingQuestions
+* PT CBL guidingActivities
 ## Tópicos Analisados
-* Funcionalidades da aplicação
-* Uso do Trello para gerenciamento do projeto
-* Uso do GitHub para gerenciamento do repositório do projeto
+* Analisar a Big Idea e os desafios para chamada para ação
+* Identificação das questões norteadoras para maior exploração dos desafios
+* Definição das atividades e recursos norteadores para as questões norteadoras
 ## Tasks
 | Ação | Responsável(eis) |
 |----------|----------|
-| Pesquisar sobre contexto da Big Idea           | Time     |
-| Pesquisar público-alvo da Big Idea          | Time     |
+| Elaborar um forms para coleta de opinões no CIn sobre questões norteadoras           | Time     |
+| Pesquisas na internet sobre outros repositórios/bibliotecas          | Time     |
+| Elaborar Histórias de Usuário          | Time     |
+
