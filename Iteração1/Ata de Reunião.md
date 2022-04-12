@@ -18,5 +18,3 @@
 |----------|----------|
 | Pesquisar sobre contexto da Big Idea           | Time     |
 | Pesquisar público-alvo da Big Idea          | Time     |
-| Treinar ferramentas para desenvolvimento web            | Time     |
-| Procurar APIs úteis para o projeto | Time |
