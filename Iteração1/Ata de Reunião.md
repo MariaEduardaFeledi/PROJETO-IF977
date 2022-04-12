@@ -5,17 +5,18 @@
   * Augusto Miranda Pimentel Silva
   * Eraldo Jose Cassimiro do Espirito Santo
 ## Objetivos
-* Definição do PT CBL Challenge
-* Definição do PT CBL guidingQuestions
-* PT CBL guidingActivities
+* Definição do Big Ideia
+* Definição do público-alvo
+* Definição das questões essenciais
+* Definição dos papéis
+* Definição das ferramentas que serão utilizadas
 ## Tópicos Analisados
-* Analisar a Big Idea e os desafios para chamada para ação
-* Identificação das questões norteadoras para maior exploração dos desafios
-* Definição das atividades e recursos norteadores para as questões norteadoras
+* Contexto de ação do projeto
+* Elaboração de um brainstorm para as questões essenciais
+* Trello e Github
 ## Tasks
 | Ação | Responsável(eis) |
 |----------|----------|
-| Elaborar um forms para coleta de opinões no CIn sobre questões norteadoras           | Time     |
-| Pesquisas na internet sobre outros repositórios/bibliotecas          | Time     |
-| Elaborar Histórias de Usuário          | Time     |
+| Pesquisar sobre Big Idea           | Time     |
+| Pesquisa sobre público alvo         | Time     |
 
