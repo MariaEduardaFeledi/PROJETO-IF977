@@ -10,12 +10,13 @@
 * Definição do PT CBL implementation
 * Definição do PT CBL evaluation
 ## Tópicos Analisados
-* 
-* 
-* 
+* Fundamentos construídos a partir das respostas no Forms e das pesquisas
+* Refinamento das soluções
+* Reflexão sobre testes no mundo real
+* Reflexão sobre aprendizados nessas etapas de entregas
 ## Tasks
 | Ação | Responsável(eis) |
 |----------|----------|
-|           | Time     |
-|          | Time     |
-|         | Time     |
+|     Finalização dos slides da apresentação      | Time     |
+|      Reflexão sobre os testes TDD    | Time     |
+|     Realização do Postmortem    | Time     |
