@@ -1,7 +1,7 @@
 ## História dos usuários em formato connextra
 | Como um | Eu quero | Para que | 
 |----------|----------|----------|
-| Estudante do CIn         | Ter acesso aos materiais e recursos de estudo | Possa me preparar melhor para as provas| 
+| Estudante do CIn         | Ter acesso aos materiais e recursos de estudo | Possa me preparar melhor para as disciplinas| 
 | Estudante do CIn         | Ter acesso à orientações durante minha graduação    | Possa me guiar durante a realização das minhas cadeiras na faculdade|
 | Estudante do CIn         | Ter acesso a todos meus materiais de estudo em um lugar só  | Facilite meus acessos aos meus estudos |
 | Estudante do CIn         | Saber os requisitos necessários para uma disciplina  | Permita me adiantar nos assuntos que serão necessários | 
