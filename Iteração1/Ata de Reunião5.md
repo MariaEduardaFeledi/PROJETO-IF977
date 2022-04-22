@@ -19,3 +19,4 @@
 |     Levantamento das próximas atividades da próxima iteração      | Time     |
 |    Alocação das atividades      | Time     |
 |   Estimativa das Atividades      | Time     |
+|   Análise do progresso realizado | Time     |
