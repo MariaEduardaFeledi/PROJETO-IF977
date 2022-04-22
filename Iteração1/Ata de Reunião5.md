@@ -12,6 +12,7 @@
 ## Tópicos Analisados
 * Estruturação da apresentação
 * Finalização testes TDD para a solução
+* Progresso realizado
 * Retrospectiva da iteração
 ## Tasks
 | Ação | Responsável(eis) |
@@ -19,4 +20,3 @@
 |     Levantamento das próximas atividades da próxima iteração      | Time     |
 |    Alocação das atividades      | Time     |
 |   Estimativa das Atividades      | Time     |
-|   Análise do progresso realizado | Time     |
