@@ -5,7 +5,7 @@
   * Augusto Miranda Pimentel Silva
   * Eraldo Jose Cassimiro do Espirito Santo
 ## Objetivos
-* Finalização do Mockup
+* Começo do Mockup
 * Finalização dos Slides
 * Testes TDD
 ## Tópicos Analisados
