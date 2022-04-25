@@ -7,6 +7,6 @@
 &nbsp;Nossa justificativa é embasada na necessidade, por parte dos alunos do CIn, de dispor de um ambiente que centralize todos os recursos, materiais e guias durante a gradução. Para que, dessa forma, permita que haja uma maior preparação para as provas, melhor aproveitamento dos assuntos, maior assimilação dos conteúdos e melhor orientação durante sua vida acadêmica. E, por parte dos docentes, há uma necessidade de disponibilizar materiais essenciais para os alunos, de uma forma prática, organizada, filtrada e centralizada.
 
 ## Time
-* Augusto Miranda Pimentel Silva - Gerente de Projeto (@amps2)
-* Maria Eduarda Falcão Feledi - Desenvolvedora/Tester (@meff)
+* Augusto Miranda Pimentel Silva - Desenvolvedor/Tester (@amps2)
+* Maria Eduarda Falcão Feledi - Gerente de Projeto (@meff)
 * Eraldo Jose Cassimiro do Espirito Santo - Desenvolvedor/Tester (@ejces)
