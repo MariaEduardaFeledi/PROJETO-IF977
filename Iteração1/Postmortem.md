@@ -38,6 +38,7 @@ Início da Iteração | Término da iteração
 Elaboração dos testes automatizados
 
 ### Planejado para próxima iteração
+| Atividade | Atribuição |
 | --- | --- |
 | Modelo ER |
 | TDD em uso |
