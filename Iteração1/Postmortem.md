@@ -47,6 +47,8 @@ Elaboração dos testes automatizados
 
 
 ### Lições aprendidas
-* A importância da metodologia CBL, que incita um pensamento crítico sobre o problema, a utilidade de um quadro Kanban, que deixa claro para todos que as tarefas estão sendo feitas ou não, substituindo uma comunicação muitas vezes sem direção.
+* A importância da metodologia CBL, que incita um pensamento crítico sobre o problema. 
+* A utilidade de um quadro Kanban, que deixa claro para todos que as tarefas estão sendo feitas ou não, substituindo uma comunicação muitas vezes sem direção.
+* O quanto um mockup ajuda na visualização do projeto, auxiliando inclusive na definição do escopo.
 
 
