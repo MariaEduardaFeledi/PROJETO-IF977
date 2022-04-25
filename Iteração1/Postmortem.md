@@ -35,7 +35,7 @@ Início da Iteração | Término da iteração
 | Slides para a apresentação do projeto | Time |
 
 ### O que não foi feito 
-*
+-
 
 ### Planejado para próxima iteração
 | Atividade |
@@ -44,6 +44,7 @@ Início da Iteração | Término da iteração
 | TDD em uso |
 | Elaboração de testes fim-a-fim |
 | Histórias de usuário bem definidas, respeitando o escopo |
+| Deploy de algumas HU's |
 
 
 ### Lições aprendidas
