@@ -35,7 +35,7 @@ Início da Iteração | Término da iteração
 | Slides para a apresentação do projeto | Time |
 
 ### O que não foi feito 
-Elaboração dos testes automatizados
+*
 
 ### Planejado para próxima iteração
 | Atividade |
