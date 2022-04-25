@@ -34,7 +34,7 @@ Início da Iteração | Término da iteração
 | Criação do Mock-up lofi | Eraldo Neto, Maria Eduarda |
 | Slides para a apresentação do projeto | Time |
 
-### O que não foi feito / No aguardo
+### O que não foi feito 
 Elaboração dos testes automatizados
 
 ### Planejado para próxima iteração
