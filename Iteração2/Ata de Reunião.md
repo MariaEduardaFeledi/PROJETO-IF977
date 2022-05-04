@@ -13,6 +13,6 @@
 ## Tasks
 | Ação | Responsável(eis) |
 |----------|----------|
-| Definição de Histórias         | Eraldo   |
-| Elaboração do Modelo ER         | Augusto e Maria Eduarda    |
+| Ambiente de Versionamento Atuante       | Eraldo   |
+| Criação de testes-fim-a-fim        | Augusto e Maria Eduarda    |
 
