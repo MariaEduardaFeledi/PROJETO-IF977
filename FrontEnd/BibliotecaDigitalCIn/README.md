@@ -1,48 +1,38 @@
-## Garner is a platform to crowdsource real-time data easily!
+## Estrutura da Biblioteca Digital
 
-Use Garner to gather data for machine learning projects in realtime, allowing your to curate and
-gather data smarter.
+Plataforma web destinada à comunidade CIn.
 
-[Garner python inferface](https://github.com/kipgparker/Garner-python)
+## Scripts disponíveis
 
-[Sign up for a free account →](https://garner.app)
-
-[Get in contact →](https://garner.app/contact/)
-
-![Bitbucket open issues](https://img.shields.io/bitbucket/issues-raw/kipgparker/Garner) ![GitHub closed issues](https://img.shields.io/github/issues-closed/kipgparker/Garner)
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
+No diretório desse projeto, você pode rodar:
 
 ### `npm start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Execução do programa<br />
+Abra [http://localhost:3000](http://localhost:3000) para visualizar no seu navegador.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+A página será recarregada se você fizer alguma alteração<br />
+Você poderá ver os erros no console também, caso ocorra.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Roda o teste no modo de visualização interativa<br />
+Veja a seção sobre [rodando testes] (https://facebook.github.io/create-react-app/docs/running-tests) para mais informações.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Constrói o programa para produção na pasta de construção.<br />
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Ele agrupa corretamente o React no modo de produção e otimiza a compilação para o melhor desempenho.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+A compilação é minificada e os nomes dos arquivos incluem os hashes.<br />
+Seu programa está pronto para deploy!
+
+Veja a seção sobre [deploy](https://facebook.github.io/create-react-app/docs/deployment) para mais informações.
 
 ### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+**Nota: Isso é uma operação que não tem volta!**
 
 If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
