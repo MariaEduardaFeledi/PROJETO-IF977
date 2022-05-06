@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-garner-dev-211140-authRole",
+      "UnauthRoleArn": "arn:aws:iam::392768983735:role/amplify-garner-dev-211140-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::392768983735:role/amplify-garner-dev-211140-authRole",
+      "Region": "eu-west-2",
+      "DeploymentBucketName": "amplify-garner-dev-211140-deployment",
+      "UnauthRoleName": "amplify-garner-dev-211140-unauthRole",
+      "StackName": "amplify-garner-dev-211140",
+      "StackId": "arn:aws:cloudformation:eu-west-2:392768983735:stack/amplify-garner-dev-211140/7f5b8710-fb7d-11ea-9746-026b6a377222",
+      "AmplifyAppId": "d3mzxbq10m9w9w"
+    },
+    "categories": {
+      "auth": {
+        "garnerauth": {}
+      }
+    }
+  }
+}

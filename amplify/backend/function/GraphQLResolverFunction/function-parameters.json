@@ -1,0 +1,35 @@
+{
+  "permissions": {
+    "api": {
+      "garner": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    },
+    "storage": {
+      "User:@model(appsync)": [
+        "create",
+        "read",
+        "update"
+      ],
+      "Catagory:@model(appsync)": [
+        "read",
+        "update"
+      ],
+      "Pool:@model(appsync)": [
+        "create",
+        "read",
+        "update"
+      ],
+      "sample:@model(appsync)": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    }
+  },
+  "lambdaLayers": []
+}
