@@ -1,0 +1,10 @@
+{
+  "typeName": "Mutation",
+  "fieldName": "PutSample",
+  "arguments": {
+    "poolId": "4f8237e1-637e-4f65-9d0c-64f211d52abb",
+    "x": "",
+    "y": ""
+  },
+  "identity": "e80cb5db-788a-4a84-9604-513cb3e8152b"
+}
