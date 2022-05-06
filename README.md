@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # BIBLIOTECA DIGITAL CIN
 
 ## Descrição
