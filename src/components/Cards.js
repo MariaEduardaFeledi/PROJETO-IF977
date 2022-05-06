@@ -2,95 +2,49 @@ import React from "react";
 import "./Cards.css";
 import TextCardItem from "./TextCardItem";
 import {
-  FaBrain,
-  FaDice,
-  FaLock,
-  FaBalanceScale,
-  FaBullseye,
-  FaHeart,
+  FaNewspaper,
+  FaBookOpen,
+  FaHandsHelping
 } from "react-icons/fa";
 
 function Cards() {
   return (
     <div className="cards">
-      <h1 className="cards-title">Our Goals.</h1>
+      <h1 className="cards-title">Objetivos</h1>
       <div className="cards__container">
         <div className="cards__wrapper">
           <ul className="cards__items">
             <TextCardItem
-              icon={FaBrain}
+              icon={FaBookOpen}
               color="#3ACF85"
               blob="images/blob1.svg"
-              heading="Artificial Intelligence"
+              heading="Facilitar a vida do estudante CIn"
               paragraphs={[
-                "Artificial will be humanity's most important creation.",
-                "A lot of progress is happening in the field of machine learning every day, creating novel architectures and improving accuracies.",
-                "Although previously not much attention has been paid to the data powering these discoveries, other than just increasing the size of the datasets we gather. This trajectory we are on will not hold as we move forward.",
-                "We hope to help produce more meaningful data to put AI to better use to help pave a more compassionate, human-centric intelligence."
-                
+                "A vida de universitário pode ser bastante complicada, principalmente para os calouros.",
+                "Muitas disciplinas difíceis e trabalhosas, sem tempo de procurar um bom material para estudar, não saber quais disciplinas escolher, e muitos outros problemas.",
+                "Para tentar ajudar nesse problema, nós criamos a Biblioteca digital CIn, um ambiente colaborativo que facilita e centraliza conhecimentos, informações, materiais, discussões e mais sobre o Centro de Informática da UFPE."
               ]}
             />
           </ul>
           <ul className="cards__items">
             <TextCardItem
-              icon={FaBullseye}
+              icon={FaHandsHelping}
               color="#F32916"
               blob="images/blob2.svg"
-              heading="Goal Alignment"
+              heading="Colaboração"
               paragraphs={[
-                "Goal alignment is and will be one of the most important decisions in the creation process of AI systems. ",
-                "Currently to you need to apply expert knowledge to the task which stops a lot of people from having access to these systems.",
-                "We Believe that integrating humans closer into the training of the algorithms will align the goals of the machine with our own, furthermore removing the barriers of expert knowledge.",
-                "As long as you can define the problem we can solve it."
+                "A biblioteca digital CIn é um espaço colaborativo entre alunos e professores, os alunos podem postar suas experiências com as disciplinas, quais tiveram dificuldades, sugerir conhecimentos prévios, disponibilizar materiais de estudo, como resumos ou mind maps de sua autoria.",
+                "Professores podem postar o repositório das suas disciplinas, com a ementa, forma de avaliação, cronograma, materiais, provas passadas, exercícios resolvidos, etc.",
               ]}
             />
             <TextCardItem
-              icon={FaDice}
+              icon={FaNewspaper}
               color="#F5773D"
               blob="images/blob3.svg"
-              heading="Current AI systems misuse"
+              heading="Feed"
               paragraphs={[
-                //"While current machine learning systems are not believed to be intelligent, or even near there, they provide an intresting platform to run experiments and test very human ",
-                "While today's AI systems have proven they can handle single domain tasks very well, if we are to believe going forward these systems will evolve into smarter, more general reasoning machines we are far from an optimal situation.",
-                "Where data is abundant these algorithms will excel, and unfortunately, some of the main industries benefitting from this technology are Advertising, Gambling, And the Military.",
-                "We will only accept projects we deem will have a positive impact.",
-              ]}
-            />
-          </ul>
-          <ul className="cards__items">
-            <TextCardItem
-              icon={FaLock}
-              color="#85B4FF"
-              blob="images/blob4.svg"
-              heading="User control"
-              paragraphs={[
-                "We will remain fully transparent with the purpose and use of your data.",
-                "We will only track data that is important to the pools of data you willingly help contribute towards.",
-                "We don't sell your information without your consent."
-              ]}
-            />
-          </ul>
-          <ul className="cards__items">
-            <TextCardItem
-              icon={FaBalanceScale}
-              color="#a670ff"
-              blob="images/blob5.svg"
-              heading="Bias"
-              paragraphs={[
-                "Data bias is a problem in today's AI systems, and the effects of this are especially apparent in production situations.",
-                "If parts of the are under-represented it can cause problems and biases in the final product that can affect people's experiences with it.",
-                "We plan to role the app out on a large scale, allowing everyone to contribute towards projects they care about, lessening the effect of bias",
-              ]}
-            />
-            <TextCardItem
-              icon={FaHeart}
-              color="#EDBC1D"
-              blob="images/blob6.svg"
-              heading="Data Quality"
-              paragraphs={[
-                "Today's machine learning algorithms are sensitive to the data they are given and struggle with noisy data, and performance suffers.",
-                "Hopefully, we will soon have algorithms more robust against noisy data, as a lot of real-world data is noisy.",
-                "But in the meantime, we use cross-validation, and other algorithms to ensure the quality of the data meets your criteria.",
+                "Muitas vezes, somente o que precisamos é da orientação de algum aluno veterano ou professor, com alguma dúvida mais específica, até onde fica alguma sala de aula.",
+                "Pensando nisso, implementamos um feed que permite aos alunos discutirem e/ou darem orientações.",
               ]}
             />
           </ul>

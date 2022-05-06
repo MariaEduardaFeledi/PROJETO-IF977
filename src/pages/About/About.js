@@ -7,8 +7,6 @@ function About() {
   return (
     <>
       <Cards />
-      <HeroSection {...homeObjOne} />
-      <HeroSection {...homeObjTwo} />
     </>
   );
 }

@@ -38,7 +38,7 @@ const ConfirmEmailForm = ({ history, match }) => {
     signUpConfirmationText = <p style={{ color: "#009432" }}>Verifying...</p>;
   } else if (signUpConfirmationStatus === "success") {
     signUpConfirmationText = (
-      <p style={{ color: "#009432" }}>Email verified!</p>
+      <p style={{ color: "#009432" }}>Email verificado!</p>
     );
   } else {
     signUpConfirmationText = (
@@ -49,7 +49,7 @@ const ConfirmEmailForm = ({ history, match }) => {
   return (
     <div className="auth-form-container">
       <form onSubmit={confirmSignUp}>
-        <h3 className="form-label">Confirm email</h3>
+        <h3 className="form-label">Confirme o E-mail</h3>
         <h3 className="form-text">Email</h3>
         <input
           className="contact-email-input"
@@ -59,7 +59,7 @@ const ConfirmEmailForm = ({ history, match }) => {
           required
           onChange={(e) => onConfirmationEmailChange(e)}
         />
-        <h3 className="form-text">Confirmation Code</h3>
+        <h3 className="form-text">Código de confirmação</h3>
         <input
           className="contact-email-input"
           id="confirmationCode"
@@ -70,7 +70,7 @@ const ConfirmEmailForm = ({ history, match }) => {
         <div className="form-center">
           {signUpConfirmationText}
           <Button Color="#f1f3f6" type="submit" buttonSize="btn--wide">
-            Verify email!
+            Verifique o Email
           </Button>
         </div>
       </form>

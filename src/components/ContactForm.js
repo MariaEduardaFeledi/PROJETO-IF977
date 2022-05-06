@@ -79,12 +79,11 @@ class ContactForm extends Component {
           method="POST"
         >
           <h1 className="contact-form-title">
-            If you think we can help you the data you need for your next
-            project, don't hesitate to get in touch.
+            Caso precise de algum suporte sobre a ferramenta, entre em contato:
           </h1>
           <ul className="form__items">
             <div className="contact-input-item">
-              <h3 className="form-text">Name</h3>
+              <h3 className="form-text">Nome</h3>
               <input
                 className="contact-email-input"
                 type="text"
@@ -106,7 +105,7 @@ class ContactForm extends Component {
           </ul>
           <ul className="form__items">
             <div className="contact-input-item">
-              <h3 className="form-text">Subject</h3>
+              <h3 className="form-text">Assunto</h3>
               <input
                 className="contact-email-input"
                 type="text"
@@ -118,7 +117,7 @@ class ContactForm extends Component {
           </ul>
           <ul className="form__items">
             <div className="contact-input-item">
-              <h3 className="form-text">Message</h3>
+              <h3 className="form-text">Mensagem</h3>
               <textarea
                 className="contact-email-input tall-input"
                 rows="6"
@@ -132,7 +131,7 @@ class ContactForm extends Component {
           <div className="form-center">
             {resultText}
             <Button Color="#f1f3f6" type="submit" buttonSize="btn--wide">
-              Submit
+              Enviar
             </Button>
           </div>
         </form>

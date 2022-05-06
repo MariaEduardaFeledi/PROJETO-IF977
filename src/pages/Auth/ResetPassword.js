@@ -30,11 +30,11 @@ const ResetPasswordForm = () => {
     signUpConfirmationText = <p></p>;
   } else if (signUpConfirmationStatus === "loading") {
     signUpConfirmationText = (
-      <p style={{ color: "#009432" }}>Sending email..</p>
+      <p style={{ color: "#009432" }}>Enviando E-mail...</p>
     );
   } else if (signUpConfirmationStatus === "success") {
     signUpConfirmationText = (
-      <p style={{ color: "#009432" }}>Email Sent! check your inbox</p>
+      <p style={{ color: "#009432" }}>E-mail enviado. Confira sua caixa de entrada.</p>
     );
   } else {
     signUpConfirmationText = (
@@ -45,7 +45,7 @@ const ResetPasswordForm = () => {
   return (
     <div className="auth-form-container">
       <form onSubmit={resetPassword}>
-        <h3 className="form-label">Reset password</h3>
+        <h3 className="form-label">Redefinição de senha</h3>
         <h3 className="form-text">Email</h3>
         <input
           className="contact-email-input"
@@ -55,13 +55,12 @@ const ResetPasswordForm = () => {
           onChange={(e) => onEmailChange(e)}
         />
         <p>
-          We will send you an email so we can reset your password if you cant
-          remember it.
+          Nós mandaremos um e-mail para a redefinição de senha.
         </p>
         <div className="form-center">
           {signUpConfirmationText}
           <Button Color="#f1f3f6" type="submit" buttonSize="btn--wide">
-            Request reset
+            Enviar requisição
           </Button>
         </div>
       </form>

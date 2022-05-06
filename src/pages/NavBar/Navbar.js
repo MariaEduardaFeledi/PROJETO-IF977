@@ -41,8 +41,8 @@ function Navbar({ checkAuth, admin, authenticated, gatherer }) {
         <nav className="navbar">
           <div className="navbar-container container">
             <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-              <MdFingerprint className="navbar-icon" />
-              Garner
+            <img src="logoCIn.svg"/>
+              Biblioteca Digital
             </Link>
             <div className="menu-icon" onClick={handleClick}>
               {click ? <FaTimes /> : <FaBars />}
@@ -50,7 +50,7 @@ function Navbar({ checkAuth, admin, authenticated, gatherer }) {
             <ul className={click ? "nav-menu active" : "nav-menu"}>
               <li className="nav-item">
                 <Link to="/" className="nav-links" onClick={closeMobileMenu}>
-                  Home
+                  Página Inicial
                 </Link>
               </li>
               <li className="nav-item">
@@ -59,16 +59,7 @@ function Navbar({ checkAuth, admin, authenticated, gatherer }) {
                   className="nav-links"
                   onClick={closeMobileMenu}
                 >
-                  About
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  to="/contact"
-                  className="nav-links"
-                  onClick={closeMobileMenu}
-                >
-                  Contact
+                  Sobre
                 </Link>
               </li>
               {authenticated ? (
@@ -179,7 +170,7 @@ function Navbar({ checkAuth, admin, authenticated, gatherer }) {
                           Color="#2d3436"
                           Font="white"
                         >
-                          Sign up
+                          Cadastre-se
                         </Button>
                       </Link>
                     ) : (
@@ -190,7 +181,7 @@ function Navbar({ checkAuth, admin, authenticated, gatherer }) {
                           Color="#2d3436"
                           onClick={closeMobileMenu}
                         >
-                          Sign up
+                          Cadastre-se
                         </Button>
                       </Link>
                     )}
@@ -199,7 +190,7 @@ function Navbar({ checkAuth, admin, authenticated, gatherer }) {
                     {button ? (
                       <Link to="/early-access" className="btn-link">
                         <Button buttonStyle="btn--primary" Glow="orange">
-                          Get early access
+                          Entrar
                         </Button>
                       </Link>
                     ) : (
@@ -210,7 +201,7 @@ function Navbar({ checkAuth, admin, authenticated, gatherer }) {
                           Glow="orange"
                           onClick={closeMobileMenu}
                         >
-                          Get early access
+                          Acesso Adiantado
                         </Button>
                       </Link>
                     )}

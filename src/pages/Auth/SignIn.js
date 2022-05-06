@@ -37,9 +37,9 @@ const SignInForm = ({ checkAuth, history }) => {
   if (signInStatus === "") {
     signUpText = <p></p>;
   } else if (signInStatus === "loading") {
-    signUpText = <p style={{ color: "#009432" }}>Signing in...</p>;
+    signUpText = <p style={{ color: "#009432" }}>Entrando...</p>;
   } else if (signInStatus === "success") {
-    signUpText = <p style={{ color: "#009432" }}>Signed in!</p>;
+    signUpText = <p style={{ color: "#009432" }}>Logado!</p>;
   } else {
     signUpText = <p style={{ color: "#ED4C67" }}>{signInStatus}</p>;
   }
@@ -47,7 +47,7 @@ const SignInForm = ({ checkAuth, history }) => {
   return (
     <div className="auth-form-container">
       <form onSubmit={signIn}>
-        <h3 className="form-label">Sign in</h3>
+        <h3 className="form-label">Entrar</h3>
         <h3 className="form-text">Email</h3>
         <input
           className="contact-email-input"
@@ -57,8 +57,8 @@ const SignInForm = ({ checkAuth, history }) => {
           onChange={(e) => onEmailChange(e)}
         />
         <h3 className="form-text">
-          password
-          <span className="form-span">minimun length of 8 characters</span>
+          Senha
+          <span className="form-span">tamanho mínimo de 8 caracteres</span>
         </h3>
         <input
           className="contact-email-input"
@@ -69,21 +69,21 @@ const SignInForm = ({ checkAuth, history }) => {
           onChange={(e) => onPasswordChange(e)}
         />
         <p>
-          Forgotten your password?
+          Esqueceu sua senha?
           <Link to="/reset-password" className="form-link-small">
-            Reset it here.
+            Redefina-a aqui.
           </Link>
         </p>
         <div className="form-bottom-content">
           <Button Color="#f1f3f6" type="submit" buttonSize="btn--form">
-            Sign in!
+            Entre!
           </Button>
         </div>
         <div className="form-bottom-content inset">
           <p>
-            Dont have an account yet?
+            Não possui conta?
             <Link to="/sign-up" className="form-link-small">
-              Sign up here
+              Cadastre-se aqui.
             </Link>
           </p>
           {signUpText}

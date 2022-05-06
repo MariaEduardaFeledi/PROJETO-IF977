@@ -53,15 +53,15 @@ const SignUpForm = () => {
   if (signUpStatus === "") {
     signUpText = <p></p>;
   } else if (signUpStatus === "loading") {
-    signUpText = <p style={{ color: "#009432" }}>Signing up...</p>;
+    signUpText = <p style={{ color: "#009432" }}>Cadastrando...</p>;
   } else if (signUpStatus === "success") {
     signUpText = (
       <p style={{ color: "#009432" }}>
-        Signed up! please just verify the email
+        Cadastro realizado com sucesso! Verifique seu e-mail.
       </p>
     );
   } else if (signUpStatus === "password") {
-    signUpText = <p style={{ color: "#ED4C67" }}>Passwords do not match!</p>;
+    signUpText = <p style={{ color: "#ED4C67" }}>As senhas não coincidem!</p>;
   } else {
     signUpText = <p style={{ color: "#ED4C67" }}>{signUpStatus}</p>;
   }
@@ -69,8 +69,8 @@ const SignUpForm = () => {
   return (
     <div className="auth-form-container">
       <form onSubmit={signUp}>
-        <h3 className="form-label">Sign up</h3>
-        <h3 className="form-text">Name</h3>
+        <h3 className="form-label">Cadastro</h3>
+        <h3 className="form-text">Nome</h3>
         <input
           className="contact-email-input"
           id="username"
@@ -78,7 +78,7 @@ const SignUpForm = () => {
           required
           onChange={(e) => onNameChange(e)}
         />
-        <h3 className="form-text">Email</h3>
+        <h3 className="form-text">E-mail</h3>
         <input
           className="contact-email-input"
           id="email"
@@ -87,8 +87,8 @@ const SignUpForm = () => {
           onChange={(e) => onEmailChange(e)}
         />
         <h3 className="form-text">
-          Create password
-          <span className="form-span">minimun length of 8 characters</span>
+          Crie uma senha
+          <span className="form-span">mínimo de 8 caracteres</span>
         </h3>
         <input
           className="contact-email-input"
@@ -98,7 +98,7 @@ const SignUpForm = () => {
           required
           onChange={(e) => onPasswordChange(e)}
         />
-        <h3 className="form-text">Re-type password</h3>
+        <h3 className="form-text">Reescreva a senha</h3>
         <input
           className="contact-email-input"
           id="confirmpassword"
@@ -114,15 +114,15 @@ const SignUpForm = () => {
             buttonSize="btn--form"
             className="test"
           >
-            Sign up!
+            Cadastre-se!
           </Button>
           {signUpText}
         </div>
         <div className="form-bottom-content inset">
           <p>
-            Already have an account?
+            Já possui conta?
             <Link to="/sign-in" className="form-link-small">
-              Sign in here
+              Entre aqui
             </Link>
           </p>
         </div>

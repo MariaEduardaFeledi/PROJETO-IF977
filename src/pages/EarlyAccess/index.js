@@ -1,15 +1,18 @@
 import React from "react";
 import HeroSection from "../../components/HeroSection";
 import { homeObjOne } from "./data";
-//import Pricing from "../../components/Pricing";
+import SignIn from "pages/Auth/SignIn";
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 function EarlyAccess() {
   return (
-    <>
-      <HeroSection {...homeObjOne} />
-    </>
+    <Router>
+      <Switch>
+        <Route exact path='Auth/SignIn' component={SignIn} />
+      </Switch>
+    </Router>
   );
 }
 
 export default EarlyAccess;
-//<Pricing />
+
