@@ -11,3 +11,5 @@ https://projeto-if977.vercel.app/
 * Augusto Miranda Pimentel Silva - Desenvolvedor/Tester (@amps2)
 * Maria Eduarda Falcão Feledi - Gerente de Projeto (@meff)
 * Eraldo Jose Cassimiro do Espirito Santo - Desenvolvedor/Tester (@ejces)
+
+### Link para o [Trello](https://trello.com/b/UsEdav69/projeto-engenharia-de-software)
