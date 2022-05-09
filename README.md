@@ -1,4 +1,5 @@
 # BIBLIOTECA DIGITAL CIN
+https://biblioteca-digital-cin.herokuapp.com/
 
 ## Descrição
 &nbsp;O projeto de Biblioteca Digital CIn visa fornecer um suporte aos estudantes do Centro de Informática da Universidade Federal de Pernambuco, ao disponibilizar um ambiente centralizado e colaborativo que disponha de um conjunto de documentos, materiais, recursos, orientações de estudo e das cadeiras durante a formação acadêmica. Dessa forma, o projeto permite que professores e alunos da universidade possam contribuir ao disponibilizar, indicar e compartilhar materiais pertinentes a cada cadeira e cada área. Assim, o foco é garantir uma facilidade de acesso e filtro de diversos recursos acadêmicos para uso dentro da comunidade.
