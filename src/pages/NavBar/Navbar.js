@@ -188,13 +188,13 @@ function Navbar({ checkAuth, admin, authenticated, gatherer }) {
                   </li>
                   <li className="nav-btn">
                     {button ? (
-                      <Link to="/early-access" className="btn-link">
+                      <Link to="/sign-in" className="btn-link">
                         <Button buttonStyle="btn--primary" Glow="orange">
                           Entrar
                         </Button>
                       </Link>
                     ) : (
-                      <Link to="/early-access" className="btn-link">
+                      <Link to="/sign-in" className="btn-link">
                         <Button
                           buttonSize="btn--mobile"
                           Font="white"
