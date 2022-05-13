@@ -1,20 +1,11 @@
 //import React from "react";
 
+const [myOptions, setMyOptions] = useState([])
+
 export const homeObjOne = {
-  lightBg: false,
-  lightText: true,
-  lightTextDesc: true,
-  topLine: "",
-  headline: "This is as far as you go here.",
-  description:
-    "To go further you will need you use the app, which as of current is not released. Join the mailing list to hear as soon as it comes out!",
-  buttonLabel: "Introduction",
-  buttonLocation: "/about",
-  imgStart: "",
-  img: "absurd/01.png",
-  alt: "Person on clock",
-  form: true,
-};
+    lista: myOptions.push('banco de dados','engenharia de software','cálculo','programação'),
+    opcoes:setMyOptions(myOptions)
+  };
 
 export const homeObjTwo = {
   lightBg: true,
@@ -47,3 +38,5 @@ export const homeObjThree = {
   alt: "Person using computer",
   form: false,
 };
+
+

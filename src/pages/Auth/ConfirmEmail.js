@@ -29,13 +29,11 @@ const ConfirmEmailForm = ({ history, match }) => {
     setConfirmationEmail(e.target.value);
   };
 
-  //garner.app/confirm-email/kipster...
-
   let signUpConfirmationText;
   if (signUpConfirmationStatus === "") {
     signUpConfirmationText = <p></p>;
   } else if (signUpConfirmationStatus === "loading") {
-    signUpConfirmationText = <p style={{ color: "#009432" }}>Verifying...</p>;
+    signUpConfirmationText = <p style={{ color: "#009432" }}>Verificando...</p>;
   } else if (signUpConfirmationStatus === "success") {
     signUpConfirmationText = (
       <p style={{ color: "#009432" }}>Email verificado!</p>

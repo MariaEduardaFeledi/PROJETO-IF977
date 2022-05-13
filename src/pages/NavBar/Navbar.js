@@ -201,7 +201,7 @@ function Navbar({ checkAuth, admin, authenticated, gatherer }) {
                           Glow="orange"
                           onClick={closeMobileMenu}
                         >
-                          Acesso Adiantado
+                          Entrar
                         </Button>
                       </Link>
                     )}
