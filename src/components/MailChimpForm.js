@@ -50,10 +50,10 @@ class Mailchimp extends Component {
     return (
       <section className="footer-subscription">
         <p className="footer-subscription-heading dark">
-          Join our mailing list!
+          Pesquisar
         </p>
         <p className="footer-subscription-text dark">
-          You can unsubscribe at any time.
+          Procure pelos assuntos necessários.
         </p>
         <div className="input-areas">
           <form onSubmit={this.handleSubmit.bind(this)} className={className}>
@@ -109,7 +109,7 @@ Mailchimp.defaultProps = {
     error: "An unexpected internal error has occurred.",
     empty: "You must write an e-mail.",
     duplicate: "Too many subscribe attempts for this email address",
-    button: "Join us",
+    button: "Pesquisar",
   },
   buttonClassName: "",
   styles: {

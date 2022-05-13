@@ -1,18 +1,25 @@
 //import React from "react";
 
-const [myOptions, setMyOptions] = useState([])
-
 export const homeObjOne = {
-    lista: myOptions.push('banco de dados','engenharia de software','cálculo','programação'),
-    opcoes:setMyOptions(myOptions)
-  };
+  lightBg: false,
+  lightText: true,
+  lightTextDesc: true,
+  topLine: "",
+  headline: "Pesquise por conteúdos.",
+  buttonLabel: "Introduction",
+  buttonLocation: "/about",
+  imgStart: "",
+  img: "absurd/pesquisa.png",
+  alt: "Person on clock",
+  form: true,
+};
 
 export const homeObjTwo = {
   lightBg: true,
   lightText: false,
   lightTextDesc: false,
   topLine: "",
-  headline: "Get familiar with the software",
+  headline: "Conteúdos relevantes",
   description:
     "If you want to use Garner to gather data, get in contact with us and we can give you an early peek at how to use the system before release.",
   buttonLabel: "Get in contact",
@@ -38,5 +45,3 @@ export const homeObjThree = {
   alt: "Person using computer",
   form: false,
 };
-
-
