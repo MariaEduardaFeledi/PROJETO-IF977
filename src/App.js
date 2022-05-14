@@ -26,6 +26,7 @@ import SignUp from "./pages/Auth/SignUp";
 import ConfirmEmail from "./pages/Auth/ConfirmEmail";
 import ResetPassword from "./pages/Auth/ResetPassword";
 import ScrollToTop from "./components/ScrollToTop";
+import Teste from "./pages/Teste/teste";
 
 Amplify.configure(aws_exports);
 
@@ -73,6 +74,7 @@ const App = () => {
       />
       <ScrollToTop>
         <Switch>
+          <Route exact path="/teste" component={Teste} />
           <Route exact path="/" component={Home} />
           <Route path="/contact" component={Contact} />
           <Route path="/about" component={About} />

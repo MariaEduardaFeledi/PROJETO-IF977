@@ -21,12 +21,11 @@ export const homeObjTwo = {
   topLine: "",
   headline: "Conteúdos relevantes",
   description:
-    "If you want to use Garner to gather data, get in contact with us and we can give you an early peek at how to use the system before release.",
-  buttonLabel: "Get in contact",
-  buttonLocation: "contact",
-  imgStart: "start",
+    "Explore materiais baseados no seu perfil.",
+  buttonLabel: "Explorar",
+  buttonLocation: "/teste",
   img: "absurd/05.png",
-  alt: "Person using computer",
+  alt: "Pesquisa",
   form: false,
 };
 

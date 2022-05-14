@@ -57,8 +57,8 @@ function HeroSection({
                     fields={[
                       {
                         name: "EMAIL",
-                        placeholder: "Your Email",
-                        type: "email",
+                        placeholder: "Digite...",
+                        type: "text",
                         required: true,
                       },
                     ]}

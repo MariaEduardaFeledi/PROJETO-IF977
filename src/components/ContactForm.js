@@ -60,13 +60,13 @@ class ContactForm extends Component {
     if (this.state.status === "success") {
       resultText = (
         <p style={{ color: "#009432" }}>
-          Message sent! Thanks for getting in contact
+          Mensagem enviada!
         </p>
       );
     } else if (this.state.status === "fail") {
-      resultText = <p style={{ color: "#ED4C67" }}>Message failed to send.</p>;
+      resultText = <p style={{ color: "#ED4C67" }}>Falha ao enviar mensagem.</p>;
     } else if (this.state.status === "sending") {
-      resultText = <p style={{ color: "#009432" }}>Message sending.</p>;
+      resultText = <p style={{ color: "#009432" }}>Enviando mensagem.</p>;
     } else {
       resultText = <p></p>;
     }
