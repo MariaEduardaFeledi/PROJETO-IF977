@@ -104,10 +104,10 @@ class Mailchimp extends Component {
 
 Mailchimp.defaultProps = {
   messages: {
-    sending: "Sending...",
+    sending: "Enviando...",
     success: "Thank you for subscribing!",
     error: "An unexpected internal error has occurred.",
-    empty: "You must write an e-mail.",
+    empty: "",
     duplicate: "Too many subscribe attempts for this email address",
     button: "Pesquisar",
   },

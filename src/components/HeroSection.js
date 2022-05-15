@@ -4,8 +4,7 @@ import { Button } from "./Button";
 import { Link } from "react-router-dom";
 import Mailchimp from "./MailChimpForm";
 
-const url =
-  "https://app.us2.list-manage.com/subscribe/post?u=3506547c6e30cd64bcab8beaf&id=d46611af2d";
+const url ="";
 
 function HeroSection({
   lightBg,
@@ -56,7 +55,7 @@ function HeroSection({
                     action={url}
                     fields={[
                       {
-                        name: "EMAIL",
+                        name: "PESQUISA",
                         placeholder: "Digite...",
                         type: "text",
                         required: true,
