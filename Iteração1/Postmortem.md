@@ -4,7 +4,7 @@
 
 Início da Iteração | Término da iteração
 ------------ | -------------
-04/04/2022 | 13/04/2022
+13/04/2022 | 25/04/2022
 
 
 ### O que estava planejado
