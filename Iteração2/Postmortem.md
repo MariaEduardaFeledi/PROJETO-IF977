@@ -8,7 +8,7 @@ Início da Iteração | Término da iteração
 
 
 ### O que estava planejado
-| Atividade | Atribuição |
+| Atividade |
 | --- | --- |
 | Modelo ER |
 | TDD em uso |
