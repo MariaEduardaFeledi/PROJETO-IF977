@@ -4,11 +4,11 @@
 
 Início da Iteração | Término da iteração
 ------------ | -------------
-04/04/2022 | 13/04/2022
+26/04/2022 | 09/05/2022
 
 
 ### O que estava planejado
-| Atividade | Atribuição |
+| Atividade |
 | --- | --- |
 | Modelo ER |
 | TDD em uso |
