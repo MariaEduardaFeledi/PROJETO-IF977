@@ -9,7 +9,7 @@ Início da Iteração | Término da iteração
 
 ### O que estava planejado
 | Atividade |
-| --- | --- |
+| --- |
 | Modelo ER |
 | TDD em uso |
 | Elaboração de testes fim-a-fim |
