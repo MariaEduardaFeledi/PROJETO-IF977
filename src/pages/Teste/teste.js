@@ -18,7 +18,7 @@ function Footer() {
               <img src={arquivo3} style={{float : 'top' }}/>  
             </a>
         </a>
-        <a href="https://drive.google.com/file/d/13vFMh-YmGvu71drS4TuhW_eKET9xqmVN/view?usp=sharing" className="social-logo">
+        <a href="https://docs.google.com/document/d/1GdrN1d_Iku3JgYzQbG2rzGZu5faoFJqy8E_rR25RcdM/edit?usp=sharing" className="social-logo">
             <img src={arquivo4} style={{float : 'top', paddingLeft : '100px'}}/>
             <a href="https://docs.google.com/document/d/1keHJEDk0sFngLxILI_KhlQfXv0QL2EEF5iikLrVdqXs/edit?usp=sharing" className="social-logo">
               <img src={arquivo5} style={{float : 'top', paddingLeft : '100px'}}/>
