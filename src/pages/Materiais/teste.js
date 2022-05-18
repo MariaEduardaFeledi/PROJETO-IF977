@@ -1,10 +1,10 @@
 import React from 'react'
-import arquivo1 from "C:/Users/DudaF/OneDrive/Documentos/GitHub/PROJETO-IF977/src/pages/Teste/arquivo1.png"
-import arquivo2 from "C:/Users/DudaF/OneDrive/Documentos/GitHub/PROJETO-IF977/src/pages/Teste/arquivo2.png"
-import arquivo3 from "C:/Users/DudaF/OneDrive/Documentos/GitHub/PROJETO-IF977/src/pages/Teste/arquivo3.png"
-import arquivo4 from "C:/Users/DudaF/OneDrive/Documentos/GitHub/PROJETO-IF977/src/pages/Teste/arquivo4.png"
-import arquivo5 from "C:/Users/DudaF/OneDrive/Documentos/GitHub/PROJETO-IF977/src/pages/Teste/arquivo5.png"
-import arquivo6 from "C:/Users/DudaF/OneDrive/Documentos/GitHub/PROJETO-IF977/src/pages/Teste/arquivo6.png"
+import arquivo1 from "C:/Users/DudaF/OneDrive/Documentos/GitHub/PROJETO-IF977/src/pages/Materiais/arquivo1.png"
+import arquivo2 from "C:/Users/DudaF/OneDrive/Documentos/GitHub/PROJETO-IF977/src/pages/Materiais/arquivo2.png"
+import arquivo3 from "C:/Users/DudaF/OneDrive/Documentos/GitHub/PROJETO-IF977/src/pages/Materiais/arquivo3.png"
+import arquivo4 from "C:/Users/DudaF/OneDrive/Documentos/GitHub/PROJETO-IF977/src/pages/Materiais/arquivo4.png"
+import arquivo5 from "C:/Users/DudaF/OneDrive/Documentos/GitHub/PROJETO-IF977/src/pages/Materiais/arquivo5.png"
+import arquivo6 from "C:/Users/DudaF/OneDrive/Documentos/GitHub/PROJETO-IF977/src/pages/Materiais/arquivo6.png"
 
 function Footer() {
   return (

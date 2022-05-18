@@ -26,7 +26,7 @@ import SignUp from "./pages/Auth/SignUp";
 import ConfirmEmail from "./pages/Auth/ConfirmEmail";
 import ResetPassword from "./pages/Auth/ResetPassword";
 import ScrollToTop from "./components/ScrollToTop";
-import Teste from "./pages/Teste/teste";
+import Teste from "./pages/Materiais/teste";
 
 Amplify.configure(aws_exports);
 
